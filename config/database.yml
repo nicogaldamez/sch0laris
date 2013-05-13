@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: sch0laris-repo_development
+  database: scholaris_db_development
   pool: 5
-  username: postgres
+  username: nicogaldamez
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -41,8 +41,8 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: sch0laris-repo_test
+  database: scholaris_db_test
   pool: 5
-  username: postgres
+  username: nicogaldamez
   password:
 
