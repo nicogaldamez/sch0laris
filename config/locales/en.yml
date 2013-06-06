@@ -2,4 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  sign_in: "Log in"
+  sign_up: "Sign up"
+  email: "Email"
+  password: "Password"
+  forgot_password: "forgot password?"
+  sign_in_error: "Wrong email or password combination"

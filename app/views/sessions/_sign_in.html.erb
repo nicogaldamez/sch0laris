@@ -1,0 +1,29 @@
+<% if !signed_in? %>
+
+	<div id="sign_in" class="row">
+		
+		<div class="span8 offset3">
+		
+				<%= form_tag sessions_path, class: "form-inline", id: 'sign_in_form', remote: true,
+					 				format: 'json' do %>
+			
+					<%= text_field_tag :email, "", placeholder: t(:email), class: "input-xlarge", id: 'sign_in_email' %>
+			
+					<%= password_field_tag :password, "", placeholder: t(:password), class: "input-xlarge" %>
+			
+					<%= button_tag( :class => "btn btn-primary btn-large", type: 'submit') do %>
+					  <i class="icon-ok icon-white"></i>
+					<% end %>
+				<% end %>
+				
+				<div class="forgot">
+					<%= link_to t(:forgot_password), '#' %>
+					
+				</div>
+		
+				<p id="sign_in_error" class="text-error">  </p>
+		</div>
+		
+	</div>
+
+<% end %>

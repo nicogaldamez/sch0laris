@@ -1,8 +1,15 @@
-@import "bootstrap";
+@import "flatstrap";
+@import "font-awesome";
 
 /* mixins, variables, etc. */
 
+$bodyBackground: #FFF;
 $grayMediumLight: #eaeaea;
+$orangeColor: #f58026;
+$btnPrimaryBackground: #FAA900;
+$btnPrimaryBackgroundHighlight: #ffb332;
+$textColor: #666;
+$borderColor: #e6e6e6;
 
 @mixin box_sizing {
 	-moz-box-sizing: border-box;
@@ -18,6 +25,17 @@ html {
 
 body {
 	padding-top: 60px;
+	font-family: $sansFontFamily;
+	font-weight: 300;
+	background-color: $bodyBackground;
+}
+
+a {
+	color: #898989;
+	
+	&:hover {
+		color: $orangeColor;
+	};
 }
 
 section {
@@ -54,12 +72,20 @@ h2 {
 	margin-bottom: 30px;
 	text-align: center;
 	font-weight: normal;
-	color: $grayLight;
 }
 
 p {
 	font-size: 1.1em;
 	line-height: 1.7em;
+}
+
+/* buttons */
+.btn-primary {
+	background-color: $btnPrimaryBackground;
+	
+	&:hover {
+		background-color: $btnPrimaryBackgroundHighlight;
+	}
 }
 
 /* miscellaneous */
@@ -74,57 +100,60 @@ p {
 
 /* header */
 
-#logo {
-	float: left;
-	margin-right: 10px;
-	font-size: 1.7em;
-	color: #fff;
-	text-transform: uppercase;
-	letter-spacing: -1px;
-	padding-top: 9px;
-	font-weight: bold;
-	line-height: 1;
-	&:hover {
-		color: #fff;
-		text-decoration: none;
+header {
+	padding: 20px;
+	.nav li {
+		a {
+			color: #888;
+			font-size: 16px;
+			padding: 9px 12px;
+			border: 1px solid #ddd;
+			border-right: 0;
+			background-color: #f9f9f9;
+			
+			&.search {
+				background: none;
+				border: none;
+			}
+		}
+		
+		&:last-child a {
+			border-right: 1px solid #DDD;
+		}
 	}
 }
 
-/* footer */
-
-footer {
-	margin-top: 45px;
-	padding-top: 5px;
-	border-top: 1px solid $grayMediumLight;
-	color: $grayLight;
-	a {
-		color: $gray;
-		&:hover {
-			color: $grayDarker;
-		}
-	}
-	small {
-		float: left;
-	}
-
-	ul {
-		float: right;
-		list-style: none;
-		li {
-			float: left;
-			margin-left: 10px;
-		}
-	}
+#logo {
+	float: left;
+	margin-right: 10px;
+	font-size: 1.5em;
+	color: black;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	padding-top: 14px;
+	font-weight: bold;
+	line-height: 1;
 }
 
 /* forms */
 input[type=text], input[type=password], textarea, select, .uneditable-input {
-	border: 1px solid #bbb;
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 15px;
+	border: 1px solid #ddd;
 	@include box_sizing;
+	color: #333;
+	padding: 11px 0 11px 10px;
+	height: 19px;
+	font-weight: 300;
+	
+	&:focus {
+		border: 1px solid #a4a4a4;
+	}
 }
+
+/* Para evitar el fondo amarillo que pone chrome al autocompletar*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 
 input {
 	height: auto !important;
@@ -141,4 +170,34 @@ input {
 .field_with_errors {
 	@extend .control-group;
 	@extend .error;
+}
+
+
+/*----- LOGIN -----*/
+#sign_in {
+	display: none;
+	padding: 30px 0px;
+	border-bottom: 1px dashed #ddd;
+	margin-bottom: 20px;
+	
+	form {
+		margin-bottom: 0px;
+	}	
+	input[type=text], input[type=password] {
+		padding: 11px 0 11px 10px;
+		height: 19px;
+	}
+	.btn { 
+		margin: 0px;
+		font-size: 1.1em;
+	}
+	.forgot {
+		font-size: 0.9em;
+		text-align: right;
+		margin-right: 75px;
+	}
+	
+	.text-error {
+		text-align: center;
+	}
 }
