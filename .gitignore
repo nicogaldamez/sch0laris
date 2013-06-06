@@ -16,8 +16,6 @@
 
 .DS_Store
 
-Gemfile.lock
-
 app/.DS_Store
 
 app/assets/.DS_Store
