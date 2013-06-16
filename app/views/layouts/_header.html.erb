@@ -4,14 +4,17 @@
 	<div class="container">
 		
 		<div class="row">
-			<%= link_to "scholaris", "#", id: "logo" %>
+			<%= link_to "scholaris", root_path, id: "logo" %>
 		
 			<nav class="row">
 				<% if !signed_in? %>
 		      <ul class="nav pull-right">
-		        <li> <%= link_to "<i class='icon icon-search'> </i>".html_safe, "#", class: "search" %> </li>
+		        <li id="search_container" class="search"> 
+							<%= link_to "<i class='icon icon-search'> </i>".html_safe, "#", class: "search", id: "search_icon" %> 
+							<%= text_field_tag :search, "", placeholder: t(:search) %>
+						</li>
 						<li> <%= link_to_function t(:sign_in), "toggle_sign_in()" %> </li>
-						<li> <%= link_to t(:sign_up), "#", id: "prueba" %> </li>
+						<li> <%= link_to t(:sign_up), new_user_path, id: "prueba" %> </li>
 		      </ul>
 				<% end %>
 	    </nav>

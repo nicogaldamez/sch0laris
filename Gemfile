@@ -22,7 +22,14 @@ group :development do
   gem 'annotate',   '2.5.0'
 end
 
-group :test do
+group :test, :development do
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'launchy'
+  gem 'factory_girl_rails', '4.1.0'
+  gem 'poltergeist'
 end
 

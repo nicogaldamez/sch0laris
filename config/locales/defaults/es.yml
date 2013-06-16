@@ -1,12 +1,13 @@
 # Basado en https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-MX.yml
 
 es:
-  sign_in: "Inicio sesión"
+  sign_in: "Ingresar"
   sign_up: "Registrarme"
   email: "Correo"
   password: "Clave"
   forgot_password: "¿olvidaste tu clave?"
   sign_in_error: "Usuario o clave incorrecta"
+  search: "Buscar"
   
   # COMMON
   number:

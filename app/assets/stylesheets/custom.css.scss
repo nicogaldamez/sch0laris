@@ -24,7 +24,7 @@ html {
 }
 
 body {
-	padding-top: 60px;
+	padding-top: 80px;
 	font-family: $sansFontFamily;
 	font-weight: 300;
 	background-color: $bodyBackground;
@@ -57,10 +57,11 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
+	font-weight: 400;
 }
 
 h1 {
-	font-size: 3em;
+	font-size: 2.5em;
 	letter-spacing: -1px;
 	margin-bottom: 30px;
 	text-align: center;
@@ -121,6 +122,23 @@ header {
 			border-right: 1px solid #DDD;
 		}
 	}
+	
+	li.search input { 
+		float: left; 
+		border: 0;
+		border-bottom: 1px solid $orangeColor;
+		line-height: 19px;
+		display: none;
+		&:focus {
+			border: 0;
+			border-bottom: 1px solid $orangeColor;
+		};
+		
+	}
+}
+
+.navbar .nav > li > a {
+	float: left;
 }
 
 #logo {
@@ -136,6 +154,13 @@ header {
 }
 
 /* forms */
+label {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #a4a4a4;
+	margin: 25px 0 0 0;
+}
+
 input[type=text], input[type=password], textarea, select, .uneditable-input {
 	border: 1px solid #ddd;
 	@include box_sizing;
@@ -154,9 +179,22 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
+input[type=submit] {
+	text-shadow: none;
+	font-weight: 300;
+	font-size: 16px;
+}
 
 input {
 	height: auto !important;
+}
+
+.inline_fields {
+	float:left;
+	width: 100%;
+	input {
+		float:left;
+	}
 }
 
 #error_explanation {
@@ -201,3 +239,36 @@ input {
 		text-align: center;
 	}
 }
+
+/*----- SIGN_UP -----*/
+#sign_up {
+	.form {
+		border-right: 1px solid $borderColor;
+		padding-right: 20px;
+		p {
+			color: #a4a4a4;
+			font-size: 0.9em;
+		} 
+	}
+	.description {
+		p {
+			font-size: 1.5em;
+			color: #a4a4a4;
+			margin-bottom: 40px;
+		}
+	}
+}
+
+#user_email, #user_name {
+	display: block;
+	width: 100%;
+} 
+
+#user_password, #user_confirmation {
+	width: 50%;
+}
+
+#user_confirmation {
+	border-left: 0;
+}
+

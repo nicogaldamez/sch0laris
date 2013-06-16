@@ -9,9 +9,10 @@
 			
 					<%= text_field_tag :email, "", placeholder: t(:email), class: "input-xlarge", id: 'sign_in_email' %>
 			
-					<%= password_field_tag :password, "", placeholder: t(:password), class: "input-xlarge" %>
+					<%= password_field_tag :password, "", placeholder: t(:password), class: "input-xlarge",
+						 		id: "sign_in_password"%>
 			
-					<%= button_tag( :class => "btn btn-primary btn-large", type: 'submit') do %>
+					<%= button_tag( :class => "btn btn-primary btn-large", type: 'submit', id: 'sign_in_btn') do %>
 					  <i class="icon-ok icon-white"></i>
 					<% end %>
 				<% end %>
