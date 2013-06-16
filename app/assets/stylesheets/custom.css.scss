@@ -4,7 +4,7 @@
 /* mixins, variables, etc. */
 
 $bodyBackground: #FFF;
-$grayMediumLight: #eaeaea;
+$grayMediumLight: #848484;
 $orangeColor: #f58026;
 $btnPrimaryBackground: #FAA900;
 $btnPrimaryBackgroundHighlight: #ffb332;
@@ -35,6 +35,7 @@ a {
 	
 	&:hover {
 		color: $orangeColor;
+		text-decoration: none;
 	};
 }
 
@@ -57,7 +58,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
-	font-weight: 400;
+	font-weight: 300;
 }
 
 h1 {
@@ -153,7 +154,8 @@ header {
 	line-height: 1;
 }
 
-/* forms */
+/*----- FORMS -----*/
+
 label {
 	font-size: 12px;
 	text-transform: uppercase;
@@ -210,6 +212,21 @@ input {
 	@extend .error;
 }
 
+/*---------------*/
+ul { 
+	list-style: none;
+}
+
+/*----- MAIN HEADER -----*/
+#main_header {
+	height: 40px;
+	border-bottom: 1px solid $borderColor;
+	margin-bottom: 20px;
+	
+	h3 {
+		text-align: left;
+	}
+}
 
 /*----- LOGIN -----*/
 #sign_in {
@@ -272,3 +289,57 @@ input {
 	border-left: 0;
 }
 
+/*----- QUESTIONS -----*/
+#questions {
+	.avatar {
+		width: 40px;
+		height: 40px;
+		border-radius: 100px;
+	}
+	
+	.question {
+		padding: 15px 0px;
+		border-bottom: 1px solid $borderColor;
+		
+		&:first-child {
+			padding-top: 0px;
+		}
+		
+		.name {
+			font-size: 0.9em;
+		}
+		
+		small {
+			color: $grayMediumLight;
+		}
+		
+		.text {
+			display:block;
+			font-size: 1.2em;
+			color: #333;
+			
+			&:hover {
+				color: $orangeColor;
+			}
+		}
+		.stats {
+			color: $grayMediumLight;
+			text-align: right;
+			li { 
+				display: inline-block; 
+				width: 30px;
+				
+			}
+			.date {	font-size: 0.8em;  }
+			.icons li {
+				img { 
+					width: 18px;
+					height: 18px;
+					max-width: 18px;
+				} 
+			}
+		}
+		
+	}
+	
+}
