@@ -1,13 +1,8 @@
 # Basado en https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-MX.yml
 
 es:
-  sign_in: "Ingresar"
-  sign_up: "Registrarme"
-  email: "Correo"
-  password: "Clave"
-  forgot_password: "¿olvidaste tu clave?"
-  sign_in_error: "Usuario o clave incorrecta"
   search: "Buscar"
+  about_us: "Acerca de"
   
   # COMMON
   number:
@@ -228,9 +223,3 @@ es:
 
       full_messages:
         format: "%{attribute} %{message}"
-    attributes:
-      user:
-        password_digest: "Clave"
-        password_confirmation: "Confirmación de clave"
-        password: "Clave"
-        name: "Nombre"

@@ -1,4 +1,6 @@
 es:
+  # SESSIONS	
+  email: "Email"
   sign_in: "Ingresar"
   sign_up: "Registrarme"
   forgot_password: "¿olvidaste tu clave?"
@@ -9,8 +11,17 @@ es:
   fake_name: "Juan Perez"
   fake_email: "juanperez@ejemplo.com"
   password: "Clave"
-  confirmation_password: "Confirmacion"
+  confirmation_password: "Confirmación"
   date_format: "dd/mm/aaaa"
   legal_approval: "Al crear una cuenta aceptas nuestros Términos y Condiciones"
   sign_up_description1: "Scholaris es una nueva red social enfocada en educación."
   sign_up_description2: "Permite a sus usuario compartir su conocimiento."
+  dateOfBirth: "Fecha de nacimiento"
+                                         
+  # QUESTIONS
+  questions: "Preguntas"
+  votes: "Votos"
+  reputation: "Reputación"
+  hot: "Destacado"
+  most_recent: "Recientes"
+  ask_question: "Preguntar"

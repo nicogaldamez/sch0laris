@@ -1,8 +1,3 @@
 en:
-  sign_in: "Log in"
-  sign_up: "Sign up"
-  email: "Email"
-  password: "Password"
-  forgot_password: "forgot password?"
-  sign_in_error: "Wrong email or password combination"
   search: "Search"
+  about_us: "About us"

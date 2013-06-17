@@ -1,3 +1,8 @@
-en:
-  email: "Email"
-  password: "Password"
+es:
+  activerecord:
+    attributes:
+      user:
+        password_digest: "Password"
+        password_confirmation: "Password Confirmation"
+        password: "Password"
+        dateOfBirth: "Date of Birth"
