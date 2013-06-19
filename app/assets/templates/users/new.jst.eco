@@ -1,0 +1,39 @@
+<% provide(:title, t(:new_user)) %>
+
+<h1> <%= t(:new_user_title) %> </h1>
+
+<div id="sign_up" class="row">
+	<div class="form span5 offset2">
+		<%= form_for(@user, :html => { :autocomplete => "off"}) do |f| %>
+			
+			<%= f.text_field :name, placeholder: t(:fake_name) %>
+			<%= f.text_field :email, placeholder: t(:fake_email) %>
+			
+			<div class="inline_fields">
+				<%= f.password_field :password, placeholder: t(:password) %>
+				<%= f.password_field :confirmation, placeholder: t(:confirmation_password) %>
+			</div>
+			
+			<%= f.label :dateOfBirth %>
+			<%= f.text_field :dateOfBirth, placeholder: t(:date_format) %>
+			
+			<div>
+				<%= f.submit t(:create_account), class: "btn btn-large btn-primary" %>			
+			</div>
+		<% end %>
+		
+		<p>
+			<%= t(:legal_approval) %>
+		</p>
+	</div>
+	
+	<div class="description span3">
+		<p>
+			<%= t(:sign_up_description1) %> 
+		</p>
+		
+		<p>
+			<%= t(:sign_up_description2) %>
+		</p>
+	</div>
+</div>

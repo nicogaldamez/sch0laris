@@ -1,4 +1,4 @@
-Sch0larisRepo::Application.routes.draw do
+Scholaris::Application.routes.draw do
   
   resources :users
   resources :questions

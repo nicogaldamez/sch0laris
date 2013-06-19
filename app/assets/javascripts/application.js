@@ -14,6 +14,14 @@
 //= require jquery_ujs
 // require twitter/bootstrap
 //= require bootstrap
+//= require underscore
+//= require backbone
+//= require scholaris
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es

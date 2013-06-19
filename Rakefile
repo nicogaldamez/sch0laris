@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Sch0larisRepo::Application.load_tasks
+Scholaris::Application.load_tasks
