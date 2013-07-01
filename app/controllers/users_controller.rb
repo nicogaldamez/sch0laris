@@ -6,11 +6,8 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    if @user.save
-    	redirect_to usuarios_path
-    else
-      render 'new'
-    end
+    @user.save
+    render 'show', status: 400
   end
   
   def show

@@ -8,14 +8,27 @@
 		
 			<nav class="row">
 				<% if !signed_in? %>
-		      <ul class="nav pull-right">
+					<ul class="nav signed_out pull-right">
 		        <li id="search_container" class="search"> 
 							<%= link_to "<i class='icon icon-search'> </i>".html_safe, "#", class: "search", id: "search_icon" %> 
 							<%= text_field_tag :search, "", placeholder: t(:search) %>
 						</li>
 						<li> <%= link_to_function t(:sign_in), "toggle_sign_in()" %> </li>
-						<li> <%= link_to t(:sign_up), new_user_path, id: "prueba" %> </li>
-		      </ul>
+						<li> <%= link_to t(:sign_up), new_user_path %> </li>
+					</ul>
+				<% else %>
+					<ul class="nav signed_in pull-right">
+		      	<li id="fat-menu" class="dropdown">
+		          <a href="#" class="user_name dropdown-toggle" data-toggle="dropdown">
+		            <%= @current_user.name %> <b class="caret"></b>
+		          </a>
+		          <ul class="dropdown-menu">
+		            <li><%= link_to t(:profile), "#" %></li>
+		            <li class="divider"></li>
+		            <li> <%= link_to t(:sign_out), signout_path, method: "delete" %> </li>				
+		          </ul>
+		        </li>
+					</ul>
 				<% end %>
 	    </nav>
 		</div>

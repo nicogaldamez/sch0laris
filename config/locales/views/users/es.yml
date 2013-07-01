@@ -17,6 +17,12 @@ es:
   sign_up_description1: "Scholaris es una nueva red social enfocada en educación."
   sign_up_description2: "Permite a sus usuario compartir su conocimiento."
   dateOfBirth: "Fecha de nacimiento"
+  weak_password: "débil. Al menos debes escribir alguna letra mayúscula y un número"
+  sign_out: "Salir"
+  loading: "cargando"
+
+  # USERS
+  profile: "Perfil"
                                          
   # QUESTIONS
   questions: "Preguntas"

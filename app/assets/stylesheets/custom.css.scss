@@ -95,7 +95,7 @@ p {
 .btn-primary {
 	background-color: $btnPrimaryBackground;
 	
-	&:hover {
+	&:hover, &.disabled {
 		background-color: $btnPrimaryBackgroundHighlight;
 	}
 }
@@ -114,23 +114,30 @@ p {
 
 header {
 	padding: 20px;
-	.nav li {
-		a {
-			color: #888;
-			font-size: 16px;
-			padding: 9px 12px;
-			border: 1px solid #ddd;
-			border-right: 0;
-			background-color: #f9f9f9;
-			
-			&.search {
-				background: none;
-				border: none;
-			}
-		}
+/*	height:41px;*/
+	margin-bottom: 10px;
+	.nav {
+		height: 42px;
+		display: block;
 		
-		&:last-child a {
-			border-right: 1px solid #DDD;
+		&.signed_out li {
+			a {
+				color: #888;
+				font-size: 16px;
+				padding: 9px 12px;
+				border: 1px solid #ddd;
+				border-right: 0;
+				background-color: #f9f9f9;
+			
+				&.search {
+					background: none;
+					border: none;
+				}
+			}
+		
+			&:last-child a {
+				border-right: 1px solid #DDD;
+			}
 		}
 	}
 	
@@ -140,6 +147,7 @@ header {
 		border-bottom: 1px solid $orangeColor;
 		line-height: 19px;
 		display: none;
+		margin-bottom: 0px;
 		&:focus {
 			border: 0;
 			border-bottom: 1px solid $orangeColor;
@@ -319,11 +327,11 @@ ul {
 	width: 100%;
 } 
 
-#user_password, #user_confirmation {
+#user_password, #user_password_confirmation {
 	width: 50%;
 }
 
-#user_confirmation {
+#user_password_confirmation {
 	border-left: 0;
 }
 

@@ -1,3 +1,5 @@
 en:
   search: "Search"
   about_us: "About us"
+  no_params: "Parameters missing"
+  form_errors: "The form contains errors"

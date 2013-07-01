@@ -4,21 +4,25 @@
 
 <div id="sign_up" class="row">
 	<div class="form span5 offset2">
-		<%= form_for(@user, :html => { :autocomplete => "off"}) do |f| %>
+		<%= form_for(@user, :html => { id: 'sign_up_form', :autocomplete => "off", 
+						remote: true, format: 'json'}) do |f| %>
+		
+			<%= render 'shared/error_messages', object: f.object %>
 			
 			<%= f.text_field :name, placeholder: t(:fake_name) %>
 			<%= f.text_field :email, placeholder: t(:fake_email) %>
 			
 			<div class="inline_fields">
 				<%= f.password_field :password, placeholder: t(:password) %>
-				<%= f.password_field :confirmation, placeholder: t(:confirmation_password) %>
+				<%= f.password_field :password_confirmation, placeholder: t(:confirmation_password) %>
 			</div>
 			
 			<%= f.label :dateOfBirth %>
 			<%= f.text_field :dateOfBirth, placeholder: t(:date_format) %>
 			
 			<div>
-				<%= f.submit t(:create_account), class: "btn btn-large btn-primary" %>			
+				<%= f.submit t(:create_account), class: "btn btn-large btn-primary",
+					 	id: 'sign_up_button', 'data' => { 'loading-text' => t(:loading) } %>			
 			</div>
 		<% end %>
 		

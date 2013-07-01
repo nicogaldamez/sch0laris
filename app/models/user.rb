@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   
   validates :email, presence:true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :name, presence:true, length:{maximum:40}
-  validates :password, presence:true, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, format: { with: VALID_PASSWORD_REGEX, message: I18n.t(:weak_password) }
   validates :password_confirmation, presence:true
   validates :dateOfBirth, presence:true
 

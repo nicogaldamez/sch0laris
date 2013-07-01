@@ -15,6 +15,7 @@
 					<%= button_tag( :class => "btn btn-primary btn-large", type: 'submit', id: 'sign_in_btn') do %>
 					  <i class="icon-ok icon-white"></i>
 					<% end %>
+					<button type="button" class="btn btn-primary" data-loading-text="Loading...">Loading state</button>
 				<% end %>
 				
 				<div class="forgot">
@@ -23,6 +24,7 @@
 				</div>
 		
 				<p id="sign_in_error" class="text-error">  </p>
+				<p id="sign_in_loading" class="text-error"> <%= image_tag "icons/dots16.gif" %> </p>
 		</div>
 		
 	</div>
