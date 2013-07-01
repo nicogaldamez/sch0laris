@@ -1,5 +1,3 @@
-object @user
-
-node :errors do |o|
-  o.errors
-end
+if !@user.errors.blank?
+  o.errors.full_messages
+else

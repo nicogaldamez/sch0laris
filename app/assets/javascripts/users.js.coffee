@@ -2,10 +2,17 @@ $ ->
 	$("#sign_up_form")
 		.bind "ajax:complete", (event, data) ->
 			$("#sign_up_button").button "reset"
+		.bind "ajax:before", (event, data) ->	
+			$("#error_explanation").hide()
+			$("#error_explanation ul").html('')
 		.bind "ajax:success", (event, data) ->
-			window.location.reload()
+			window.location.href = '/'
 		.bind "ajax:error", (event, data) ->
-			$("#sign_in_error").text data.responseJSON.msg
+			errors_list= $("#error_explanation ul")
+			for error in data.responseJSON.msg
+				errors_list.append("<li>" + error + '</li>')
+			$("#error_explanation").show()
+			
 
 	$("#sign_up_button").button()
 	$("#sign_up_button").click ->

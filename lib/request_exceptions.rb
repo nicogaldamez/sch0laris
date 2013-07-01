@@ -1,17 +1,18 @@
 module RequestExceptions
   
   class RequestError < StandardError
-    attr_reader :message, :code
+    attr_reader :message, :code, :data
 
-    def initialize(message = nil, code = 502)
-      @message = 'aasasd'
+    def initialize(message = nil, code = 500, data = [])
+      @message = message
       @code = code
+      @data = data
     end
   end
   
   class BadRequestError < RequestError
-    def initialize(message = nil, code = 400)
-      super('aasdmapsmdpo')
+    def initialize(message = nil, data = [])
+      super(message, 400, data)
     end
   end
   

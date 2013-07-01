@@ -222,6 +222,10 @@ input[type=text], input[type=password], textarea, select, .uneditable-input {
 	}
 }
 
+#error_explanation ul li {
+	list-style: disc;
+}
+
 /* Para evitar el fondo amarillo que pone chrome al autocompletar*/
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;

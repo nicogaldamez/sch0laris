@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 		user = User.find_by_email(params[:email].downcase)
 		if user && user.authenticate(params[:password])
 			sign_in user
-			redirect_back_or user
+			redirect_to user_path(user, format: :json)
 		else
-			RequestExceptions::BadRequestError.new(t(:sign_in_error))
+			raise(RequestExceptions::BadRequestError.new(t(:sign_in_error)))
 		end
 	end
   

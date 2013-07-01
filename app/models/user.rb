@@ -27,9 +27,9 @@ class User < ActiveRecord::Base
   VALID_PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,20}$/
   
   validates :email, presence:true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  validates :name, presence:true, length:{maximum:40}
+  validates :name, presence:true, length:{ maximum:40 }
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: I18n.t(:weak_password) }
-  validates :password_confirmation, presence:true
+  validates :password_confirmation, presence: { message: '' }
   validates :dateOfBirth, presence:true
 
   private

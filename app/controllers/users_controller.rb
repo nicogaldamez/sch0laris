@@ -6,15 +6,18 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.save
-    render 'show', status: 400
+    if @user.save
+      sign_in @user
+      redirect_to @user, format: :json
+    else
+      raise(RequestExceptions::BadRequestError.new(@user.errors.full_messages))
+    end
   end
   
   def show
     @user = User.find(params[:id])
     respond_to do |f|
       f.json 
-      f.html
     end
   end
 end

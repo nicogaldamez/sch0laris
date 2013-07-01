@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
     def bad_request (exception)    
 			@msg = exception.message
       render 'shared/error', status: 400
+      return
     end
   
     def forbidden    
