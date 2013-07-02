@@ -3,8 +3,9 @@
 es:
   search: "Buscar"
   about_us: "Acerca de"
-  no_params: "No se han completado todos los parámetros"
+  missing_params: "No se han completado todos los parámetros"
   form_errors: "El formulario contiene errores"
+  wrong_or_blank_date: "vacía o con formato no válido"
   
   # COMMON
   number:

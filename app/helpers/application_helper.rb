@@ -11,5 +11,16 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end
 	end
+  
+  def parse_date(aDate)
+    return aDate if aDate.blank?
+    
+    begin
+      Date.strptime(aDate, (I18n.t "date.formats.default")).to_s 
+    rescue ArgumentError
+      ""
+    end
+    
+  end
 
 end

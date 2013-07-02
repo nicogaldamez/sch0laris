@@ -1,21 +1,34 @@
 es:
+  # GENERAL
+  main_nav:
+    questions_title: "Preguntas"
+    questions_desc: "pregunta o ayuda a otros"
+    tags: "Etiquetas"
+    tags_desc: "explora por etiquetas"
+    users: "Usuarios"
+    users_desc: "conoce gente"  
+  
+  
+  users: 
+    new: 
+      new_user: "Nuevo Usuario"
+      title: "Regístrate en Scholaris. Es gratis."
+      legal_approval: "Al crear una cuenta aceptas nuestros Términos y Condiciones"
+      sign_up_description1: "Scholaris es una nueva red social enfocada en educación."
+      sign_up_description2: "Permite a sus usuario compartir su conocimiento."
+      
   # SESSIONS	
   email: "Email"
   sign_in: "Ingresar"
   sign_up: "Registrarme"
   forgot_password: "¿olvidaste tu clave?"
   sign_in_error: "Combinación de nombre de usuario y contraseña errónea"
-  new_user: "Nuevo usuario"
-  new_user_title: "Regístrate en Scholaris. Es gratis."
   create_account: "Crear cuenta"
   fake_name: "Juan Perez"
   fake_email: "juanperez@ejemplo.com"
   password: "Clave"
   confirmation_password: "Confirmación"
   date_format: "dd/mm/aaaa"
-  legal_approval: "Al crear una cuenta aceptas nuestros Términos y Condiciones"
-  sign_up_description1: "Scholaris es una nueva red social enfocada en educación."
-  sign_up_description2: "Permite a sus usuario compartir su conocimiento."
   dateOfBirth: "Fecha de nacimiento"
   weak_password: "débil. Al menos debes escribir alguna letra mayúscula y un número"
   sign_out: "Salir"
@@ -23,6 +36,8 @@ es:
 
   # USERS
   profile: "Perfil"
+  male: "Masculino"
+  female: "Femenino"
                                          
   # QUESTIONS
   questions: "Preguntas"

@@ -16,7 +16,7 @@ describe "Authentications" do
         click_button "sign_in_btn" 
       end
   		
-	  	it { should have_selector('p.text-error', text: I18n.t(:sign_in_error)) }
+	  	it { should have_selector('p.text-error', text: I18n.t(:missing_params)) }
 	  end
 	  
   	describe "con datos erroneos" do
@@ -29,22 +29,27 @@ describe "Authentications" do
 	  	it { should have_selector('p.text-error', text: I18n.t(:sign_in_error)) }
 	  end
     
-	  # describe "with valid information" do
-#       let(:user) { FactoryGirl.create(:user) }
-#       before { sign_in user }
-#       
-#       it { should have_selector('title', text: user.name) }
-#       it { should have_link('Users', href: users_path) }
-#       it { should have_link('Profile', href: user_path(user)) }
-#       it { should have_link('Settings', href: edit_user_path(user)) }
-#       it { should have_link('Sign out', href: signout_path) }
-#       it { should_not have_link('Sign in', href: signin_path) }
-#       
-#       describe "followed by signout" do
+	  describe "con datos correctos" do
+      let(:user) { FactoryGirl.create(:user) }
+  		before do
+        fill_in "sign_in_email", with: user.email
+        fill_in "sign_in_password", with: user.password
+        click_button "sign_in_btn" 
+        save_and_open_page
+      end
+      
+      it "deberia loguear al usuario" do
+        page.should have_content(user.name)
+        page.should have_link(I18n.t(:profile))
+        page.should have_link(I18n.t(:sign_in))
+        page.should_not have_link(I18n.t(:sign_in))
+      end
+      
+      # describe "followed by signout" do
 #         before { click_link "Sign out" }
-#         it { should have_link("Sign in") }
+#         it { should have_link(I18n.t(:sign_out)) }
 #       end
-#     end
+    end
   end
   
 end

@@ -1,0 +1,21 @@
+<div id="main_nav" class="row">
+  <div class="span9 offset1">
+  	<ul>
+      <li class="active"> 
+        <%= link_to t("main_nav.questions_title"), "#" %>
+        <small> <%= t "main_nav.questions_desc" %> </small>
+      </li>
+      <li> 
+        <%= link_to t("main_nav.tags"), "#" %> 
+        <small> <%= t "main_nav.tags_desc" %> </small>
+      </li>
+      <li> 
+        <%= link_to t("main_nav.users"), "#" %> 
+        <small> <%= t "main_nav.users_desc" %> </small>
+      </li>
+    </ul>
+  </div>
+  <div id="ask_question" class="span2">  
+    <%= link_to t(:ask_question), "#", class: "pull-right" %>
+  </div>
+</div>

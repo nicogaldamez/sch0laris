@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
   
   def new    
     @user = User.new
   end
   
   def create
+    params[:user][:dateOfBirth] = parse_date(params[:user][:dateOfBirth])
     @user = User.new(params[:user])
     if @user.save
       sign_in @user

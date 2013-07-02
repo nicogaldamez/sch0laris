@@ -9,10 +9,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :dateOfBirth
+  attr_accessible :email, :name, :password, :password_confirmation, :dateOfBirth, :gender
   
   has_secure_password
   
@@ -29,8 +30,8 @@ class User < ActiveRecord::Base
   validates :email, presence:true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :name, presence:true, length:{ maximum:40 }
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: I18n.t(:weak_password) }
-  validates :password_confirmation, presence: { message: '' }
-  validates :dateOfBirth, presence:true
+  validates :password_confirmation, presence: true
+  validates :dateOfBirth, presence: { message: I18n.t(:wrong_or_blank_date) } 
 
   private
     def create_remember_token

@@ -28,4 +28,3 @@ $ ->
     if visible_search_input
       root.visible_search_input = false
       $("#search").animate width: "toggle"
-

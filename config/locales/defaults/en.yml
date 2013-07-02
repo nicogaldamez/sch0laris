@@ -1,5 +1,13 @@
 en:
   search: "Search"
   about_us: "About us"
-  no_params: "Parameters missing"
+  missing_params: "Parameters missing"
   form_errors: "The form contains errors"
+  wrong_or_blank_date: "is empty or has an invalid format"
+
+  date:
+    formats:
+      short: "%d de %b"
+      default: "%m/%d/%Y"
+      long: "%A, %d de %B de %Y"
+      day: "%A"
