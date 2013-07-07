@@ -1,0 +1,23 @@
+<%= render 'shared/main_nav' %>
+
+<div id="ask_question">
+  <h3> <%= t("questions.new_question") %> </h3>
+  
+	<%= form_for(@question, :html => { id: 'ask_form', :autocomplete => "off", 
+					remote: true, format: 'json'}) do |f| %>
+  
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    
+    <%= f.label :body %>
+    <%= f.text_area :body, rows: 8 %>
+    
+    <%= f.label :tag_tokens, t("questions.ask.tags") %>
+    <%= f.text_field :tag_tokens, placeholder: t("questions.ask.number_of_tags"), class: 'tags_input' %>
+  
+    <%= f.submit t("questions.ask.send"), 'data' => { 'loading-text' => t(:loading) },
+          class: 'btn btn-primary', id: 'ask_button'%>
+    <span id="ask_error" class="text-error"></span>
+  <% end %>
+  
+</div>

@@ -1,21 +1,19 @@
 <div id="main_nav" class="row">
-  <div class="span9 offset1">
+  <div class="span10">
   	<ul>
       <li class="active"> 
-        <%= link_to t("main_nav.questions_title"), "#" %>
-        <small> <%= t "main_nav.questions_desc" %> </small>
+        <%= link_to t("main_nav.questions_title"), root_path %>
       </li>
       <li> 
         <%= link_to t("main_nav.tags"), "#" %> 
-        <small> <%= t "main_nav.tags_desc" %> </small>
       </li>
       <li> 
-        <%= link_to t("main_nav.users"), "#" %> 
-        <small> <%= t "main_nav.users_desc" %> </small>
+        <%= link_to t("main_nav.users"), "#" %>
       </li>
     </ul>
   </div>
   <div id="ask_question" class="span2">  
-    <%= link_to t(:ask_question), "#", class: "pull-right" %>
+    <%= link_to raw("<i class='icon icon-bullhorn'> </i>"), pre_ask_questions_path, 
+          class: "pull-right", title: t("questions.ask_question"), data: { toggle: 'tooltip'} %>
   </div>
 </div>

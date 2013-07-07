@@ -10,6 +10,6 @@
  *
  *= require_self
  *= require_directory . 
- *= require bootstrap-datepicker
- *= require font-awesome
+ *= require token-input
+ *= require font-awesome  
  */

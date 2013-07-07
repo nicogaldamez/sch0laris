@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701220413) do
+ActiveRecord::Schema.define(:version => 20130707155501) do
+
+  create_table "questions", :force => true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
+
+  create_table "questions_tags", :force => true do |t|
+    t.integer "tag_id"
+    t.integer "question_id"
+  end
+
+  add_index "questions_tags", ["question_id"], :name => "index_questions_tags_on_question_id"
+  add_index "questions_tags", ["tag_id"], :name => "index_questions_tags_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tags", ["description"], :name => "index_tags_on_description", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                        :null => false

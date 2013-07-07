@@ -1,13 +1,10 @@
+# encoding: utf-8
 es:
   # GENERAL
   main_nav:
     questions_title: "Preguntas"
-    questions_desc: "pregunta o ayuda a otros"
     tags: "Etiquetas"
-    tags_desc: "explora por etiquetas"
     users: "Usuarios"
-    users_desc: "conoce gente"  
-  
   
   users: 
     new: 
@@ -16,7 +13,24 @@ es:
       legal_approval: "Al crear una cuenta aceptas nuestros Términos y Condiciones"
       sign_up_description1: "Scholaris es una nueva red social enfocada en educación."
       sign_up_description2: "Permite a sus usuario compartir su conocimiento."
-      
+  
+  questions:
+    ask_question: "Haz una pregunta"
+    new_question: "Nueva pregunta"
+    how_to_ask: 
+      title: "Cómo hacer tu pregunta"
+      intro: "Nos encantaría ayudarte, pero la realidad es que no todas las preguntas logran una respuesta. Para mejorar tus posibilidades te damos algunos consejos:"
+      search_well_title: "¿Has buscado bien?"
+      search_well_body: "¿Has buscado bien una respuesta antes de hacer tu pregunta? Compartir tu investigación ayuda a todos. Cuéntanos lo que encontraste (en este sitio o en otro lugar) y por qué no respondía a tus necesidades. Esto demuestra que has tomado el tiempo para tratar de ayudarte a ti mismo, ésto evitará respuestas obvias, y sobre todo, que te ayudará a obtener una respuesta más específica y relevante! "
+      search_in_scholaris: "Busca en Scholaris"
+      be_specific: "Se específico"
+      be_specific_body: "Si haces una pregunta vaga, obtendrás una respuesta vaga. Pero si nos das los detalles y el contexto, podemos proporcionar una útil y respuesta pertinente."
+      understand: "gracias, tendré estos consejos en mente al momento de preguntar"
+      proceed: "Continuar con la pregunta"
+    ask: 
+      send: "Enviar pregunta"
+      number_of_tags: "Al menos 2 tags y máximo 5"
+
   # SESSIONS	
   email: "Email"
   sign_in: "Ingresar"
@@ -40,9 +54,6 @@ es:
   female: "Femenino"
                                          
   # QUESTIONS
-  questions: "Preguntas"
-  votes: "Votos"
   reputation: "Reputación"
   hot: "Destacado"
   most_recent: "Recientes"
-  ask_question: "Preguntar"

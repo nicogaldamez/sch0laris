@@ -23,11 +23,15 @@ class ApplicationController < ActionController::Base
     Rails.application.routes.default_url_options[:locale]= I18n.locale 
   end
   
-  def check_params?(required)
+  def check_params?(required, index='')
     return true if required.blank?
     return false if params.blank? 
     required.each do | param |
-      return false if params[param].blank? 
+      if index.blank?
+        return false if params[param].blank? 
+      else
+        return false if params[index][param].blank? 
+      end
     end
     true
   end

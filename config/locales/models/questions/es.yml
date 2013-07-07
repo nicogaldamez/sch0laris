@@ -1,0 +1,6 @@
+es:
+  activerecord:
+    attributes:
+      question:
+        title: "Título"
+        body: "Cuerpo de la pregunta"

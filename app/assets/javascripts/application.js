@@ -14,16 +14,7 @@
 //= require jquery_ujs
 // require twitter/bootstrap
 //= require bootstrap
+//= require jquery.tokeninput
 //= require_tree .
-//= require bootstrap-datepicker/core
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.es
 //= require bootstrap-button
-
-
-$(function() {
-	$('[data-behaviour~=datepicker]').datepicker({
-		format: 'dd/mm/yyyy',
-	  autoclose: true
-	});
-});
 

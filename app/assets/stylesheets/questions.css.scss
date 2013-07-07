@@ -1,3 +1,32 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*----- ASK QUESTION -----*/
+#how_to_ask {
+  input[type=text] {
+    margin-bottom: 0px;
+  }
+  .search_input {
+    width: 600px;
+  }
+  .section {
+    margin-bottom: 40px;
+  }
+  .proceed {
+    color: #f58026;
+  }
+}
+
+#ask_question {
+  input[type=text], textarea {
+    width: 100%;
+  }
+  .token-input-list {
+    width: 940px;
+  }
+}
+
+div.token-input-dropdown {
+  width: 950px !important;
+}
