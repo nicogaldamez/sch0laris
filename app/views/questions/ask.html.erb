@@ -11,7 +11,7 @@
     <%= f.text_area :body, rows: 8 %>
     
     <%= f.label :tag_tokens, t("questions.ask.tags") %>
-    <%= f.text_field :tag_tokens, placeholder: t("questions.ask.number_of_tags"), class: 'tags_input' %>
+    <%= f.text_field :tag_tokens, class: 'tags_input' %>
   
     <%= f.submit t("questions.ask.send"), 'data' => { 'loading-text' => t(:loading) },
           class: 'btn btn-primary', id: 'ask_button'%>
