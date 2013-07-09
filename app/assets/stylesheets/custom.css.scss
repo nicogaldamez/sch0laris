@@ -93,6 +93,12 @@ p {
 
 /* miscellaneous */
 
+.avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 100px;
+}
+
 .debug_dump {
 	clear: both;
 	float: left;
@@ -255,6 +261,10 @@ input {
 	}
 }
 
+.form_errors {
+  text-align: center;
+}
+
 .field_with_errors {
 	@extend .control-group;
 	@extend .error;
@@ -402,11 +412,7 @@ ul {
 
 /*----- QUESTIONS -----*/
 #questions {
-	.avatar {
-		width: 40px;
-		height: 40px;
-		border-radius: 100px;
-	}
+	
 	
 	.question {
 		padding: 10px 0px;
@@ -455,4 +461,46 @@ ul {
 		
 	}
 	
+}
+
+
+/*----- PROFILE -----*/
+#profile {
+  .form_errors { display: none; }
+  aside {
+    li.active a {
+      background: #eee;
+      color: $orangeColor;
+    }
+    i {
+      float:right;
+      line-height: 20px;
+    }
+    #profile_errors {
+      display: none;
+    }
+  }
+  .form label.first {
+			margin-top: 0px;
+	}
+  input[type=file] {
+    position:absolute;
+    z-index:2;
+    top:0;
+    left:0;
+    filter: alpha(opacity=0);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity:0;
+    background-color:transparent;
+    color:transparent;
+  }
+  #file {
+    margin-bottom: 10px;
+  }
+}
+
+#crop_avatar {
+  margin: auto;
+  width: 600px;
+  border: 1px solid $borderColor;
 }

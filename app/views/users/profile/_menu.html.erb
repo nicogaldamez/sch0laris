@@ -1,0 +1,21 @@
+<aside class="span3">
+  <ul id="profile_menu" class="nav nav-tabs nav-stacked">
+    <li id="personal"> 
+      <%= link_to profile_personal_path do %>
+        <%= t (".personal") %> <i class="icon-chevron-right"></i>
+      <% end %> 
+    </li>
+    <li id="password"> 
+      <%= link_to profile_password_path do %>
+        <%= t (:password) %> <i class="icon-chevron-right"></i>
+      <% end %> 
+    </li>
+    <li id="avatar"> 
+      <%= link_to profile_avatar_path do %>
+        <%= t (".avatar") %> <i class="icon-chevron-right"></i>
+      <% end %> 
+    </li>
+  </ul>
+</aside>
+
+<%= javascript_tag "activeMenuItem('profile_menu', '#{active}')" %> 

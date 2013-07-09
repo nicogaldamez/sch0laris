@@ -1,0 +1,9 @@
+<% provide(:title, (@user.name)) %>
+<h1> <%= t :user_profile %> </h1>
+<div id="profile">
+  
+  <%= render '/users/profile/menu' %>
+  
+  <%= render '/users/profile/personal' %>
+  
+</div>

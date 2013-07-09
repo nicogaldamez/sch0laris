@@ -1,6 +1,10 @@
 # encoding: utf-8
 es:
   # GENERAL
+  save: "Guardar"
+  browse: "Examinar"
+  no_file_selected: "Ningún archivo seleccionado"
+  
   main_nav:
     questions_title: "Preguntas"
     tags: "Etiquetas"
@@ -13,10 +17,14 @@ es:
       legal_approval: "Al crear una cuenta aceptas nuestros Términos y Condiciones"
       sign_up_description1: "Scholaris es una nueva red social enfocada en educación."
       sign_up_description2: "Permite a sus usuario compartir su conocimiento."
+    profile: 
+      change_image: "Cambiar imagen"  
+      crop_avatar: "Recortar imagen"
+      
   
   questions:
     ask_question: "Haz una pregunta"
-    new_question: "Nueva pregunta"
+    what_is_your_question: "¿Cuál es tu duda?"
     how_to_ask: 
       title: "Cómo hacer tu pregunta"
       intro: "Nos encantaría ayudarte, pero la realidad es que no todas las preguntas logran una respuesta. Para mejorar tus posibilidades te damos algunos consejos:"
@@ -29,7 +37,9 @@ es:
       proceed: "Continuar con la pregunta"
     ask: 
       send: "Enviar pregunta"
-      number_of_tags: "Al menos 2 tags y máximo 5"
+      tags_error: "Sólo se aceptan al menos 2 tags y máximo 5"
+    list:
+      asked_about: "preguntó sobre"
 
   # SESSIONS	
   email: "Email"
@@ -50,6 +60,7 @@ es:
 
   # USERS
   profile: "Perfil"
+  user_profile: "Perfil de Usuario"
   male: "Masculino"
   female: "Femenino"
                                          

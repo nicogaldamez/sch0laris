@@ -1,7 +1,5 @@
-<%= render 'shared/main_nav' %>
-
 <div id="ask_question">
-  <h3> <%= t("questions.new_question") %> </h3>
+  <h3> <%= t("questions.what_is_your_question") %> </h3>
   
 	<%= form_for(@question, :html => { id: 'ask_form', :autocomplete => "off", 
 					remote: true, format: 'json'}) do |f| %>

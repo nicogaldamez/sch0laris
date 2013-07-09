@@ -1,0 +1,25 @@
+<% provide(:title, (@user.name)) %>
+<h1> <%= t :user_profile %> </h1>
+<div id="profile">
+  
+  <%= render partial: '/users/profile/menu', locals: { active: 'avatar'} %>
+
+  <div class="span5 offset1">
+    <div id="crop_avatar" class="center">
+  
+      <%= image_tag @user.avatar_url(:large), id: "cropbox" %>
+      <br>
+      <%= form_for @user, :url => crop_avatar_user_path(@user) do |f| %>
+        <div class="actions">
+          <% %w[x y w h].each do |attribute| %>
+            <%= f.hidden_field "crop_#{attribute}"%>
+          <% end %>
+          <%= f.submit t("users.profile.crop_avatar"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  	
+
+</div>
+
+

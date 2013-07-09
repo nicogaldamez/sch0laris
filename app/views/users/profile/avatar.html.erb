@@ -1,0 +1,39 @@
+<% provide(:title, (@user.name)) %>
+<h1> <%= t :user_profile %> </h1>
+<div id="profile">
+  
+  <%= render partial: '/users/profile/menu', locals: { active: 'avatar'} %>
+
+  <div class="span5 offset1">
+    <%= form_for(@user, url: upload_avatar_user_path(@user), 
+          :html => { id: 'profile_form', :autocomplete => "off", 
+          :multipart => true}) do |f| %>
+
+  		<p id="profile_errors" class="form_errors text-error">  </p>
+	    
+      <div id="file" style="position:relative;">
+        <% if @user.avatar.blank? %>
+          <%= image_tag 'icons/avatar_40.png', class: "avatar" %>
+        <% else %> 
+          <%= image_tag @user.avatar_url.to_s, class: "avatar" %>
+        <% end %>
+        
+        <%= link_to 'javascript:;', class: 'btn' do %>
+            <%= t :browse %>
+            <%= f.file_field :avatar, size: 40   %>
+        <% end %>
+        &nbsp;
+        <span id="upload-file-info"> <%= t :no_file_selected %> </span>
+      </div>
+  
+      <div>
+  			<%= f.submit t(:save), class: "btn btn-large btn-primary",
+  				 	id: 'save_button', 'data' => { 'loading-text' => t(:loading) } %>			
+  		</div>
+  
+  	<% end %>
+
+  </div>
+
+</div>
+

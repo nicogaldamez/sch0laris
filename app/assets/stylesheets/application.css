@@ -11,5 +11,6 @@
  *= require_self
  *= require_directory . 
  *= require token-input
+ *= require jquery.Jcrop.min
  *= require font-awesome  
  */

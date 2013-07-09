@@ -21,5 +21,5 @@ $ ->
 		.bind "ajax:success", (event, data) ->
 			window.location.href = '/'
 		.bind "ajax:error", (event, data) ->
-			$("#ask_error").html(data.responseJSON.msg)
+			$("#ask_error").html(data.responseJSON.message)
 	

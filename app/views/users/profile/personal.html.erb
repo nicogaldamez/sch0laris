@@ -1,0 +1,37 @@
+<% provide(:title, (@user.name)) %>
+<h1> <%= t :user_profile %> </h1>
+<div id="profile">
+  
+  <%= render partial: '/users/profile/menu', locals: { active: 'personal'} %>
+  
+  <div class="span5 offset1">
+  
+  	<div class="form">
+  		<%= form_for(@user, :html => { class: 'profile_form', :autocomplete => "off"},
+            remote: true) do |f| %>
+	
+  			<p id="form_message" class="form_errors">  </p>
+		
+        <%= f.label :name, '', class: 'first' %>
+  			<%= f.text_field :name, placeholder: t(:fake_name) %>
+      
+        <%= f.label :email %>
+  			<%= f.text_field :email, placeholder: t(:fake_email) %>
+		
+  			<%= f.label :dateOfBirth %>
+  			<%= f.text_field :dateOfBirth, placeholder: t(:date_format), 
+              value: (parse_date(@user.dateOfBirth))  %>
+    
+        <div>
+  				<%= f.submit t(:save), class: "btn btn-large btn-primary",
+  					 	id: 'save_button', disable_with: t(:loading) %>			
+  			</div>
+    
+  		<% end %>
+	
+  	</div>
+
+  </div>
+  
+  
+</div>

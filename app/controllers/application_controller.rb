@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
     
     # REQUEST ERRORS
     def bad_request (exception)    
-			@msg = exception.message
+			@message = exception.message
       render 'shared/error', status: 400
       return
     end

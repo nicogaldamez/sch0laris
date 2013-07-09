@@ -12,16 +12,6 @@
 			<%= f.text_field :name, placeholder: t(:fake_name) %>
 			<%= f.text_field :email, placeholder: t(:fake_email) %>
 			
-			<!-- <div class="inline_fields row-fluid">
-					<div class="span3">
-						<%= f.radio_button :gender, 'M', checked: true %> <i> <%= t(:male) %></i>
-					</div>
-					
-					<div class="span3">
-						<%= f.radio_button :gender, 'F' %> <i> <%= t(:female) %></i>
-					</div>
-			</div> -->
-			
 			<div class="inline_fields">
 				<%= f.password_field :password, placeholder: t(:password) %>
 				<%= f.password_field :password_confirmation, placeholder: t(:confirmation_password) %>

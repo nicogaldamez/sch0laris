@@ -35,3 +35,10 @@ $ ->
 
 $ ->
   mostrarTooltips()
+  $("input:file").change ->
+    $("#upload-file-info").html($(this).val());
+  
+  
+@activeMenuItem = (menu, item) ->
+  $("##{menu} li").removeClass('active')
+  $("##{menu} li##{item}").addClass('active')

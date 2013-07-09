@@ -1,0 +1,31 @@
+<div class="question row">
+		
+	<div class="span1">
+    <% if question.user.avatar.blank? %>
+      <%= image_tag 'icons/avatar_40.png', class: "avatar" %>
+    <% else %> 
+      <%= image_tag question.user.avatar_url.to_s, class: "avatar" %>
+    <% end %>
+	</div>
+	
+	<div class="span10">
+		<div class="name"> 
+      <b> <%= question.user.name %> </b> 
+      <%= t("questions.list.asked_about") %> 
+      <small> <%= question.tags.map(&:description).join(', ') %> </small> 
+    </div>
+		<%= link_to question.title, "#", class: "text" %>
+		<div class="date"> 
+      <%= "#{time_ago_in_words(question.created_at)}" %> 
+    </div>
+	</div>
+	
+	<div class="span1 stats"> 
+		<div class="votes"> 
+			0
+			<small> <%= t(:votes) %> </small>
+		</div>
+		
+	</div>
+	
+</div>

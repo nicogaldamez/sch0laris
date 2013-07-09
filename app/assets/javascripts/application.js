@@ -15,6 +15,7 @@
 // require twitter/bootstrap
 //= require bootstrap
 //= require jquery.tokeninput
+//= require jquery.Jcrop.min
+//= require bootstrap-filestyle-0.1.0.min
 //= require_tree .
 //= require bootstrap-button
-

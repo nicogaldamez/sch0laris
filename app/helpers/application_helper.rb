@@ -16,11 +16,20 @@ module ApplicationHelper
     return aDate if aDate.blank?
     
     begin
-      Date.strptime(aDate, (I18n.t "date.formats.default")).to_s 
+      # Date.strptime(aDate, (I18n.t "date.formats.default")).to_s 
+      aDate.strftime(I18n.t "date.formats.default")
     rescue ArgumentError
       ""
     end
     
   end
+  
+  # Returns the Gravatar (http://gravatar.com/) for the given user.
+  def gravatar_for(user, options = { size: 40 })
+      gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+      size = options[:size]
+      gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+      image_tag(gravatar_url, alt: user.name, class: "avatar")
+    end
 
 end
