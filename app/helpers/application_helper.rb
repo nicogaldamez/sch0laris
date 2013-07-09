@@ -16,8 +16,11 @@ module ApplicationHelper
     return aDate if aDate.blank?
     
     begin
-      # Date.strptime(aDate, (I18n.t "date.formats.default")).to_s 
-      aDate.strftime(I18n.t "date.formats.default")
+      if aDate.class == String
+        Date.strptime(aDate, (I18n.t "date.formats.default")).to_s 
+      else
+        aDate.strftime(I18n.t "date.formats.default")
+      end
     rescue ArgumentError
       ""
     end
