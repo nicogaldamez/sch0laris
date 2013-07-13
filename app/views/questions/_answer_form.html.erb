@@ -1,0 +1,11 @@
+<%= form_for(@answer, :html => { id: 'answer_form', :autocomplete => "off", 
+				remote: true, format: 'json'}) do |f| %>
+  <%= f.hidden_field :question_id %>
+
+  <%= f.label :body, t(:your_answer) %>
+  <%= f.text_area :body, rows: 8 %>
+  
+  <%= f.submit t("answers.post_answer"), 'data' => { 'loading-text' => t(:loading) },
+        class: 'btn btn-primary', id: 'answer_button'%>
+  <span id="answer_message" class="text-error"></span>
+<% end %>

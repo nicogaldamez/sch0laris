@@ -1,0 +1,31 @@
+<div id="show_question">
+  <div class="row question">
+    
+    <h3> <%= @question.title %> </h3>
+    <p> <%= @question.body %> </p>
+
+    <div class="pull-left"> 
+      <%= avatar_for(@question.user, { size: :mini }) %>
+      <%= @question.user.name %>
+      <small class="muted"> <%= @question.created_at.to_time %> </small>
+    </div>
+    
+    <div class="pull-right">
+      <% @question.tags.each do |tag|  %>
+        <span class="label"> <%= tag.description %> </span>
+      <% end %>
+    </div>
+    
+  </div>
+  
+  <h4> <%= "#{@question.answers.count} " + t("answers.answer", count: @question.answers.count) %> </h4>
+  
+  <div class="row answers">
+    
+    <%= render partial: 'answers/answer', collection: @question.answers, as: 'answer' %>
+    
+  </div>
+  
+  <%= render 'answer_form' %>
+  
+</div>

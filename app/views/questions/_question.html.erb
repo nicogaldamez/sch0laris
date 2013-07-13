@@ -1,11 +1,7 @@
 <div class="question row">
 		
 	<div class="span1">
-    <% if question.user.avatar.blank? %>
-      <%= image_tag 'icons/avatar_50.png', class: "avatar" %>
-    <% else %> 
-      <%= image_tag question.user.avatar_url.to_s, class: "avatar" %>
-    <% end %>
+    <%= avatar_for(question.user, { size: :thumb }) %>
 	</div>
 	
 	<div class="span10">
@@ -14,7 +10,7 @@
       <%= t("questions.list.asked_about") %> 
       <small> <%= question.tags.map(&:description).join(', ') %> </small> 
     </div>
-		<%= link_to question.title, "#", class: "text" %>
+		<%= link_to question.title, question, class: "text" %>
 		<div class="date"> 
       <%= "#{time_ago_in_words(question.created_at)}" %> 
     </div>

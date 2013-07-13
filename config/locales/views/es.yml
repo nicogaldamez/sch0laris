@@ -4,7 +4,7 @@ es:
   save: "Guardar"
   browse: "Examinar"
   no_file_selected: "Ningún archivo seleccionado"
-  
+    
   main_nav:
     questions_title: "Preguntas"
     tags: "Etiquetas"
@@ -40,6 +40,14 @@ es:
       tags_error: "Sólo se aceptan al menos 2 tags y máximo 5"
     list:
       asked_about: "preguntó sobre"
+    
+
+  answers: 
+    answer: 
+      one:   "respuesta"
+      other: "respuestas"
+      
+    post_answer: "Responder"
 
   # SESSIONS	
   email: "Email"

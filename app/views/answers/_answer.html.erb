@@ -1,0 +1,13 @@
+<% unless answer.new_record? %>
+  <div class="answer row">
+		
+  	<%= avatar_for(answer.user, { size: :mini }) %>
+    <%= answer.user.name %>
+    <small class="muted"> <%= answer.created_at %> </small>
+  	
+  	<div class="body">
+  		<%= answer.body %>
+  	</div>
+	
+  </div>
+<% end %>

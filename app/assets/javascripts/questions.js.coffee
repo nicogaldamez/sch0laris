@@ -23,3 +23,14 @@ $ ->
 		.bind "ajax:error", (event, data) ->
 			$("#ask_error").html(data.responseJSON.message)
 	
+  
+	$("#answer_form")
+		.bind "ajax:complete", (event, data) ->
+			$("#answer_button").button "reset"
+		.bind "ajax:before", (event, data) ->	
+			$("#answer_message").html('')
+		.bind "ajax:success", (event, data) ->
+			window.location.reload()
+		.bind "ajax:error", (event, data) ->
+			$("#answer_message").html(data.responseJSON.message)
+	

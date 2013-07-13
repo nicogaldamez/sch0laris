@@ -1,6 +1,7 @@
 Sch0larisRepo::Application.routes.draw do
   
   resources :sessions, only: [:create, :destroy]
+  resources :answers, only: [:create, :destroy, :show]
   resources :tags, only: [:index]
 
   resources :users do

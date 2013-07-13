@@ -17,6 +17,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :questions_tags
   has_many :tags, through: :questions_tags
+  has_many :answers, dependent: :destroy
   
   def tag_tokens=(tokens)
     self.tag_ids = Tag.ids_from_tokens(tokens)
