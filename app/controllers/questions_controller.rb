@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :ask, :pre_ask]
   
   def index
     @questions = Question.all

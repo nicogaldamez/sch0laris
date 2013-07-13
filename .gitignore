@@ -13,13 +13,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/public/uploads
+/config/local_env.yml
+logfiles
+logfile
 
 .DS_Store
-
 app/.DS_Store
-
 app/assets/.DS_Store
-
 app/assets/.DS_Store
-
-logfile
