@@ -12,11 +12,7 @@
   		<p id="profile_errors" class="form_errors text-error">  </p>
 	    
       <div id="file" style="position:relative;">
-        <% if @user.avatar.blank? %>
-          <%= image_tag 'icons/avatar_40.png', class: "avatar" %>
-        <% else %> 
-          <%= image_tag @user.avatar_url.to_s, class: "avatar" %>
-        <% end %>
+        <%= avatar_for(@user, { size: :mini }) %>
         
         <%= link_to 'javascript:;', class: 'btn' do %>
             <%= t :browse %>
