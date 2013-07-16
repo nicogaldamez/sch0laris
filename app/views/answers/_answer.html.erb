@@ -6,7 +6,8 @@
     <small class="muted"> <%= answer.created_at %> </small>
   	
     <div class="body">
-		  <%= answer.body %>
+      
+      <p class="span10"> <%= answer.body %> </p>
   
   		<div class="votes pull-right"> 
         <%= link_to_function image_tag("icons/rating_good.png"), "up_vote('#{answer.id}')" %>
