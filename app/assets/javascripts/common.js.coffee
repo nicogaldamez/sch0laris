@@ -42,3 +42,12 @@ $ ->
 @activeMenuItem = (menu, item) ->
   $("##{menu} li").removeClass('active')
   $("##{menu} li##{item}").addClass('active')
+  
+@notify = (msg, notify_type) ->
+    alerts = $("#alerts")
+    alerts.html msg
+    alerts.removeClass("alert-error").addClass("alert alert-success").slideDown "fast"  if notify_type is "success"
+    alerts.removeClass("alert-success").addClass("alert alert-error").slideDown "fast"  if notify_type is "error"
+    setTimeout (=>
+      alerts.slideUp()
+    ), 4000

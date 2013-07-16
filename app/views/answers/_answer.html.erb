@@ -2,12 +2,19 @@
   <div class="answer row">
 		
   	<%= avatar_for(answer.user, { size: :mini }) %>
-    <%= answer.user.name %>
+    <%= link_to answer.user.name, "#" %>
     <small class="muted"> <%= answer.created_at %> </small>
   	
-  	<div class="body">
-  		<%= answer.body %>
-  	</div>
-	
+    <div class="body">
+		  <%= answer.body %>
+  
+  		<div class="votes pull-right"> 
+        <%= link_to_function image_tag("icons/rating_good.png"), "up_vote('#{answer.id}')" %>
+  			<span id="votes_<%= answer.id%>" class="number"> <%= answer.votes %> </span>
+        <%= link_to_function image_tag("icons/rating_bad.png"), "down_vote('#{answer.id}')" %>
+        <small> <%= t(:votes) %> </small>
+  		</div>
+    </div>
+    
   </div>
 <% end %>

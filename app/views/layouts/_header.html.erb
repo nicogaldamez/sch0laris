@@ -18,6 +18,10 @@
 					</ul>
 				<% else %>
 					<ul class="nav signed_in pull-right">
+		        <li id="search_container" class="search"> 
+							<%= link_to "<i class='icon icon-search'> </i>".html_safe, "#", class: "search", id: "search_icon" %> 
+							<%= text_field_tag :search, "", placeholder: t(:search) %>
+						</li>
 		      	<li id="fat-menu" class="dropdown">
 		          <a href="#" class="user_name dropdown-toggle" data-toggle="dropdown">
 		            <%= @current_user.name %> <b class="caret"></b>

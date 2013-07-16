@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130713210407) do
+ActiveRecord::Schema.define(:version => 20130715233559) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "votes",       :default => 0
   end
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
@@ -65,5 +66,16 @@ ActiveRecord::Schema.define(:version => 20130713210407) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "votes", :force => true do |t|
+    t.integer  "answer_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["answer_id"], :name => "index_votes_on_answer_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end

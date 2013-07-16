@@ -6,7 +6,7 @@
 	
 	<div class="span10">
 		<div class="name"> 
-      <b> <%= question.user.name %> </b> 
+      <b class="user"> <%= link_to question.user.name, '#' %> </b> 
       <%= t("questions.list.asked_about") %> 
       <small> <%= question.tags.map(&:description).join(', ') %> </small> 
     </div>

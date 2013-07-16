@@ -8,6 +8,7 @@ es:
   wrong_or_blank_date: "vacía o con formato no válido"
   changes_saved: "Los cambios han sido guardados"
   please_sign_in: "Por favor inicie sesión"
+  already_voted: "No es posible votar más de una vez por una respuesta"
   
   # COMMON
   number:

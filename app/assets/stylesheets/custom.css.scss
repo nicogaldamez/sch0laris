@@ -108,6 +108,16 @@ p {
 span.label {
   background: $blueColor;
   padding: 5px;
+  a { color: white; }
+}
+
+#alerts {
+  position: fixed;
+  top:0px;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  text-align: center;
 }
 
 /* header */
@@ -431,6 +441,7 @@ ul {
 		
 		.name {
 			font-size: 0.9em;
+      a { color: #333; }
 		}
 		
 		small {

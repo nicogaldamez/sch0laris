@@ -4,6 +4,12 @@ Sch0larisRepo::Application.routes.draw do
   resources :answers, only: [:create, :destroy, :show]
   resources :tags, only: [:index]
 
+  resources :answers do
+    member do
+      put 'vote'
+    end
+  end
+
   resources :users do
     member do
       put 'crop_avatar'

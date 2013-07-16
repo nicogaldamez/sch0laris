@@ -6,13 +6,13 @@
 
     <div class="pull-left"> 
       <%= avatar_for(@question.user, { size: :mini }) %>
-      <%= @question.user.name %>
+      <%= link_to @question.user.name, '#' %>
       <small class="muted"> <%= @question.created_at.to_time %> </small>
     </div>
     
     <div class="pull-right">
       <% @question.tags.each do |tag|  %>
-        <span class="label"> <%= tag.description %> </span>
+        <span class="label"> <%= link_to tag.description, '#' %> </span>
       <% end %>
     </div>
     
@@ -20,9 +20,9 @@
   
   <h4> <%= "#{@question.answers.count} " + t("answers.answer", count: @question.answers.count) %> </h4>
   
-  <div class="row answers">
+  <div id="answers" class="row">
     
-    <%= render partial: 'answers/answer', collection: @question.answers, as: 'answer' %>
+    <%= render partial: 'answers/answer', collection: @question.answers.order("votes desc"), as: 'answer' %>
     
   </div>
   
