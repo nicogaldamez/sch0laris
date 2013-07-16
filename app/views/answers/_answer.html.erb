@@ -5,9 +5,9 @@
     <%= link_to answer.user.name, "#" %>
     <small class="muted"> <%= answer.created_at %> </small>
   	
-    <div class="body">
+    <div class="body row">
       
-      <p class="span10"> <%= answer.body %> </p>
+      <p class="span9"> <%= answer.body %> </p>
   
   		<div class="votes pull-right"> 
         <%= link_to_function image_tag("icons/rating_good.png"), "up_vote('#{answer.id}')" %>
