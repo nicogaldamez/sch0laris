@@ -50,42 +50,69 @@ div.token-input-dropdown {
   
   #answers {
     margin: 20px;
-    .body {
-      margin-top: 10px;
-      min-height: 40px;
-      padding: 19px;
+    
+    .answer {
       margin-bottom: 20px;
-      border: 1px solid #e6e6e6;
-      margin-left: 0px;
+      
+      .answer_body {
+        margin-top: 10px;
+        min-height: 40px;
+        padding: 5px 19px;
+        border-style: solid;
+        border-color: #e6e6e6;
+        border-width: 0px 0px 1px 1px;
+        margin-left: 0px;
+      
+        &:hover {
+          .votes a { visibility: visible; }
+        }
+      }
+    
+  		.votes {
+  			color: #f58026;
+        text-align: center;
+			
+        .number {
+          font-size: 1.5em;
+          text-align: center;
+          vertical-align: text-top;
+          min-width: 20px;
+          display: inline-block;
+        }
+      
+        a {
+          visibility: hidden;
+        }
+      
+  			small {
+          color: #848484;
+  				display: block;
+  				text-align:center;
+  				font-size: 0.7em;
+  				text-transform: uppercase;
+  			}
+  		}
+
+    }   
+  }
+  
+  .comments {
+    li {
+      float: right;
+      text-align: rigth;
+      font-size: 0.9em ;
+      margin-bottom: 5px;
     }
     
-		.votes {
-			color: #f58026;
-      text-align: center;
-			
-      .number {
-        font-size: 1.5em;
-        text-align: center;
-        vertical-align: text-top;
-        min-width: 20px;
-        display: inline-block;
+    .make_comment {
+      input {
+        width: 585px;
+        padding: 5px;
+        font-size: 0.9em;
       }
-      
-      a {
-        visibility: hidden;
+      img {
+        vertical-align: top;
       }
-      
-			small {
-        color: #848484;
-				display: block;
-				text-align:center;
-				font-size: 0.7em;
-				text-transform: uppercase;
-			}
-		}
-    
-    .body:hover .votes a {
-      visibility: visible;
     }
   }
 }

@@ -54,9 +54,16 @@ class ApplicationController < ActionController::Base
       return
     end
   
-    def forbidden    
+    def forbidden (exception)   
+			@message = exception.message
+      render 'shared/error', status: 401
+      return  
     end
   
-    def unathorized    
+    def unauthorized (exception)   
+      logger.debug '403'
+			@message = exception.message
+      render 'shared/error', status: 403
+      return   
     end
 end

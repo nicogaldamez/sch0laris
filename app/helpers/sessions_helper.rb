@@ -36,9 +36,16 @@ module SessionsHelper
 	end
 	
 	def signed_in_user
-		unless signed_in?
-  		store_location
-  		redirect_to root_url, notice: t(:please_sign_in)
+    unless signed_in?
+      logger.debug 'aca estoy'
+      respond_to do |format|
+        format.html do
+          redirect_to root_url, notice: t(:please_sign_in) 
+        end
+        format.json do
+          raise(RequestExceptions::UnauthorizedError.new(t(:please_sign_in)))
+        end
+      end
   	end
 	end
 end

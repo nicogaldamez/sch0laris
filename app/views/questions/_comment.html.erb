@@ -1,0 +1,11 @@
+<li class="comment row">
+	<span class="comment_body">
+    
+    <%= comment.body %>
+    
+  	
+    <%= link_to comment.user.name, "#" %>
+    <%= avatar_for(comment.user, { size: :mini }) %>
+    
+  </span>
+</li>

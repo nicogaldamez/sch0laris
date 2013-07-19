@@ -18,7 +18,7 @@ module RequestExceptions
   
   class UnauthorizedError < RequestError
     def initiliaze
-      @code = 401
+      super(message, 401, data)
     end
   end
   

@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   include ApplicationHelper
   
   def new    
+    if signed_in?
+      redirect_to root_url
+    end
     @user = User.new
   end
   

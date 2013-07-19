@@ -3,4 +3,5 @@ class Answer < ActiveRecord::Base
   
   belongs_to :user
   has_many :answer_votes, :class_name => "Vote", dependent: :destroy
+  has_many :comments
 end

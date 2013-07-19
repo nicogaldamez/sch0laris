@@ -34,11 +34,21 @@ $ ->
 			$('#answer_body').val('')
 		.bind "ajax:error", (event, data) ->
 			$("#answer_message").html(data.responseJSON.message)
-	
+      
+  $(".make_comment a").click ->
+    $(this).prev('form').slideDown()
+    $(this).prev('textarea').focus()
+    $(this).parent().css({display: 'block'})
+  $(".make_comment button.cancel_comment").click ->
+    $(this).prev('textarea').val('')
+    $(this).prev('form').slideUp()
+    $(this).parent().css({display: 'none'})
 
 vote = (answer_id, type, callback) ->
   $.ajax "/answers/" + answer_id + "/vote",
     type: "PUT"
+    headers: 
+      Accept: "application/json"
     data:
       type: type
 

@@ -40,14 +40,15 @@ es:
       tags_error: "Sólo se aceptan al menos 2 tags y máximo 5"
     list:
       asked_about: "preguntó sobre"
+    make_comment: "Comentar"
     
 
   answers: 
     answer: 
       one:   "respuesta"
       other: "respuestas"
-      
     post_answer: "Responder"
+    your_answer: "Tu Respuesta"
 
   # SESSIONS	
   email: "Email"
