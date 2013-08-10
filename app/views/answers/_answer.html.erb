@@ -1,29 +1,29 @@
 <% unless answer.new_record? %>
-  <div class="answer row">
+
+  <div class="answer row" id='<%= "answer_#{answer.id}" %>'>
 		
   	<%= avatar_for(answer.user, { size: :mini }) %>
     <%= link_to answer.user.name, "#" %>
     <small class="muted"> <%= answer.created_at %> </small>
+    
+    <% if signed_in? && answer.user == current_user%>
+      <%= link_to raw('<i class="icon icon-trash"> </i>'), answer_path(answer,format: :json), class:'delete_answer', 
+          remote: true, method: :delete, title: t(:delete), :format => :json,
+          data: { toggle: 'tooltip' }, confirm: t(:are_you_sure) %>
+    <% end %>
   	
     <div class="answer_body row">
       
       <div class="row">
-        <p class="span9"> <%= answer.body %> </p>
-  
-    		<div class="votes pull-right"> 
-          <%= link_to_function image_tag("icons/rating_bad.png"), "down_vote('#{answer.id}')" %>
-    			<span id="votes_<%= answer.id%>" class="number"> <%= answer.votes %> </span>
-          <%= link_to_function image_tag("icons/rating_good.png"), "up_vote('#{answer.id}')" %>
-          <small> <%= t(:votes) %> </small>
-    		</div>
+        <div class="span10"> 
+          <%= raw(answer.body) %> 
+        </div>
+        
+    		<%= render partial: 'votes/vote', locals: { voteable: answer }  %>
       </div>
       
-      <div class="comments">
-        <ul class="row span10 offset1">
-          <%= render partial:'comment', collection: answer.comments, as: 'comment' %> 
-        </ul>
-      </div>
-      
+      <%= render partial: 'comments/comment', locals: { commentable: answer }  %>
+
     </div>
 
   </div>

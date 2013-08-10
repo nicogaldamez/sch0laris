@@ -14,8 +14,12 @@
 //= require jquery_ujs
 // require twitter/bootstrap
 //= require bootstrap
+//= require bootstrap-tooltip
 //= require jquery.tokeninput
 //= require jquery.Jcrop.min
 //= require bootstrap-filestyle-0.1.0.min
+//= require jquery.flip.min
 //= require_tree .
 //= require bootstrap-button
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales/es-ES

@@ -1,9 +1,16 @@
 <div id="show_question">
   <div class="row question">
     
-    <h3> <%= @question.title %> </h3>
-    <p> <%= @question.body %> </p>
-
+    <div class="row">
+      <h3 class="span10"> <%= @question.title %> </h3>
+    </div>
+    <div class="question_body row">
+      <div class="span10"> 
+        <%= raw @question.body %> 
+      </div>
+  		<%= render partial: 'votes/vote', locals: { voteable: @question}  %>
+  		
+    </div>
     <div class="pull-left"> 
       <%= avatar_for(@question.user, { size: :mini }) %>
       <%= link_to @question.user.name, '#' %>
@@ -15,6 +22,8 @@
         <span class="label"> <%= link_to tag.description, '#' %> </span>
       <% end %>
     </div>
+    
+    <%= render partial: 'comments/comment', locals: { commentable: @question}  %>
     
   </div>
   

@@ -1,8 +1,16 @@
 class QuestionsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :ask, :pre_ask]
   
-  def index
-    @questions = Question.all
+  def entries
+    @questions = Question.only_entries
+    @type = 'entries'
+    render 'list'
+  end
+  
+  def questions
+    @questions = Question.only_questions
+    @type = 'questions'
+    render 'list'
   end
   
   def pre_ask
@@ -33,6 +41,13 @@ class QuestionsController < ApplicationController
   
   def show
     @question = Question.find(params[:id])
+    
+    # Marco como vista por el usuario
+    if signed_in? && @question.user != current_user
+        view = @question.views.find_or_initialize_by_question_id_and_user_id(@question.id, current_user.id)
+        view.save
+    end
+    
     @answer = @question.answers.new
   end
 end

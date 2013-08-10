@@ -1,0 +1,33 @@
+<div class="question row">
+		
+	<div class="span1">
+    <%= avatar_for(entry.user, { size: :thumb }) %>
+	</div>
+	
+	<div class="span9">
+		<div class="name"> 
+      <b class="user"> <%= link_to entry.user.name, '#' %> </b> 
+      <%= t("entries.list.created_entry_about") %> 
+      <small> <%= entry.tags.map(&:description).join(', ') %> </small> 
+    </div>
+		<%= link_to truncate(entry.title, length: 80), entry, class: "text" %>
+		<div class="date"> 
+      <%= "#{time_ago_in_words(entry.created_at)}" %> 
+      <div class="stats">
+        - 
+        <span style="color: #f58026"><%= entry.views.count %></span> <%= t("posts.views") %> 
+        - 
+        <span style="color: #f58026"><%= entry.answers.count %></span> <%= t("posts.answers") %> 
+      </div>
+    </div>
+	</div>
+	
+	<div class="span2"> 
+		<div class="votes"> 
+			0
+			<small> <%= t(:votes) %> </small>
+		</div>
+    
+	</div>
+	
+</div>

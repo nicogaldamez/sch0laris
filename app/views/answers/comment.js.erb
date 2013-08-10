@@ -1,0 +1,5 @@
+// $("#answers").append("");
+
+var new_comment = "<%= escape_javascript(render partial: 'questions/comment', locals: { comment: @comment })%>";
+hide_comment_form(<%= @comment.answer_id%>);
+$(new_comment).hide().appendTo('#<%= "comments_#{@comment.answer_id}" %>').fadeIn(1000);

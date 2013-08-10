@@ -17,6 +17,7 @@ root.visible_sign_in = false
   root.visible_sign_in = not visible_sign_in
 
 root.visible_search_input = false
+
 $ ->
   $("#search_container").mouseover ->
     $("#search").focus()
@@ -37,6 +38,16 @@ $ ->
   mostrarTooltips()
   $("input:file").change ->
     $("#upload-file-info").html($(this).val());
+    
+  # Editores WYSIWYG
+  $('.wysihtml5').wysihtml5 
+  	"locale": "es-ES",
+  	"font-styles": false, #Font styling, e.g. h1, h2, etc. Default true
+  	"emphasis": true, #Italics, bold, etc. Default true
+  	"lists": true, #(Un)ordered lists, e.g. Bullets, Numbers. Default true
+  	"link": true, #Button to insert a link. Default true
+  	"image": false, #Button to insert an image. Default true,
+  	"color": false #Button to change color of font
   
   
 @activeMenuItem = (menu, item) ->

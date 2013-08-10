@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$orangeColor: #f58026;
+
 /*----- ASK QUESTION -----*/
 #how_to_ask {
   input[type=text] {
@@ -19,11 +21,23 @@
 }
 
 #ask_question {
+  h3 {
+    margin-bottom: 20px;
+  }
   input[type=text], textarea {
     width: 100%;
   }
   .token-input-list {
     width: 929px;
+  }
+  .decision {
+    label {
+      display: inline-block;
+      line-height: 27px;
+      margin: 0px 20px 0px 5px;
+      vertical-align: text-top;
+      margin-top: 0px;
+    }
   }
 }
 
@@ -34,9 +48,26 @@ div.token-input-dropdown {
 /*----- SHOW QUESTION -----*/
 #show_question {
   .question { 
+    position: relative;
     padding-bottom: 15px;
     border-bottom: 1px solid #e6e6e6; 
     margin-bottom: 15px;
+    
+    .question_body {
+      margin-bottom: 40px;
+    }
+    
+    .comments {
+      float: right;
+      margin-right: 0px;
+    }
+    &:hover {
+      .votes a, .leave_comment { visibility: visible; }
+    }
+  }
+  
+  p {
+    font-size: 1em;
   }
   
   h4 {
@@ -48,6 +79,40 @@ div.token-input-dropdown {
     width: 100%;
   }
   
+	.votes {
+		color: #f58026;
+    text-align: center;
+	
+    .number {
+      font-size: 1.5em;
+      text-align: center;
+      vertical-align: text-top;
+      min-width: 20px;
+      display: inline-block;
+    }
+  
+    a {
+      visibility: hidden;
+    }
+  
+		small {
+      color: #848484;
+			display: block;
+			text-align:center;
+			font-size: 0.7em;
+			text-transform: uppercase;
+		}
+	}
+  
+  a.leave_comment {
+    font-size: 0.9em; 
+    color: $orangeColor;
+    position: absolute;
+    left: 20px;
+    bottom: 5px;
+    visibility: hidden;
+  }
+  
   #answers {
     margin: 20px;
     
@@ -55,6 +120,7 @@ div.token-input-dropdown {
       margin-bottom: 20px;
       
       .answer_body {
+        position: relative;
         margin-top: 10px;
         min-height: 40px;
         padding: 5px 19px;
@@ -64,55 +130,50 @@ div.token-input-dropdown {
         margin-left: 0px;
       
         &:hover {
-          .votes a { visibility: visible; }
+          .votes a, .leave_comment { visibility: visible; }
         }
+        
+        
       }
-    
-  		.votes {
-  			color: #f58026;
-        text-align: center;
-			
-        .number {
-          font-size: 1.5em;
-          text-align: center;
-          vertical-align: text-top;
-          min-width: 20px;
-          display: inline-block;
-        }
-      
-        a {
-          visibility: hidden;
-        }
-      
-  			small {
-          color: #848484;
-  				display: block;
-  				text-align:center;
-  				font-size: 0.7em;
-  				text-transform: uppercase;
-  			}
-  		}
-
     }   
   }
   
   .comments {
+    margin-top: 10px;
+    margin-right: 10px;
+    float:left;
+    
     li {
       float: right;
-      text-align: rigth;
       font-size: 0.9em ;
       margin-bottom: 5px;
+      margin-right: 20px;
+      text-align: right;
+      width: 875px;
+      
+      .body {
+        float: right;
+        width: 80%;
+        padding-top: 4px;
+        display: inline-block;
+      }
+      .user {
+        float: right;
+        margin-left: 10px;
+        a {
+          line-height: 21px;
+          display: inline-block;
+          vertical-align: top;
+          margin-top: 4px;
+        }
+      }
     }
     
-    .make_comment {
-      input {
-        width: 585px;
-        padding: 5px;
-        font-size: 0.9em;
-      }
-      img {
-        vertical-align: top;
-      }
-    }
   }
 }
+
+.new_comment {
+  padding: 15px;
+  display: none;
+}
+

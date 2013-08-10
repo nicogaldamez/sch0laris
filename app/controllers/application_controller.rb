@@ -61,7 +61,6 @@ class ApplicationController < ActionController::Base
     end
   
     def unauthorized (exception)   
-      logger.debug '403'
 			@message = exception.message
       render 'shared/error', status: 403
       return   

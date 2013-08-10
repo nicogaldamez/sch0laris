@@ -4,11 +4,13 @@ es:
   save: "Guardar"
   browse: "Examinar"
   no_file_selected: "Ningún archivo seleccionado"
+  send: "Enviar"
+  delete: "Eliminar"
     
   main_nav:
     questions_title: "Preguntas"
     tags: "Etiquetas"
-    users: "Usuarios"
+    entries: "Aportes"
   
   users: 
     new: 
@@ -20,11 +22,28 @@ es:
     profile: 
       change_image: "Cambiar imagen"  
       crop_avatar: "Recortar imagen"
-      
+     
+  posts:
+    leave_comment: "Comenta"
+    make_comment: "Deja tu comentario"
+    views: "vistas"
+    answers: "respuestas"
+    
+    list:
+      wrote_about: "escribió sobre"
+    
+    new:
+      what_do_you_want: "¿Qué quieres hacer?"
+      want_to_ask: "Hacer una pregunta" 
+      want_to_create_entry: "Realizar un aporte" 
   
+  entries:
+    list:
+      created_entry_about: "aportó sobre"
+    
   questions:
-    ask_question: "Haz una pregunta"
-    what_is_your_question: "¿Cuál es tu duda?"
+    ask_question: "Haz una pregunta o aporte"
+    
     how_to_ask: 
       title: "Cómo hacer tu pregunta"
       intro: "Nos encantaría ayudarte, pero la realidad es que no todas las preguntas logran una respuesta. Para mejorar tus posibilidades te damos algunos consejos:"
@@ -40,7 +59,7 @@ es:
       tags_error: "Sólo se aceptan al menos 2 tags y máximo 5"
     list:
       asked_about: "preguntó sobre"
-    make_comment: "Comentar"
+    
     
 
   answers: 

@@ -3,12 +3,16 @@
 es:
   search: "Buscar"
   about_us: "Acerca de"
-  missing_params: "Por favor complete todos los campos"
+  missing_params: "Por favor completa todos los campos"
   form_errors: "El formulario contiene errores"
   wrong_or_blank_date: "vacía o con formato no válido"
   changes_saved: "Los cambios han sido guardados"
   please_sign_in: "Por favor inicie sesión"
+  no_permission: "No tienes permiso para realizar la operación"
   already_voted: "No es posible votar más de una vez por una respuesta"
+  own_vote: "No puedes votar algo que escribiste tú"
+  tags: "Etiquetas"
+  are_you_sure: "¿Seguro?"
   
   # COMMON
   number:

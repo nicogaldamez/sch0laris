@@ -1,0 +1,11 @@
+<%= form_for [@commentable, @comment], remote: true, html: {class: 'comment_form', id: 'comment_form',
+	 				autocomplete: 'off'} do |f| %>
+  <%= f.text_area :body, placeholder: t("posts.make_comment"), rows: 3 %>
+  <%= f.submit t("send"), :disable_with => t(:loading), class: 'btn btn-primary comment_button' %>
+
+  <%= link_to 'Cancelar', "#", class: 'btn hide_comment'  %>
+<% end %>
+
+<script type="text/javascript">
+  new_comment();
+</script>

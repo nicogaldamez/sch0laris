@@ -1,0 +1,15 @@
+<div class="comments">
+    <ul id='<%= "comments_#{commentable.id}" %>' class="row span10 offset1 comments_list">
+      <%= render partial:'questions/comment', collection: commentable.comments, as: 'comment' %> 
+    </ul>
+  
+  <% if signed_in? %>
+    <%= link_to [:new, commentable, :comment], class:'leave_comment', remote: true do %>
+      <%= raw('<i class="icon icon-comment"> </i>') %>
+      <%= t("posts.leave_comment") %>
+    <% end %>
+    
+    <div id="new_comment_<%= commentable.id %>" class="new_comment">
+    </div>
+  <% end %>
+</div>

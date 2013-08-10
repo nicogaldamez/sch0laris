@@ -24,7 +24,7 @@ module RequestExceptions
   
   class ForbiddenError < RequestError
     def initiliaze
-      @code = 403
+      super(message, 403, data)
     end
   end
   

@@ -4,24 +4,30 @@
     <%= avatar_for(question.user, { size: :thumb }) %>
 	</div>
 	
-	<div class="span10">
+	<div class="span9">
 		<div class="name"> 
       <b class="user"> <%= link_to question.user.name, '#' %> </b> 
-      <%= t("questions.list.asked_about") %> 
+      <%= t("posts.list.wrote_about") %> 
       <small> <%= question.tags.map(&:description).join(', ') %> </small> 
     </div>
-		<%= link_to question.title, question, class: "text" %>
+		<%= link_to truncate(question.title, length: 80), question, class: "text" %>
 		<div class="date"> 
       <%= "#{time_ago_in_words(question.created_at)}" %> 
+      <div class="stats">
+        - 
+        <span style="color: #f58026"><%= question.views.count %></span> <%= t("posts.views") %> 
+        - 
+        <span style="color: #f58026"><%= question.answers.count %></span> <%= t("posts.answers") %> 
+      </div>
     </div>
 	</div>
 	
-	<div class="span1 stats"> 
+	<div class="span2"> 
 		<div class="votes"> 
 			0
 			<small> <%= t(:votes) %> </small>
 		</div>
-		
+    
 	</div>
 	
 </div>

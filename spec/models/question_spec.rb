@@ -4,10 +4,11 @@
 #
 #  id         :integer          not null, primary key
 #  title      :string(255)
-#  body       :string(255)
+#  body       :text
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  votes      :integer          default(0)
 #
 
 require 'spec_helper'

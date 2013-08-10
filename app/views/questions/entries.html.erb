@@ -6,7 +6,11 @@
 	  <li><a href="#"> <%= t(:most_recent) %> </a></li>
 	</ul>
 	
-  <%= render @questions %>
+  <% if @entries.blank? %>
+    <p> No hay nada que mostrar </p>
+  <% else %>
+    <%= render partial: 'entry', collection: @entries, as: 'entry' %>
+  <% end %>
   
 	
 </div>

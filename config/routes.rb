@@ -1,12 +1,31 @@
 Sch0larisRepo::Application.routes.draw do
   
   resources :sessions, only: [:create, :destroy]
-  resources :answers, only: [:create, :destroy, :show]
   resources :tags, only: [:index]
+  resources :comments, only: [:destroy]
 
-  resources :answers do
-    member do
-      put 'vote'
+  resources :questions do
+    resources :comments, only: [:new, :create]
+    resources :votes, only: [] do
+      collection do
+        get 'up'
+        get 'down'
+      end
+    end
+    
+    collection do
+      get 'pre_ask'
+    end
+  end
+  
+  
+  resources :answers, only: [:create, :destroy] do
+    resources :comments, only: [:new, :create]
+    resources :votes, only: [] do
+      collection do
+        get 'up'
+        get 'down'
+      end
     end
   end
 
@@ -17,19 +36,14 @@ Sch0larisRepo::Application.routes.draw do
     end
   end
   
-  resources :questions do
-    collection do
-      get 'pre_ask'
-    end
-  end
-  
-  root to: 'questions#index'
-  
-  put 'approve_class_room/:id(.:format)', :to => 'class_room_member_ships#approve',
-                                          :as => :approve_class_room
+  root to: 'questions#questions'
+
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/ask', to: 'questions#ask'
+  match '/list_questions', to: 'questions#questions'
+  match '/list_entries', to: 'questions#entries'
   match '/profile/personal', to: 'users#personal_profile'
   match '/profile/password', to: 'users#password_profile'
   match '/profile/avatar', to: 'users#avatar_profile'
+  
 end

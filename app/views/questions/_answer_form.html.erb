@@ -1,9 +1,10 @@
 <%= form_for(@answer, :html => { id: 'answer_form', :autocomplete => "off", 
-				remote: true},  format: 'json') do |f| %>
+				remote: true}) do |f| %>
+
   <%= f.hidden_field :question_id %>
 
   <%= f.label :body, t("answers.your_answer") %>
-  <%= f.text_area :body, rows: 8 %>
+  <%= f.text_area :body, rows: 8, id:'answer_body', class: 'wysihtml5' %>
   
   <%= f.submit t("answers.post_answer"), 'data' => { 'loading-text' => t(:loading) },
         class: 'btn btn-primary', id: 'answer_button'%>

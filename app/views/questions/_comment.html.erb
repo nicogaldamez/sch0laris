@@ -1,11 +1,15 @@
 <li class="comment row">
 	<span class="comment_body">
-    
-    <%= comment.body %>
-    
-  	
-    <%= link_to comment.user.name, "#" %>
-    <%= avatar_for(comment.user, { size: :mini }) %>
-    
+    <span class="user"> 
+      <% if signed_in? && comment.user == current_user%>
+        <%= link_to raw('<i class="icon icon-trash"> </i>'), comment_path(comment,format: :json), class:'delete_comment', 
+            remote: true, method: :delete, title: t(:delete), :format => :json,
+            data: { toggle: 'tooltip' }, confirm: t(:are_you_sure) %>
+      <% end %>
+      
+      <%= link_to comment.user.name, "#" %>
+      <%= avatar_for(comment.user, { size: :mini }) %>
+    </span>
+    <span class="body"> <%= comment.body %> </span>
   </span>
 </li>

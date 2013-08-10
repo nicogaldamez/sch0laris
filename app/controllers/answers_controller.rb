@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   before_filter :signed_in_user, only: [:create, :vote]
+  before_filter :belongs_to_user, only: [:destroy]
   
   def create
     raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['body','question_id'], :answer)
@@ -9,36 +10,26 @@ class AnswersController < ApplicationController
     if !@answer.save
       raise(RequestExceptions::BadRequestError.new(@answer.errors.full_messages))
     end
+    @answer = Question.find(@answer.question_id).answers.last
+    render :partial => "answers/answer", :locals => { :answer => @answer }, :layout => false
   end
   
   def show
     @answer = Answer.find(params[:id])
   end
   
-  def vote
-    answer = Answer.find(params[:id])
-    value = (params[:type] == 'up') ? 1 : -1
-    
-    ActiveRecord::Base.transaction do
-      # Registro el voto si no votó antes
-      # Si antes votó positivo y ahora negativo o 
-      # viceversa anulo el voto
-      vote = answer.answer_votes.where(user_id: current_user.id)
-      if vote.empty?
-        answer.answer_votes.create(user_id: current_user.id, value: value)
-      else
-        vote = vote.first
-        raise(RequestExceptions::BadRequestError.new(t(:already_voted))) unless vote.value != value
-        vote.destroy
-      end
-    
-      answer.votes = answer.votes + value
-      if answer.save
-        @message = t(:changes_saved)
-        render 'shared/success'
-      else
-        raise(RequestExceptions::BadRequestError.new(answer.errors.full_messages))
-      end
+  def destroy
+    if !@answer.destroy
+      raise(RequestExceptions::BadRequestError.new(@answer.errors.full_messages))
+    else
+      render 'shared/success'
     end
   end
+
+  private
+    def belongs_to_user
+      @answer = Answer.find(params[:id])
+      raise(RequestExceptions::ForbiddenError.new(t(:no_permission))) unless @answer.user == current_user    
+    end
+
 end

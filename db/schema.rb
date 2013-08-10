@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718221025) do
+ActiveRecord::Schema.define(:version => 20130808232840) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -26,22 +26,35 @@ ActiveRecord::Schema.define(:version => 20130718221025) do
   add_index "answers", ["user_id"], :name => "index_answers_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.integer  "answer_id"
     t.integer  "user_id"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
   end
 
-  add_index "comments", ["answer_id"], :name => "index_comments_on_answer_id"
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "question_views", :force => true do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "question_views", ["question_id"], :name => "index_question_views_on_question_id"
+  add_index "question_views", ["user_id"], :name => "index_question_views_on_user_id"
 
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.integer  "votes",                   :default => 0
+    t.string   "post_type",  :limit => 1, :default => "Q"
   end
 
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
@@ -79,14 +92,15 @@ ActiveRecord::Schema.define(:version => 20130718221025) do
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
   create_table "votes", :force => true do |t|
-    t.integer  "answer_id"
     t.integer  "user_id"
     t.integer  "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
   end
 
-  add_index "votes", ["answer_id"], :name => "index_votes_on_answer_id"
   add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
+  add_index "votes", ["voteable_id", "voteable_type"], :name => "index_votes_on_voteable_id_and_voteable_type"
 
 end

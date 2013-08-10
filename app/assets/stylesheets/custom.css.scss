@@ -463,9 +463,19 @@ ul {
 			font-size: 0.8em;  
 			color: $grayMediumLight;
 		}
+    
+    .stats {
+      display: inline-block;
+      .stat {
+        color: $orangeColor;
+      }
+    }
+    
+    .tags {
+      display: inline-block;
+    }
 		
 		.votes {
-			margin-top: 10px;
 			color: $orangeColor;
 			font-size: 1.5em;
 			text-align: center;
