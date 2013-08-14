@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
     updating_password || new_record?
   end
   
-  def mailboxer_email
+  def mailboxer_email(object)
     self.email
   end
 
