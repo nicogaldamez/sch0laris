@@ -13,6 +13,7 @@ gem 'fog'
 gem 'bootstrap-wysihtml5-rails'
 gem 'pg_search'
 gem 'will_paginate'
+gem 'mailboxer'
 
 # Gems used only for assets and not required
 # in production environments by default.

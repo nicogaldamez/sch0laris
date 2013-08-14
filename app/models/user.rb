@@ -15,6 +15,8 @@
 #
 
 class User < ActiveRecord::Base
+  acts_as_messageable
+  
   attr_accessible :email, :name, :password, :password_confirmation, :dateOfBirth, :gender, :avatar,
                   :crop_x, :crop_y, :crop_w, :crop_h, :school_id, :other_school
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :updating_password
@@ -44,6 +46,10 @@ class User < ActiveRecord::Base
 
   def should_validate_password?
     updating_password || new_record?
+  end
+  
+  def mailboxer_email
+    self.email
   end
 
   private
