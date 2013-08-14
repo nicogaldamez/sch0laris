@@ -27,8 +27,49 @@ class Question < ActiveRecord::Base
   scope :only_questions, where(post_type: 'Q')  
   scope :only_entries, where(post_type: 'E')  
   
+  include PgSearch
+  pg_search_scope :search, against: [:title, :body],
+    associated_against: {user: :name, answers: [:body]},
+    :ignoring => :accents,
+    :using => { :tsearch => {:prefix => true} }
+  
   def tag_tokens=(tokens)
     self.tag_ids = Tag.ids_from_tokens(tokens)
   end
   
+  def self.filter(type, filter, current_user)
+    
+    # Búsqueda
+    if filter[:search].blank?
+      result = where(true) # Todos
+    else
+      result = search(filter[:search])
+    end
+    
+    # Tipo de post: pregunta o aporte
+    if type == 'questions'
+      result = result.where(post_type: 'Q') 
+    else
+      result = result.where(post_type: 'E') 
+    end
+    
+    # Filtro u orden
+    unless filter[:filter].blank?
+      if filter[:filter] == 'most_recent'
+        result = result.order("created_at DESC")
+      elsif filter[:filter] == 'reputation'
+        result = result.order("votes DESC")
+      elsif filter[:filter] == 'my_school'
+        result = result.joins("INNER JOIN users ON users.id = questions.user_id").where("users.school_id = ?", current_user.school_id)
+      end
+    end
+    
+    # Filtro por tag
+    unless filter[:tag].blank?
+      result = result.joins("INNER JOIN questions_tags ON questions_tags.question_id = questions.id").where("questions_tags.tag_id = ?", filter[:tag])
+    end
+    
+    result
+  end
+
 end

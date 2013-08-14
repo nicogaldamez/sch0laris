@@ -22,8 +22,24 @@ es:
     profile: 
       change_image: "Cambiar imagen"  
       crop_avatar: "Recortar imagen"
+      my_school_absent: "Mi facultad no aparece en la lista"
+      request_school_creation: "Solicita al staff de scholaris que agregue tu facultad"
+      other_school_name: "Nombre de tu facultad"
      
   posts:
+    how_to_ask: 
+      difference_title: "¿Pregunta o Aporte?"
+      difference_body: "Una Pregunta es una duda que tengas sobre algún tema en particular. La idea de una Pregunta es obtener una respuesta por parte de otro usuario de Scholaris. En cambio un Aporte es un contenido que quieres compartir sin esperar una respuesta. Esto podría ser un apunte, una idea, una solución a un problema o cualquier cosa que consideres que puede llegar a serle útil a otro usuario."
+      title: "Cómo hacer tu pregunta"
+      intro: "Nos encantaría ayudarte, pero la realidad es que no todas las preguntas logran una respuesta. Para mejorar tus posibilidades te damos algunos consejos:"
+      search_well_title: "¿Has buscado bien?"
+      search_well_body: "¿Has buscado bien una respuesta antes de hacer tu pregunta? Compartir tu investigación ayuda a todos. Cuéntanos lo que encontraste (en Scholaris o en otro lugar) y por qué no respondía a tus necesidades. Esto demuestra que has tomado el tiempo para tratar de ayudarte a ti mismo, ésto evitará respuestas obvias, y sobre todo, que te ayudará a obtener una respuesta más específica y relevante! "
+      search_in_scholaris: "Busca en Scholaris"
+      be_specific: "Se específico"
+      be_specific_body: "Si haces una pregunta vaga, obtendrás una respuesta vaga. Pero si nos das los detalles y el contexto, podremos proporcionar una respuesta más acorde a tus necesidades."
+      understand: "gracias, tendré estos consejos en mente al momento de preguntar"
+      proceed: "Continuar con la pregunta"
+    
     leave_comment: "Comenta"
     make_comment: "Deja tu comentario"
     views: "vistas"
@@ -31,6 +47,9 @@ es:
     
     list:
       wrote_about: "escribió sobre"
+      need_school: "Actualiza tu facultad en el la configuración del perfil"
+      filtered_by: "Filtro aplicado"
+      remove_filter: "Quitar filtro"
     
     new:
       what_do_you_want: "¿Qué quieres hacer?"
@@ -43,24 +62,13 @@ es:
     
   questions:
     ask_question: "Haz una pregunta o aporte"
+    select_best_answer: "Seleccionar como mejor respuesta"
     
-    how_to_ask: 
-      title: "Cómo hacer tu pregunta"
-      intro: "Nos encantaría ayudarte, pero la realidad es que no todas las preguntas logran una respuesta. Para mejorar tus posibilidades te damos algunos consejos:"
-      search_well_title: "¿Has buscado bien?"
-      search_well_body: "¿Has buscado bien una respuesta antes de hacer tu pregunta? Compartir tu investigación ayuda a todos. Cuéntanos lo que encontraste (en este sitio o en otro lugar) y por qué no respondía a tus necesidades. Esto demuestra que has tomado el tiempo para tratar de ayudarte a ti mismo, ésto evitará respuestas obvias, y sobre todo, que te ayudará a obtener una respuesta más específica y relevante! "
-      search_in_scholaris: "Busca en Scholaris"
-      be_specific: "Se específico"
-      be_specific_body: "Si haces una pregunta vaga, obtendrás una respuesta vaga. Pero si nos das los detalles y el contexto, podemos proporcionar una útil y respuesta pertinente."
-      understand: "gracias, tendré estos consejos en mente al momento de preguntar"
-      proceed: "Continuar con la pregunta"
     ask: 
       send: "Enviar pregunta"
       tags_error: "Sólo se aceptan al menos 2 tags y máximo 5"
     list:
-      asked_about: "preguntó sobre"
-    
-    
+      asked_about: "preguntó sobre" 
 
   answers: 
     answer: 
@@ -68,6 +76,9 @@ es:
       other: "respuestas"
     post_answer: "Responder"
     your_answer: "Tu Respuesta"
+
+  tags:
+    click_a_tag: "Haz click en una etiqueta para buscar resultados asociados a la selección "
 
   # SESSIONS	
   email: "Email"
@@ -96,3 +107,4 @@ es:
   reputation: "Reputación"
   hot: "Destacado"
   most_recent: "Recientes"
+  my_school: "Mi facultad"

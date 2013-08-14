@@ -14,6 +14,7 @@ class Tag < ActiveRecord::Base
   def self.tokens(query)
     tags = where("description like ?", "%#{query}%")
     if tags.empty?
+      query = query.gsub(/ /, "_")
       [{id: "<<<#{query}>>>", description: "Crear: \"#{query}\""}]
     else
       tags

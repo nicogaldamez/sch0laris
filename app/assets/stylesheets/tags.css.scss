@@ -1,3 +1,14 @@
-// Place all the styles related to the tags controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#tags {
+  .tags li {
+    display: inline-block;
+    margin-right: 15px;
+    .label {
+      background: #999999;
+      padding: 6px;
+      
+      &:hover {
+        background: #faa900;
+      }
+    }
+  }
+}

@@ -20,7 +20,6 @@ $linkColor: #898989;
 }
 
 /* universal */
-
 html {
 	overflow-y: scroll;
 }
@@ -29,6 +28,8 @@ body {
 	font-family: $sansFontFamily;
 	font-weight: 300;
 	background-color: $bodyBackground;
+  position: relative;
+/*  padding-bottom: 150px;*/
 }
 
 a {
@@ -80,6 +81,22 @@ h2 {
 p {
 	font-size: 1.1em;
 	line-height: 1.7em;
+}
+
+#main_container {
+  margin-bottom: 50px;
+}
+
+/* loading-bar */
+#loading-bar {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  display: none;
+  text-align: center;
+  z-index: 100;
 }
 
 /* buttons */
@@ -152,17 +169,20 @@ header {
 		}
 	}
 	
-	li.search input { 
-		float: left; 
-		border: 0;
-		border-bottom: 1px solid $orangeColor;
-		line-height: 19px;
-		display: none;
-		margin-bottom: 0px;
-		&:focus {
-			border: 0;
-			border-bottom: 1px solid $orangeColor;
-		};
+	li.search form {
+    float: left;
+    input { 
+  		float: left; 
+  		border: 0;
+  		border-bottom: 1px solid $orangeColor;
+  		line-height: 19px;
+  		display: none;
+  		margin-bottom: 0px;
+  		&:focus {
+  			border: 0;
+  			border-bottom: 1px solid $orangeColor;
+  		}
+    }
 		
 	}
 }
@@ -189,12 +209,14 @@ header {
 footer {
 	position: absolute;
 	bottom: 0px;
-	width: 100%;
-	background: #333;
+  left: 50%;
+	width: 960px;
+  margin-left: -490px;
 	margin-top: 45px;
 	padding-top: 5px;
-	border-top: 1px solid $borderColor;
+  border-top: 1px dashed #ddd;
 	color: $grayLight;
+  
 	
 	ul {
 		list-style: none;
@@ -240,7 +262,7 @@ input[type=text], input[type=password], textarea, select, .uneditable-input {
 	}
 }
 
-input[type=text], input[type=password], select, .uneditable-input {
+input[type=text], input[type=password], .uneditable-input {
   height: 19px;
 }
 
@@ -325,8 +347,8 @@ ul {
   	li {
   		font-size: 1.5em;
       margin-right: 40px;
-/*      width: 180px;*/
       display: inline-block;
+      border-bottom: 2px solid white;
       @include box_sizing;
 
       
@@ -413,6 +435,28 @@ ul {
 	input[type=radio] {
 		margin-right: 10px;
 	}
+  
+  .school {
+    label {
+      margin-top: 0px;
+    }
+    label.absent {
+      margin-top: 0px;
+      text-transform: none;
+      span {
+        padding-left: 5px;
+        vertical-align: text-top;
+      }
+    } 
+  }
+  
+  .submit {
+    margin-top: 20px;
+  }
+  
+  #create_other_school {
+    display: none;
+  }
 }
 
 #user_email, #user_name {
@@ -430,7 +474,6 @@ ul {
 
 /*----- QUESTIONS -----*/
 #questions {
-	
 	
 	.question {
 		padding: 10px 0px;
@@ -473,6 +516,12 @@ ul {
     
     .tags {
       display: inline-block;
+      a {
+        color: #848484;
+        &:hover {
+          color: $orangeColor;
+        }
+      }
     }
 		
 		.votes {
@@ -489,6 +538,10 @@ ul {
 		}
 		
 	}
+  
+  #filter {
+    margin-bottom: 20px;
+  }
 	
 }
 
@@ -509,6 +562,26 @@ ul {
       display: none;
     }
   }
+  
+  .submit {
+    margin-top: 25px;
+  }
+  
+  .school {
+    label.absent {
+      margin-top: 0px;
+      text-transform: none;
+      span {
+        padding-left: 5px;
+        vertical-align: text-top;
+      }
+    } 
+  }
+  
+  #create_other_school {
+    display: none;
+  }
+  
   .form label.first {
 			margin-top: 0px;
 	}

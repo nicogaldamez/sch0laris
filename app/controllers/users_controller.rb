@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     params[:user][:dateOfBirth] = parse_date(params[:user][:dateOfBirth])
     @user = User.new(params[:user])
+    @user.school_id = nil if params[:user][:school_id].blank?
     if @user.save
       sign_in @user
       redirect_to @user, format: :json
@@ -30,7 +31,6 @@ class UsersController < ApplicationController
     raise PermissionViolation unless signed_in?
     
     @user = current_user
-    
     render "users/profile/personal"
   end
   
@@ -60,6 +60,7 @@ class UsersController < ApplicationController
     end
     
     @user = current_user
+    @user.school_id = nil if params[:user][:school_id].blank?
     if @user.update_attributes(params[:user])
       sign_in @user
       @message = t(:changes_saved)

@@ -10,6 +10,7 @@
 	<body>
     <div id="alerts" class="alert" style="display:none"> </div>
 		<%= render 'layouts/header' %>
+    <%= render 'layouts/loading-bar' %>
 		<div id="main_container" class="container">
 			<% flash.each do |key, value| %>
 				<%= content_tag(:div, value, class: "alert alert-#{key}") %>
@@ -18,6 +19,7 @@
       <%= render 'shared/main_nav' %>
 			<%= yield %>
 			<!-- <%= debug(params) if Rails.env.development? %> -->
+      
 		</div>
 	</body>
 </html>

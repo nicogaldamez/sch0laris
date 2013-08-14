@@ -37,10 +37,12 @@ module SessionsHelper
 	
 	def signed_in_user
     unless signed_in?
+      @message = t(:please_sign_in)
       respond_to do |format|
         format.html do
           redirect_to root_url, notice: t(:please_sign_in) 
         end
+        format.js { render 'shared/error' }
         format.json do
           raise(RequestExceptions::UnauthorizedError.new(t(:please_sign_in)))
         end

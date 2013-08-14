@@ -33,12 +33,27 @@ $ ->
 @mostrarTooltips = ->
   $("[data-toggle~=tooltip]").tooltip()
 
+@loading = (visible, txt) ->
+  if visible
+    if typeof(txt) == 'undefined'
+      txt = 'cargando'
+    $('#loading-bar span').text(txt)
+    $('#loading-bar').show()  
+  else
+    $('#loading-bar').fadeOut()
 
 $ ->
-  mostrarTooltips()
-  $("input:file").change ->
-    $("#upload-file-info").html($(this).val());
-    
+	mostrarTooltips()
+	$("input:file").change ->
+		$("#upload-file-info").html($(this).val())
+	$(".remote_link")
+		.bind "ajax:complete", (event, data) ->
+			loading(false)
+		.bind "ajax:before", (event, data) ->	
+			loading(true)
+		.bind "ajax:error", (event, data) ->
+			notify data.responseJSON.message, 'error'
+
   # Editores WYSIWYG
   $('.wysihtml5').wysihtml5 
   	"locale": "es-ES",
@@ -48,7 +63,6 @@ $ ->
   	"link": true, #Button to insert a link. Default true
   	"image": false, #Button to insert an image. Default true,
   	"color": false #Button to change color of font
-  
   
 @activeMenuItem = (menu, item) ->
   $("##{menu} li").removeClass('active')

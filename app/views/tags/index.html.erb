@@ -1,0 +1,12 @@
+<div id="tags">
+  <p> <%= t("tags.click_a_tag") %> </p>
+  
+  <ul class="tags">
+    <%= render @tags %>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  activeMenuItem('main_nav', 'tags');
+  activeMenuItem('filter_nav', 'popular');
+</script>

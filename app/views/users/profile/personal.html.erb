@@ -10,7 +10,7 @@
   		<%= form_for(@user, :html => { class: 'profile_form', :autocomplete => "off"},
             remote: true) do |f| %>
 	
-  			<p id="form_message" class="form_errors">  </p>
+  			<p id="form_message" class="alert form_errors">  </p>
 		
         <%= f.label :name, '', class: 'first' %>
   			<%= f.text_field :name, placeholder: t(:fake_name) %>
@@ -21,8 +21,26 @@
   			<%= f.label :dateOfBirth %>
   			<%= f.text_field :dateOfBirth, placeholder: t(:date_format), 
               value: (parse_date(@user.dateOfBirth))  %>
-    
-        <div>
+        
+        <div class="school">
+    			<%= f.label :school %>
+  				<%= collection_select(:user, :school_id, School.order(:name), :id, :name, 
+  						{include_blank: '--'}, {class: 'input-xlarge',
+              disabled: ('disabled' unless @user.other_school.blank?)}) %>
+          <label class="absent">
+            <%= check_box_tag 'school_not_present', '1', (!@user.other_school.blank?) %>
+            <span> <%= t("users.profile.my_school_absent") %> </span>
+          </label>
+          <div id="create_other_school" <%= "style=display:block" unless @user.other_school.blank? %>>
+            <p> <%= t("users.profile.request_school_creation") %> </p>
+            <div>
+              <%= f.text_field :other_school, placeholder: t("users.profile.other_school_name"),
+                     class: 'input-xlarge'%>
+            </div>
+          </div>
+        </div>
+  			
+        <div class="submit">
   				<%= f.submit t(:save), class: "btn btn-large btn-primary",
   					 	id: 'save_button', disable_with: t(:loading) %>			
   			</div>

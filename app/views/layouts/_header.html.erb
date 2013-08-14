@@ -11,7 +11,10 @@
 					<ul class="nav signed_out pull-right">
 		        <li id="search_container" class="search"> 
 							<%= link_to "<i class='icon icon-search'> </i>".html_safe, "#", class: "search", id: "search_icon" %> 
-							<%= text_field_tag :search, "", placeholder: t(:search) %>
+      				<%= form_tag questions_path, id: 'search_form', method: 'get', autocomplete: 'off' do %>
+                <%= text_field_tag :search, "", placeholder: t(:search) %>
+              <% end %>
+							
 						</li>
 						<li> <%= link_to_function t(:sign_in), "toggle_sign_in()" %> </li>
 						<li> <%= link_to t(:sign_up), new_user_path %> </li>
@@ -20,7 +23,9 @@
 					<ul class="nav signed_in pull-right">
 		        <li id="search_container" class="search"> 
 							<%= link_to "<i class='icon icon-search'> </i>".html_safe, "#", class: "search", id: "search_icon" %> 
-							<%= text_field_tag :search, "", placeholder: t(:search) %>
+      				<%= form_tag questions_path, id: 'search_form', method: 'get', autocomplete: 'off' do %>
+                <%= text_field_tag :search, "", placeholder: t(:search) %>
+              <% end %>
 						</li>
 		      	<li id="fat-menu" class="dropdown">
 		          <a href="#" class="user_name dropdown-toggle" data-toggle="dropdown">

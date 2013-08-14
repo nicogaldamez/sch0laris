@@ -12,7 +12,7 @@
 #
 
 class Answer < ActiveRecord::Base
-  attr_accessible :body, :question_id, :created_at, :user, :user_id
+  attr_accessible :body, :question_id, :created_at, :user, :user_id, :best_answer
   
   belongs_to :user
   has_many :user_votes, class_name: 'Vote', as: :voteable, dependent: :destroy

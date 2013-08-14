@@ -10,8 +10,23 @@
       <%= link_to raw('<i class="icon icon-trash"> </i>'), answer_path(answer,format: :json), class:'delete_answer', 
           remote: true, method: :delete, title: t(:delete), :format => :json,
           data: { toggle: 'tooltip' }, confirm: t(:are_you_sure) %>
+      <% if answer.best_answer %>
+        <%= link_to raw('<i class="icon icon-star"> </i>'), best_answer_answer_path(answer), 
+            class:'best_answer select_best_answer remote_link', remote: true, method: :post, 
+            title: t("questions.select_best_answer"), :format => :json, data: { toggle: 'tooltip' } %>
+      <% else %>
+        <%= link_to raw('<i class="icon icon-star-empty"> </i>'), best_answer_answer_path(answer),
+              class:'select_best_answer remote_link', remote: true, method: :post, 
+              title: t("questions.select_best_answer"), :format => :json, data: { toggle: 'tooltip' } %>
+      <% end %>
+    <% else %>
+      <% if answer.best_answer %>
+        <span class='best_answer' title:'<%= t("questions.select_best_answer") %>' data-toggle='tooltip'> 
+          <i class="icon icon-star"> </i> 
+        </span>
+      <% end %>
     <% end %>
-  	
+    
     <div class="answer_body row">
       
       <div class="row">

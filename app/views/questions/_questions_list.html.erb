@@ -1,0 +1,7 @@
+<%= render 'filter' %>
+
+<% if @questions.blank? %>
+  <p> No hay nada que mostrar </p>
+<% else %>
+  <%= render partial: 'question', collection: @questions, as: 'question' %>
+<% end %>

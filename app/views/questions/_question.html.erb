@@ -8,7 +8,11 @@
 		<div class="name"> 
       <b class="user"> <%= link_to question.user.name, '#' %> </b> 
       <%= t("posts.list.wrote_about") %> 
-      <small> <%= question.tags.map(&:description).join(', ') %> </small> 
+      <small class="tags"> 
+        <% question.tags.each do |tag| %>
+          <%= link_to tag.description, questions_path(tag: tag.id) %>
+        <% end %>
+      </small> 
     </div>
 		<%= link_to truncate(question.title, length: 80), question, class: "text" %>
 		<div class="date"> 
@@ -24,7 +28,7 @@
 	
 	<div class="span2"> 
 		<div class="votes"> 
-			0
+			<%= question.votes %>
 			<small> <%= t(:votes) %> </small>
 		</div>
     

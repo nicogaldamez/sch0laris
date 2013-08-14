@@ -20,7 +20,25 @@
 			<%= f.label :dateOfBirth %>
 			<%= f.text_field :dateOfBirth, placeholder: t(:date_format) %>
 			
-			<div>
+      <div class="school">
+        <%= f.label :school %>
+				<%= collection_select(:user, :school_id, School.order(:name), :id, :name, 
+						{include_blank: '--'}, {class: 'input-xlarge',
+            disabled: ('disabled' unless @user.other_school.blank?)}) %>
+        <label class="absent">
+          <%= check_box_tag 'school_not_present', '1', (!@user.other_school.blank?) %>
+          <span> <%= t("users.profile.my_school_absent") %> </span>
+        </label>
+        <div id="create_other_school" <%= "style=display:block" unless @user.other_school.blank? %>>
+          <p> <%= t("users.profile.request_school_creation") %> </p>
+          <div>
+            <%= f.text_field :other_school, placeholder: t("users.profile.other_school_name"),
+                   class: 'input-xlarge'%>
+          </div>
+        </div>
+      </div>
+      
+			<div class="submit">
 				<%= f.submit t(:create_account), class: "btn btn-large btn-primary",
 					 	id: 'sign_up_button', 'data' => { 'loading-text' => t(:loading) } %>			
 			</div>

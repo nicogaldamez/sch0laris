@@ -16,14 +16,17 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :dateOfBirth, :gender, :avatar,
-                  :crop_x, :crop_y, :crop_w, :crop_h
+                  :crop_x, :crop_y, :crop_w, :crop_h, :school_id, :other_school
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :updating_password
   mount_uploader :avatar, AvatarUploader
   
   has_secure_password
   
+  belongs_to :school
+  
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+  before_validation :save_other_school
   after_update :crop_avatar
 
 
@@ -44,6 +47,11 @@ class User < ActiveRecord::Base
   end
 
   private
+    def save_other_school
+      self.other_school = nil if other_school.blank?
+      self.school_id = nil if school_id.blank?
+    end
+  
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end

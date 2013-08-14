@@ -1,0 +1,14 @@
+<% unless @filter[:tag].blank? && @filter[:search].blank?  %>
+  <div id="filter">
+    <%= t("posts.list.filtered_by") %>: 
+    <strong> 
+      <% if !@filter[:tag].blank? %>
+        <%= Tag.find(@filter[:tag]).description %> 
+      <% else %>
+        <%= @filter[:search] %>
+      <% end %>
+    </strong>
+    <%= link_to raw('<i class="icon-remove"></i>'), questions_path, title: t('posts.list.remove_filter'),
+         data: { toggle: 'tooltip' } %>
+  </div>
+<% end %>

@@ -1,14 +1,15 @@
 <div id="main_nav" class="row">
   <div class="span10">
   	<ul>
-      <li id="questions" class="active"> 
-        <%= link_to t("main_nav.questions_title"), list_questions_path %>
+      <% params = { tag: @filter[:tag], search: @filter[:search]} %>
+      <li id="questions"> 
+        <%= link_to t("main_nav.questions_title"), questions_path(params.merge({type: 'questions'})) %>
       </li>
       <li id="entries"> 
-        <%= link_to t("main_nav.entries"), list_entries_path %>
+        <%= link_to t("main_nav.entries"), questions_path(params.merge({type: 'entries'})) %>
       </li>
-      <li> 
-        <%= link_to t("main_nav.tags"), "#" %> 
+      <li id="tags"> 
+        <%= link_to t("main_nav.tags"), tags_path() %>
       </li>
     </ul>
   </div>

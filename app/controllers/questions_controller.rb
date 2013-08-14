@@ -1,16 +1,17 @@
+# encoding: UTF-8
 class QuestionsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :ask, :pre_ask]
+  before_filter :load_filter, only: [:index, :tagged]
   
-  def entries
-    @questions = Question.only_entries
-    @type = 'entries'
-    render 'list'
-  end
-  
-  def questions
-    @questions = Question.only_questions
-    @type = 'questions'
-    render 'list'
+  # Listado de aportes o preguntas
+  def index
+    
+    @tab = @filter[:filter]
+    @questions = Question.filter(@type, @filter, current_user).page(params[:page]).per_page(10)
+    respond_to do |f|
+      f.html
+      f.js 
+    end
   end
   
   def pre_ask
@@ -30,6 +31,7 @@ class QuestionsController < ApplicationController
     end
     
     params[:question][:user_id] = current_user.id
+    @clear_results = params[:change_page].blank?
     @question = Question.new(params[:question])
     if @question.save
       redirect_to @question, format: :json
@@ -41,6 +43,7 @@ class QuestionsController < ApplicationController
   
   def show
     @question = Question.find(params[:id])
+    @filter = Hash.new
     
     # Marco como vista por el usuario
     if signed_in? && @question.user != current_user
@@ -50,4 +53,18 @@ class QuestionsController < ApplicationController
     
     @answer = @question.answers.new
   end
+  
+  private
+    def load_filter
+      @type = params[:type] || 'questions'
+      @filter = Hash.new
+      @filter[:tag] = params[:tag] unless params[:tag].blank?
+      @filter[:filter] = params[:filter] || 'hot' # Los tabs internos (hot, reputation, ...)
+      @filter[:search] = params[:search] unless params[:search].blank?
+    
+      if @filter[:filter] == 'my_school' 
+        raise(RequestExceptions::BadRequestError.new(t(:please_sign_in))) unless signed_in?
+        raise(RequestExceptions::BadRequestError.new(t("posts.list.need_school"))) if current_user.school.blank?
+      end
+    end
 end

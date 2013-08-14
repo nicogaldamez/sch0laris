@@ -7,6 +7,13 @@ jQuery ->
     preventDuplicates: true
     propertyToSearch: "description"
     hintText: ''
+  if $('.pagination').length  
+    $(window).scroll ->
+      url = $('.pagination a.next_page').attr('href')
+      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
+        loading(true)
+        $.getScript(url + '&change_page=1')
+    $(window).scroll
 
 $ ->
 	$("#ask_button").button()
@@ -24,17 +31,28 @@ $ ->
 		.bind "ajax:error", (event, data) ->
 			$("#ask_error").html(data.responseJSON.message)
 
-  # Answer question
-	$("#answer_form")
-		.bind "ajax:complete", (event, data) ->
-			$("#answer_button").button "reset"
-		.bind "ajax:before", (event, data) ->	
-			$("#answer_message").html('')
+  # Select best answer
+	$(".select_best_answer")
 		.bind "ajax:success", (event, data) ->
-			$(data).hide().appendTo("#answers").fadeIn(1000)
-			register_answer_events()
+			best_answer = $(this).hasClass('best_answer')
+			$('.select_best_answer').removeClass('best_answer')
+			$('.select_best_answer').html('<i class="icon icon-star-empty"> </i>')
+			if best_answer
+        $(this).html('<i class="icon icon-star-empty"> </i>')
+      else
+        $(this).addClass('best_answer')
+        $(this).html('<i class="icon icon-star"> </i>')
+  
+	# Ask question
+	$("#ask_form")
+		.bind "ajax:complete", (event, data) ->
+			$("#ask_button").button "reset"
+		.bind "ajax:before", (event, data) ->	
+			$("#ask_error").html('')
+		.bind "ajax:success", (event, data) ->
+			window.location.href = '/'
 		.bind "ajax:error", (event, data) ->
-			$("#answer_message").html(data.responseJSON.message)
+			$("#ask_error").html(data.responseJSON.message)
       
   register_answer_events()
   register_comments_events()

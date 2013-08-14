@@ -1,33 +1,43 @@
 <div id="how_to_ask">
   
   <div class="section">
-    <h3> <%= t("questions.how_to_ask.title") %> </h3>
+    <h3> <%= t("posts.how_to_ask.difference_title") %> </h3>
     <p>
-      <%= t("questions.how_to_ask.intro") %>
+      <%= t("posts.how_to_ask.difference_body") %>
+    </p>
+  </div>
+  
+  <div class="section">
+    <h3> <%= t("posts.how_to_ask.title") %> </h3>
+    <p>
+      <%= t("posts.how_to_ask.intro") %>
     </p>
   </div>
   
   
   <div class="section">
-    <h3> <%= t("questions.how_to_ask.search_well_title") %> </h3>
+    <h3> <%= t("posts.how_to_ask.search_well_title") %> </h3>
     <p>
-      <%= t("questions.how_to_ask.search_well_body") %>
+      <%= t("posts.how_to_ask.search_well_body") %>
     </p>
-    <%= text_field_tag :search, '', class:'search_input' %>
-  	<%= button_tag( :class => "btn btn-primary btn-large", type: 'submit', id: 'sign_in_btn') do %>
-  	  <i class="icon-search icon-white"></i>
-  	<% end %>
+		<%= form_tag questions_path, id: 'search_form', method: 'get', autocomplete: 'off' do %>
+      <%= text_field_tag :search, "", class:'search_input', placeholder: t(:search) %>
+    	<%= button_tag( :class => "btn btn-primary btn-large", type: 'submit', id: 'sign_in_btn') do %>
+    	  <i class="icon-search icon-white"></i>
+    	<% end %>
+    <% end %>
+  	
   </div>
 
   <div class="section">
-    <h3> <%= t("questions.how_to_ask.be_specific") %> </h3>
+    <h3> <%= t("posts.how_to_ask.be_specific") %> </h3>
     <p>
-      <%= t("questions.how_to_ask.be_specific_body") %>
+      <%= t("posts.how_to_ask.be_specific_body") %>
     </p>
   </div>
   
   <div class="section">
-    <%= link_to t("questions.how_to_ask.proceed"), ask_path, class: 'proceed' %>      
+    <%= link_to t("posts.how_to_ask.proceed"), ask_path, class: 'proceed' %>      
   </div>  
   
 </div>

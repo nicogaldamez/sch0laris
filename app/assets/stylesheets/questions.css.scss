@@ -132,8 +132,10 @@ div.token-input-dropdown {
         &:hover {
           .votes a, .leave_comment { visibility: visible; }
         }
-        
-        
+      }
+      
+      .best_answer {
+        color: $orangeColor;
       }
     }   
   }

@@ -27,6 +27,9 @@ Sch0larisRepo::Application.routes.draw do
         get 'down'
       end
     end
+    member do
+      post 'best_answer'
+    end
   end
 
   resources :users do
@@ -36,7 +39,7 @@ Sch0larisRepo::Application.routes.draw do
     end
   end
   
-  root to: 'questions#questions'
+  root to: 'questions#index'
 
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/ask', to: 'questions#ask'

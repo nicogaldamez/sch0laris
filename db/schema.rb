@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808232840) do
+ActiveRecord::Schema.define(:version => 20130814005908) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130808232840) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "votes",       :default => 0
+    t.boolean  "best_answer"
   end
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
@@ -67,6 +68,16 @@ ActiveRecord::Schema.define(:version => 20130808232840) do
   add_index "questions_tags", ["question_id"], :name => "index_questions_tags_on_question_id"
   add_index "questions_tags", ["tag_id"], :name => "index_questions_tags_on_tag_id"
 
+  create_table "schools", :force => true do |t|
+    t.string   "name"
+    t.string   "acronym"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "schools", ["acronym"], :name => "index_schools_on_acronym", :unique => true
+  add_index "schools", ["name"], :name => "index_schools_on_name", :unique => true
+
   create_table "tags", :force => true do |t|
     t.string   "description"
     t.datetime "created_at",  :null => false
@@ -85,11 +96,14 @@ ActiveRecord::Schema.define(:version => 20130808232840) do
     t.string   "remember_token"
     t.string   "gender",          :limit => 1
     t.string   "avatar"
+    t.integer  "school_id"
+    t.string   "other_school"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+  add_index "users", ["school_id"], :name => "index_users_on_school_id"
 
   create_table "votes", :force => true do |t|
     t.integer  "user_id"

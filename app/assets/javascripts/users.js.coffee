@@ -18,15 +18,25 @@ $ ->
       $("#form_message").hide()
       $("#form_message").html('')
     .bind "ajax:success", (event, data) ->
-      $("#form_message").addClass('text-success')
-      $("#form_message").removeClass('text-error')
+      $("#form_message").addClass('alert-success')
+      $("#form_message").removeClass('alert-error')
       $("#form_message").show()
       $("#form_message").html(data.message)
     .bind "ajax:error", (event, data) ->
-      $("#form_message").addClass('text-error')
-      $("#form_message").removeClass('text-success')
+      $("#form_message").addClass('alert-error')
+      $("#form_message").removeClass('alert-success')
       $("#form_message").show()
       $("#form_message").html(data.responseJSON.message)
+      
+  $('#school_not_present').click ->
+    if $('#school_not_present').is(':checked')
+      $('#create_other_school').fadeIn()
+      $("#user_school_id").val($("#user_school_id option:first").val());
+      $('#user_school_id').attr('disabled', true)
+    else
+      $('#create_other_school').hide()
+      $('#user_other_school').val('')
+      $('#user_school_id').attr('disabled', false)
 			
     
 jQuery ->
