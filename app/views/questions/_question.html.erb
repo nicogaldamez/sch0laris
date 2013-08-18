@@ -6,7 +6,7 @@
 	
 	<div class="span9">
 		<div class="name"> 
-      <b class="user"> <%= link_to question.user.name, '#' %> </b> 
+      <b class="user"> <%= link_to question.user.name, question.user %> </b> 
       <%= t("posts.list.wrote_about") %> 
       <small class="tags"> 
         <% question.tags.each do |tag| %>

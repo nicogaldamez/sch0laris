@@ -73,12 +73,8 @@ $ ->
         e.popover(
           content: d, 
           html: true, 
-          placement: 'bottom',
-          title: 'Notifications'
+          placement: 'bottom'
         ).popover "show"
-      
-      # $(".popover").off("click").on "click", (e) ->
-#         e.stopPropagation() # prevent event for bubbling up => will not get caught with document.onclick
       
     
   $(":not(#anything)").on "click", (e) ->

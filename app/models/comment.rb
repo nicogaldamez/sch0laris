@@ -13,6 +13,8 @@
 #
 
 class Comment < ActiveRecord::Base
+  include PublicActivity::Common
+  
   attr_accessible :body, :user_id
   
   belongs_to :user

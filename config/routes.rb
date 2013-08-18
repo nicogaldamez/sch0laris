@@ -35,6 +35,7 @@ Sch0larisRepo::Application.routes.draw do
 
   resources :users do
     member do
+      get 'feed'
       put 'crop_avatar'
       put 'upload_avatar'
     end

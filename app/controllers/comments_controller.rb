@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
     if !@comment.save
       raise(RequestExceptions::BadRequestError.new(@comment.errors.full_messages))
     else
+      @comment.create_activity :create, owner: current_user
       render 'create', layout: false
     end
   end

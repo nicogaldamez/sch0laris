@@ -1,6 +1,7 @@
-<li>
-  <%= render :partial => "notifications/activities/#{ notification.notified_object_type.downcase }",
-             :locals => {:activity => notification.notified_object} %>
-  <small class="date-ago muted"><%= "#{time_ago_in_words(notification.created_at)}" %></small>
-</li>
-    
+<% if notification.notified_object != nil %>
+  <li>
+    <%= render :partial => "notifications/activities/#{ notification.notified_object_type.downcase }",
+               :locals => {:activity => notification.notified_object} %>
+    <small class="date-ago muted"><%= "#{time_ago_in_words(notification.created_at)}" %></small>
+  </li>
+<% end %>

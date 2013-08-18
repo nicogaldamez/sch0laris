@@ -14,6 +14,7 @@
 #
 
 class Answer < ActiveRecord::Base
+  include PublicActivity::Common
   attr_accessible :body, :question_id, :created_at, :user, :user_id, :best_answer
   
   belongs_to :user
@@ -21,13 +22,13 @@ class Answer < ActiveRecord::Base
   has_many :user_votes, class_name: 'Vote', as: :voteable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   
-  after_commit :create_notification
+  after_commit :create_notification, :on => :create
   
   private
     def create_notification
       question = self.question
       return false if user == question.user
-      type = (question.post_type == 'Q') ? 'question' : 'answer'
+      type = (question.post_type == 'Q') ? 'question' : 'entry'
       subject = I18n.t('notification.answer.'+ type, 
            :sender => self.user.name,
            :whose => I18n.t('notification.whose.yours')

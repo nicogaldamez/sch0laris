@@ -34,6 +34,7 @@ class QuestionsController < ApplicationController
     @clear_results = params[:change_page].blank?
     @question = Question.new(params[:question])
     if @question.save
+      @question.create_activity :create, owner: current_user
       redirect_to @question, format: :json
     else
       raise(RequestExceptions::BadRequestError.new(@question.errors.full_messages))

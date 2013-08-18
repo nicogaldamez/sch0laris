@@ -1,0 +1,32 @@
+// Place all the styles related to the votes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$borderColor: #e6e6e6;
+$textColor: #666;
+$linkColor: #898989;
+#feed {
+  h3 {
+    text-align: center;
+  }
+  
+  li {
+    border-bottom: 1px solid $borderColor;
+    padding: 10px 5px;
+  
+    a {
+      color: $linkColor;
+    }
+    
+    img {
+      float: left;
+      margin-right: 10px;
+    }
+    span, small {
+      display: block;
+    }
+  
+    &:last-child {
+      border: 0px;
+    }
+  }
+}
