@@ -185,6 +185,9 @@ header {
     }
 		
 	}
+  .popover {
+    margin-left: -30px;
+  }
 }
 
 .navbar .nav > li > a {
@@ -308,6 +311,10 @@ input {
 .field_with_errors {
 	@extend .control-group;
 	@extend .error;
+}
+
+.popover {
+  max-width: 376px;
 }
 
 /*---------------*/
@@ -605,4 +612,35 @@ ul {
   margin: auto;
   width: 600px;
   border: 1px solid $borderColor;
+}
+
+
+/*----- NOTIFICATIONS -----*/ 
+#notifications {
+  margin-left: 0px;
+  
+  li {
+    border-bottom: 1px solid $borderColor;
+    padding: 10px 5px;
+  
+    a {
+      color: #333333;
+    }
+    
+    .subject {
+      font-weight: bold;
+    }
+    
+    span, small {
+      display: block;
+    }
+  
+    &:last-child {
+      border: 0px;
+    }
+  
+    &:hover {
+      background: #f7f7f7;
+    }
+  }
 }

@@ -3,6 +3,7 @@ Sch0larisRepo::Application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resources :tags, only: [:index]
   resources :comments, only: [:destroy]
+  resources :notifications, only: [:index]
 
   resources :questions do
     resources :comments, only: [:new, :create]

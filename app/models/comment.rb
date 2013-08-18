@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # == Schema Information
 #
 # Table name: comments
@@ -20,11 +21,11 @@ class Comment < ActiveRecord::Base
   after_commit :create_notification, on: :create
   
   private
-  def create_notification
-    obj = commentable
-    return false if user == obj.user
-    subject = "#{user.name} has commented your answer"
-    body = "Hola #{obj.user.name}, #{user.name}  has granted you access to the."
-    obj.user.notify(subject, body, self)
-  end
+    def create_notification
+      obj = commentable
+      return false if user == obj.user
+      subject = "#{user.name} escribió el siguiente comentario"
+      body = "#{self.body}"
+      obj.user.notify(subject, body, self)
+    end
 end

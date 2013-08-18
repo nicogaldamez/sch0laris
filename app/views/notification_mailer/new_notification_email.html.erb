@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h4> <%= @notification.subject.html_safe? ? @notification.subject : strip_tags(@notification.subject) %></h4>
+    <blockquote style="color: #999999">
+      <%= raw(truncate(@notification.body, length: 100)) %>
+
+    </blockquote>
+    <p>
+      Visita <%= link_to 'Scholaris', root_url %> para ver de qué se trata.
+    </p>
+    <p> 
+      Saludos, <br>
+      El equipo de Scholaris
+    </p>
+  </body>
+</html>

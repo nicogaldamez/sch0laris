@@ -80,6 +80,18 @@ es:
   tags:
     click_a_tag: "Haz click en una etiqueta para buscar resultados asociados a la selección "
 
+  notification:
+    empty: "No tienes notificaciones"
+    default: Tienes una nueva notificación
+    comment: 
+      answer: '<b>%{sender}</b> comentó una respuesta %{whose}.'
+      question: '<b>%{sender}</b> comentó una pregunta %{whose}.'
+    answer: 
+      question: '<b>%{sender}</b> respondió una pregunta %{whose}.'
+    whose:
+      yours: tuya
+      user: de
+
   # SESSIONS	
   email: "Email"
   sign_in: "Ingresar"

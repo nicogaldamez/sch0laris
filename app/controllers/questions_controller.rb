@@ -42,6 +42,7 @@ class QuestionsController < ApplicationController
   end
   
   def show
+    
     @question = Question.find(params[:id])
     @filter = Hash.new
     
@@ -61,6 +62,7 @@ class QuestionsController < ApplicationController
       @filter[:tag] = params[:tag] unless params[:tag].blank?
       @filter[:filter] = params[:filter] || 'hot' # Los tabs internos (hot, reputation, ...)
       @filter[:search] = params[:search] unless params[:search].blank?
+      @clear_results = params[:clear] unless params[:clear].blank?
     
       if @filter[:filter] == 'my_school' 
         raise(RequestExceptions::BadRequestError.new(t(:please_sign_in))) unless signed_in?

@@ -1,0 +1,11 @@
+<%  
+question = activity.question
+type = (question.post_type == 'Q') ? 'question' : 'answer'
+whose = (question.user == current_user) ? 'notification.whose.yours' : 'notification.whose.user'%>
+<span> 
+  <%= link_to notification_url_of(question, @notification) do %>
+    <%= raw t('notification.answer.'+ type, 
+   :sender => truncate_name(activity.user.name),
+   :whose => t(whose, :receiver => truncate_name(question.user.name))) %>
+  <% end %>
+</span>

@@ -1,0 +1,7 @@
+<% if @notifications.empty? %>
+  <%= t("notification.empty") %>
+<% else %>
+  <ul id="notifications">
+    <%= render partial: 'notification', collection: @notifications, as: 'notification' %>
+  </ul>
+<% end %>
