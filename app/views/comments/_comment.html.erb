@@ -1,4 +1,5 @@
 <div class="comments">
+  <% logger.debug commentable.inspect %>
     <ul id='<%= "comments_#{commentable.id}" %>' class="row span10 offset1 comments_list">
       <%= render partial:'questions/comment', collection: commentable.comments, as: 'comment' %> 
     </ul>

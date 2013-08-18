@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
   
   def index
+    @filter = Hash.new
     @tags = Tag.order(:description)
     respond_to do |format|
       format.html

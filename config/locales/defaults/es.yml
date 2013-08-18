@@ -232,3 +232,7 @@ es:
 
       full_messages:
         format: "%{attribute} %{message}"
+
+  mailboxer:
+    notification_mailer:
+      subject: 'Tienes nuevas notificaciones en Scholaris'

@@ -1,6 +1,7 @@
 <div id="main_nav" class="row">
   <div class="span10">
   	<ul>
+      <% @filter = Hash.new if @filter.blank? %>
       <% params = { tag: @filter[:tag], search: @filter[:search]} %>
       <li id="questions"> 
         <%= link_to t("main_nav.questions_title"), questions_path(params.merge({type: 'questions'})) %>

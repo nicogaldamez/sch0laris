@@ -1,0 +1,14 @@
+<%  
+question = activity.trackable
+type = (question.post_type == 'Q') ? 'question' : 'entry'
+%>
+
+<%= image_tag 'icons/question_32.png' %>
+<span> 
+  <%= raw t('feed.post', 
+      :thing => link_to(t('feed.thing.'+ type),notification_url_of(question, nil)),
+      :user => truncate_name(question.user.name))
+  %>
+</span>           
+         
+<small class="date-ago muted"><%= "#{time_ago_in_words(activity.created_at)}" %></small>

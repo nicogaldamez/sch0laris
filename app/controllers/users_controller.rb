@@ -21,9 +21,12 @@ class UsersController < ApplicationController
   end
   
   def show
+    @filter = Hash.new
     @user = User.find(params[:id])
+    @feed = PublicActivity::Activity.order("created_at desc").where(owner_id: params[:id])
     respond_to do |f|
       f.json 
+      f.html
     end
   end
   
@@ -93,5 +96,6 @@ class UsersController < ApplicationController
       raise(RequestExceptions::BadRequestError.new(@user.errors.full_messages))
     end
   end
+  
   
 end

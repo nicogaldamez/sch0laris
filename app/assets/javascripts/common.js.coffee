@@ -22,6 +22,7 @@ $ ->
   $("#search_container").mouseover ->
     $("#search").focus()
     unless visible_search_input
+      hide_notification_popover()
       root.visible_search_input = true
       $("#search").animate width: "toggle"
 
@@ -63,6 +64,29 @@ $ ->
   	"link": true, #Button to insert a link. Default true
   	"image": false, #Button to insert an image. Default true,
   	"color": false #Button to change color of font
+    
+  # Notificaciones
+  $("#notifications_link").click ->
+      e = $(this)
+
+      $.get '/notifications', (d) ->
+        e.popover(
+          content: d, 
+          html: true, 
+          placement: 'bottom'
+        ).popover "show"
+      
+    
+  $(":not(#anything)").on "click", (e) ->
+    $(".popover-link").each ->    
+      #the 'is' for buttons that trigger popups
+      #the 'has' for icons and other elements within a button that triggers a popup
+      if not $(this).is(e.target) and $(this).has(e.target).length is 0 and $(".popover").has(e.target).length is 0
+        $(this).popover "hide"
+        return
+  
+@hide_notification_popover = ->
+  $("#notifications_link").popover('hide')  
   
 @activeMenuItem = (menu, item) ->
   $("##{menu} li").removeClass('active')

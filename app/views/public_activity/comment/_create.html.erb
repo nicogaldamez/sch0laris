@@ -1,0 +1,14 @@
+<%  
+comment = activity.trackable
+comment_of = comment.commentable_type.downcase.underscore 
+whose = (comment.commentable.user == current_user) ? 'notification.whose.yours' : 'notification.whose.user'%>
+  
+<%= image_tag 'icons/comment_32.png' %>
+<span> 
+  <%= raw t('feed.comment.'+ comment.commentable_type.downcase.underscore, 
+       :sender => truncate_name(comment.user.name),
+       :thing => link_to(t('feed.thing.'+ comment_of),notification_url_of(comment, nil)),
+       :whose => t(whose, :receiver => link_to(truncate_name(comment.commentable.user.name), comment.commentable.user))) %>
+</span>                 
+         
+<small class="date-ago muted"><%= "#{time_ago_in_words(activity.created_at)}" %></small>

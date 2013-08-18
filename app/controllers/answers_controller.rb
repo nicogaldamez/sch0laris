@@ -10,6 +10,8 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
     if !@answer.save
       raise(RequestExceptions::BadRequestError.new(@answer.errors.full_messages))
+    else
+      @answer.create_activity :create, owner: current_user
     end
     @answer = Question.find(@answer.question_id).answers.last
     render :partial => "answers/answer", :locals => { :answer => @answer }, :layout => false

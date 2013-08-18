@@ -1,7 +1,7 @@
 <div id="questions">
 	
 	<ul id="filter_nav" class="nav nav-pills">
-    <% params = { type: @type, tag: @filter[:tag], search: @filter[:search]} %>
+    <% params = { type: @type, tag: @filter[:tag], search: @filter[:search], clear: true} %>
 	  <li id="hot" class="filter_questions"> 
       <%= link_to t(:hot), questions_path(params.merge({filter: 'hot'})), 
           remote: true, class: 'remote_link' %>

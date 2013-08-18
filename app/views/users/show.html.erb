@@ -1,0 +1,12 @@
+<h1> <%= t('feed.title', user: @user.name) %> </h1>
+
+<div id="feed">
+  <%= raw("<h3 class='muted'> #{t('feed.empty')} </h3>") if @feed.blank? %>
+  <ul>
+    <% @feed.each do |activity| %>
+      <li class="activity">
+        <%= render_activity activity %>
+      </li>
+    <% end %>
+  </ul>
+</div>

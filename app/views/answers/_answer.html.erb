@@ -3,7 +3,7 @@
   <div class="answer row" id='<%= "answer_#{answer.id}" %>'>
 		
   	<%= avatar_for(answer.user, { size: :mini }) %>
-    <%= link_to answer.user.name, "#" %>
+    <%= link_to answer.user.name, answer.user %>
     <small class="muted"> <%= answer.created_at %> </small>
     
     <% if signed_in? && answer.user == current_user%>

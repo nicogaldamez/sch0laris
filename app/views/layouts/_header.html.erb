@@ -27,12 +27,17 @@
                 <%= text_field_tag :search, "", placeholder: t(:search) %>
               <% end %>
 						</li>
+            <li>
+              <%= link_to "<i class='icon icon-bell'> </i>".html_safe, "#", id: "notifications_link", class: 'popover-link',
+                     data: { title: t('notification.title') }%>
+            </li>
 		      	<li id="fat-menu" class="dropdown">
+              
 		          <a href="#" class="user_name dropdown-toggle" data-toggle="dropdown">
 		            <%= @current_user.name %> <b class="caret"></b>
 		          </a>
 		          <ul class="dropdown-menu">
-		            <li><%= link_to t(:profile), profile_personal_path %></li>
+                <li><%= link_to t(:profile), profile_personal_path %></li>
 		            <li class="divider"></li>
 		            <li> <%= link_to t(:sign_out), signout_path, method: "delete" %> </li>				
 		          </ul>
