@@ -3,8 +3,14 @@ Sch0larisRepo::Application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resources :tags, only: [:index]
   resources :comments, only: [:destroy]
-  resources :notifications, only: [:index]
+  resources :password_resets
 
+  resources :notifications, only: [:index] do
+    collection do
+      get 'check_new'
+    end
+  end
+  
   resources :questions do
     resources :comments, only: [:new, :create]
     resources :votes, only: [] do
@@ -51,4 +57,7 @@ Sch0larisRepo::Application.routes.draw do
   match '/profile/password', to: 'users#password_profile'
   match '/profile/avatar', to: 'users#avatar_profile'
   
+  # Sign in with twitter
+  match 'auth/:provider/callback', to: 'sessions#social_network_callback'
+  match 'auth/failure', to: redirect('/')
 end

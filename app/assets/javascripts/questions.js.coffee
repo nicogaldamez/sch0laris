@@ -11,7 +11,7 @@ jQuery ->
     $(window).scroll ->
       url = $('.pagination a.next_page').attr('href')
       if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
-        loading(true)
+        Utils.loading(true)
         $.getScript(url + '&change_page=1')
     $(window).scroll
 
@@ -63,14 +63,14 @@ $ ->
       count_container= $(this).closest('.votes').find('.number')
       refresh_vote_count(count_container, 1)
 		.bind "ajax:error", (event, data) ->
-			notify data.responseJSON.message, 'error'
+			Utils.notify data.responseJSON.message, 'error'
   
 	$(".vote_down")
 		.bind "ajax:success", (event, data) ->
       count_container= $(this).closest('.votes').find('.number')
       refresh_vote_count(count_container, -1)
 		.bind "ajax:error", (event, data) ->
-			notify data.responseJSON.message, 'error'
+			Utils.notify data.responseJSON.message, 'error'
   
   $(".leave_comment")
     .bind "ajax:success", (event, data) ->
@@ -84,14 +84,14 @@ $ ->
 		.bind "ajax:success", (event, data) ->
 			$(this).closest('.answer').fadeOut()
 		.bind "ajax:error", (event, data) ->
-			notify data.responseJSON.message, 'error'
+			Utils.notify data.responseJSON.message, 'error'
 
 @register_comments_events = ->
 	$(".delete_comment")
 		.bind "ajax:success", (event, data) ->
 			$(this).closest('.comment').remove()
 		.bind "ajax:error", (event, data) ->
-			notify data.responseJSON.message, 'error'
+			Utils.notify data.responseJSON.message, 'error'
 
 @refresh_vote_count = (container, type)->
   value = parseInt(container.text()) + type
@@ -114,7 +114,7 @@ $ ->
       
 			
 		.bind "ajax:error", (event, data) ->
-			notify data.responseJSON.message, 'error'
+			Utils.notify data.responseJSON.message, 'error'
     
   
   

@@ -5,11 +5,14 @@
         <%= t (".personal") %> <i class="icon-chevron-right"></i>
       <% end %> 
     </li>
-    <li id="password"> 
-      <%= link_to profile_password_path do %>
-        <%= t (:password) %> <i class="icon-chevron-right"></i>
-      <% end %> 
-    </li>
+    <% if current_user.password_required? %>
+      <li id="password"> 
+        <%= link_to profile_password_path do %>
+          <%= t (:password) %> <i class="icon-chevron-right"></i>
+        <% end %> 
+      </li>
+    <% end %>
+    
     <li id="avatar"> 
       <%= link_to profile_avatar_path do %>
         <%= t (".avatar") %> <i class="icon-chevron-right"></i>
@@ -18,4 +21,4 @@
   </ul>
 </aside>
 
-<%= javascript_tag "activeMenuItem('profile_menu', '#{active}')" %> 
+<%= javascript_tag "Utils.activeMenuItem('profile_menu', '#{active}')" %> 

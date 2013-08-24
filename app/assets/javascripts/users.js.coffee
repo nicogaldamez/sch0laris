@@ -18,15 +18,17 @@ $ ->
       $("#form_message").hide()
       $("#form_message").html('')
     .bind "ajax:success", (event, data) ->
-      $("#form_message").addClass('alert-success')
-      $("#form_message").removeClass('alert-error')
-      $("#form_message").show()
-      $("#form_message").html(data.message)
+      # $("#form_message").addClass('alert-success')
+#       $("#form_message").removeClass('alert-error')
+#       $("#form_message").show()
+      Utils.notify data.message, 'success'
+      # $("#form_message").html(data.message)
     .bind "ajax:error", (event, data) ->
-      $("#form_message").addClass('alert-error')
-      $("#form_message").removeClass('alert-success')
-      $("#form_message").show()
-      $("#form_message").html(data.responseJSON.message)
+      # $("#form_message").addClass('alert-error')
+#       $("#form_message").removeClass('alert-success')
+#       $("#form_message").show()
+#       $("#form_message").html(data.responseJSON.message)
+      Utils.notify data.responseJSON.message, 'error'
       
   $('#school_not_present').click ->
     if $('#school_not_present').is(':checked')

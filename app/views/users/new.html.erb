@@ -43,19 +43,14 @@
 					 	id: 'sign_up_button', 'data' => { 'loading-text' => t(:loading) } %>			
 			</div>
 		<% end %>
-		
-		<p>
-			<%= t ".legal_approval" %>
-		</p>
 	</div>
 	
-	<div class="description span3">
-		<p>
-			<%= t ".sign_up_description1" %> 
-		</p>
-		
-		<p>
-			<%= t ".sign_up_description2" %>
-		</p>
+	<div class="description span4">
+    <div class="social_networks">
+      <p> <%= t ".sign_up_prefer_social_networks" %> </p>
+      <%= link_to raw('<i class="icon icon-twitter"></i> Twitter' ), "/auth/twitter", class: 'btn'%>
+      <%= link_to raw('<i class="icon icon-facebook"></i> Facebook'), "/auth/facebook", class: 'btn'%>
+      <%= link_to raw('<i class="icon icon-google-plus"></i> Google'), "/auth/google_oauth2", class: 'btn'%>
+    </div>
 	</div>
 </div>

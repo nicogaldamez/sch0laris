@@ -1,0 +1,15 @@
+<h2> <%= t("password_reset.title") %> </h2>
+
+<div class="center">
+  <p> <%= t('password_reset.how_to') %> </p>
+	<%= form_tag password_resets_path, id: "password_reset_form", :method => :post do %>
+			
+    <div class="fields">  
+      <%= text_field_tag :email, params[:email], class: 'input-xlarge' %>
+    </div>
+			
+		<%= submit_tag t("password_reset.title"), class: "btn btn-success" %>
+	<% end %>
+	</div>
+
+</div>

@@ -2,6 +2,6 @@
   <%= t("notification.empty") %>
 <% else %>
   <ul id="notifications">
-    <%= render partial: 'notification', collection: @notifications, as: 'notification' %>
+    <%= render partial: "notification", collection: @notifications %>
   </ul>
 <% end %>

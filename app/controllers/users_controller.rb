@@ -41,6 +41,7 @@ class UsersController < ApplicationController
     raise PermissionViolation unless signed_in?
     
     @user = current_user
+    @user.updating_password = true
     
     render "users/profile/password"
   end

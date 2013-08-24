@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
       @answer.create_activity :create, owner: current_user
     end
     @answer = Question.find(@answer.question_id).answers.last
-    render :partial => "answers/answer", :locals => { :answer => @answer }, :layout => false
+    # render :partial => "answers/answer", :locals => { :answer => @answer }, :layout => false
   end
   
   def show

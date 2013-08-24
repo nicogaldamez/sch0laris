@@ -1,12 +1,12 @@
 <% if @clear_results %>
   $("#questions_list").html("<%= escape_javascript(render('questions_list', collection:@questions))%>");
-  activeMenuItem('filter_nav', '<%= @tab %>');
+  Utils.activeMenuItem('filter_nav', '<%= @tab %>');
 <% else %>
   $("#questions_list").append("<%= escape_javascript(render('questions_list', collection:@questions))%>");
   $('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
   <% if @questions.next_page %>
     $('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
-    loading(false)
+    Utils.loading(false)
   <% else %>
     $('.pagination').remove();
   <% end %>

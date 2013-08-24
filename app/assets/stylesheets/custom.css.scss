@@ -417,10 +417,18 @@ ul {
 		text-align: right;
 		margin-right: 75px;
 	}
+  
+  img {
+    vertical-align: text-top;
+  }
 	
 	.text-error {
 		text-align: center;
 	}
+  
+  #sign_in_with_tw:hover { color: #9AE4E8;}
+  #sign_in_with_fb:hover { color: #899ECB;}
+  #sign_in_with_g:hover { color: #C61800;}
 }
 
 /*----- SIGN_UP -----*/
@@ -433,12 +441,19 @@ ul {
 			font-size: 0.9em;
 		} 
 	}
-	.description {
-		p {
-			font-size: 1.5em;
-			color: #a4a4a4;
-			margin-bottom: 40px;
-		}
+  
+  .description {
+    .social_networks {
+      margin-bottom: 20px;
+      p {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+      }
+      .btn {
+        width: 70px;
+        margin-bottom: 20px;
+      }
+    }
 	}
 	input[type=radio] {
 		margin-right: 10px;
@@ -617,6 +632,11 @@ ul {
 
 
 /*----- NOTIFICATIONS -----*/ 
+#notifications_link.new_notifications {
+  color: $orangeColor;
+  font-weight: bold;
+}
+
 #notifications {
   margin-left: 0px;
   
@@ -641,6 +661,10 @@ ul {
     }
   
     &:hover {
+      background: #f7f7f7;
+    }
+    
+    &.unread {
       background: #f7f7f7;
     }
   }

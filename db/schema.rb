@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818154632) do
+ActiveRecord::Schema.define(:version => 20130819224606) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -144,17 +144,21 @@ ActiveRecord::Schema.define(:version => 20130818154632) do
   add_index "tags", ["description"], :name => "index_tags_on_description", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "email",                        :null => false
-    t.string   "name",                         :null => false
-    t.date     "dateOfBirth",                  :null => false
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.string   "email"
+    t.string   "name",                                :null => false
+    t.date     "dateOfBirth",                         :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "gender",          :limit => 1
+    t.string   "gender",                 :limit => 1
     t.string   "avatar"
     t.integer  "school_id"
     t.string   "other_school"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

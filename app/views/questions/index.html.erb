@@ -16,7 +16,7 @@
     <li>
 	  <li id="my_school" class="filter_questions">
       <%= link_to t(:my_school), questions_path(params.merge({filter: 'my_school'})), 
-          remote: true, class: 'remote_link' %>
+          remote: true, class: 'remote_link', format: 'js' %>
     <li>  
 	</ul>
 	
@@ -28,6 +28,6 @@
 </div>
 
 <script type="text/javascript">
-  activeMenuItem('main_nav', '<%= @type %>');
-  activeMenuItem('filter_nav', '<%= @tab %>');
+  Utils.activeMenuItem('main_nav', '<%= @type %>');
+  Utils.activeMenuItem('filter_nav', '<%= @tab %>');
 </script>

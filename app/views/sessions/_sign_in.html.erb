@@ -18,8 +18,13 @@
 				<% end %>
 				
 				<div class="forgot">
-					<%= link_to t(:forgot_password), '#' %>
-					
+      		<%= link_to t(:forgot_password), new_password_reset_path %>
+          <%= link_to raw('<i class="icon icon-twitter"></i>' ), "/auth/twitter", title: t(:twitter_sign_in), 
+                data: { toggle: 'tooltip' }, id: 'sign_in_with_tw' %>
+          <%= link_to raw('<i class="icon icon-facebook"></i>' ), "/auth/facebook", title: t(:facebook_sign_in), 
+                data: { toggle: 'tooltip' }, id: 'sign_in_with_fb'%>
+          <%= link_to raw('<i class="icon icon-google-plus"></i>' ), "/auth/google_oauth2", title: t(:google_sign_in), 
+                data: { toggle: 'tooltip' }, id: 'sign_in_with_g'%>
 				</div>
 		
 				<p id="sign_in_error" class="text-error">  </p>

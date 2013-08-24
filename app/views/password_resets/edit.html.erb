@@ -1,0 +1,27 @@
+<h2> <%= t("password_reset.title") %> </h2>
+
+<div class="center">
+
+  <%= form_for @user, :url => password_reset_path(params[:id]), remote: true, 
+        html: { id: 'password_reset_form' } do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, id: 'password' %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, id: 'confirmation' %>
+    </div>
+    <%= f.submit t("password_reset.title"), class: "btn btn-success" %>
+  <% end %>
+  
+</div>

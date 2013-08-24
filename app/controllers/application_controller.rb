@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   
   
   before_filter :set_locale
+  before_filter :mark_notification_as_read
   
   # Setea el idioma del usuario
   # Lo saca del parametro locale o el header HTTP_ACCEPT_LANGUAGE
@@ -49,8 +50,15 @@ class ApplicationController < ActionController::Base
     
     # REQUEST ERRORS
     def bad_request (exception)    
-			@message = exception.message
-      render 'shared/error', status: 400
+      @message = exception.message
+      respond_to do |f|
+        f.json { render 'shared/error', layout: false, status: 400 }
+        f.js { render 'shared/error', layout: false, status: 400 }
+        f.html do
+          flash[:error] = @message 
+          redirect_to root_url
+        end
+      end
       return
     end
   
@@ -64,5 +72,11 @@ class ApplicationController < ActionController::Base
 			@message = exception.message
       render 'shared/error', status: 403
       return   
+    end
+    
+    def mark_notification_as_read
+      return if params[:notification_id].blank? or !signed_in?
+      n = Notification.find(params[:notification_id])
+      n.mark_as_read(current_user)
     end
 end
