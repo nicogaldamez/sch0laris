@@ -2,32 +2,40 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string(255)      not null
-#  name            :string(255)      not null
-#  dateOfBirth     :date             not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string(255)
-#  remember_token  :string(255)
-#  gender          :string(1)
-#  avatar          :string(255)
+#  id                     :integer          not null, primary key
+#  email                  :string(255)
+#  name                   :string(255)      not null
+#  dateOfBirth            :date             not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  password_digest        :string(255)
+#  remember_token         :string(255)
+#  gender                 :string(1)
+#  avatar                 :string(255)
+#  school_id              :integer
+#  other_school           :string(255)
+#  password_reset_token   :string(255)
+#  password_reset_sent_at :datetime
+#  provider               :string(255)
+#  uid                    :string(255)
 #
 
 class User < ActiveRecord::Base
   acts_as_messageable
   
   attr_accessible :email, :name, :password, :password_confirmation, :dateOfBirth, :gender, :avatar,
-                  :crop_x, :crop_y, :crop_w, :crop_h, :school_id, :other_school
+                  :crop_x, :crop_y, :crop_w, :crop_h, :school_id, :other_school, :updating_password
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :updating_password
   mount_uploader :avatar, AvatarUploader
   
   has_secure_password
   
   belongs_to :school
+  has_many :answers
+  has_many :comments
   
   before_save { |user| user.email = email.downcase unless email == nil }
-  before_create { create_remember_token(:remember_token) }
+  # before_create { create_remember_token(:remember_token) }
   before_validation :save_other_school
   after_update :crop_avatar
 
@@ -72,7 +80,6 @@ class User < ActiveRecord::Base
       provider  = "facebook"
       # catch any excpetions thrown by code just to make sure we can continue even if parts of the omnia_has are missing
       begin
-        logger.debug auth.inspect
         name = auth['info']['name']
         email = auth['info']['email']
       rescue => ex

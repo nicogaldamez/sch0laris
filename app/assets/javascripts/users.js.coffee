@@ -3,32 +3,19 @@ $ ->
 		.bind "ajax:complete", (event, data) ->
 			$("#sign_up_button").button "reset"
 		.bind "ajax:before", (event, data) ->	
-			$("#error_explanation").hide()
-			$("#error_explanation ul").html('')
+    $("#sign_up_button").button "loading"
 		.bind "ajax:success", (event, data) ->
 			window.location.href = '/'
-		.bind "ajax:error", (event, data) ->
-			errors_list= $("#error_explanation ul")
-			for error in data.responseJSON.message
-				errors_list.append("<li>" + error + '</li>')
-			$("#error_explanation").show()
       
 	$(".profile_form")
+    .bind "ajax:complete", ->
+      $(".profile_form :submit").button "reset"
     .bind "ajax:before", (event, data) ->  
       $("#form_message").hide()
       $("#form_message").html('')
+      $(".profile_form :submit").button "loading"
     .bind "ajax:success", (event, data) ->
-      # $("#form_message").addClass('alert-success')
-#       $("#form_message").removeClass('alert-error')
-#       $("#form_message").show()
       Utils.notify data.message, 'success'
-      # $("#form_message").html(data.message)
-    .bind "ajax:error", (event, data) ->
-      # $("#form_message").addClass('alert-error')
-#       $("#form_message").removeClass('alert-success')
-#       $("#form_message").show()
-#       $("#form_message").html(data.responseJSON.message)
-      Utils.notify data.responseJSON.message, 'error'
       
   $('#school_not_present').click ->
     if $('#school_not_present').is(':checked')

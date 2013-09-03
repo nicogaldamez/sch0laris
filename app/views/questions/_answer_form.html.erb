@@ -1,6 +1,7 @@
 <%= form_for(@answer, :html => { id: 'answer_form', :autocomplete => "off", 
 				remote: true}) do |f| %>
 
+  <%= f.hidden_field :id %>
   <%= f.hidden_field :question_id %>
 
   <%= f.label :body, t("answers.your_answer") %>
@@ -8,5 +9,6 @@
   
   <%= f.submit t("answers.post_answer"), 'data' => { 'loading-text' => t(:loading) },
         class: 'btn btn-primary', id: 'answer_button'%>
+  <%= link_to_function t(:cancel), 'cancel_answer_edit()', id: 'cancel_answer_edit', class: 'btn' %>
   <span id="answer_message" class="text-error"></span>
 <% end %>

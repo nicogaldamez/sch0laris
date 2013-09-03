@@ -1,3 +1,8 @@
+#encoding: UTF-8
+root = exports ? this
+root.visible_sign_in = false
+root.visible_search_input = false
+
 # Muestro el form para login
 @toggle_sign_in = ->
   
@@ -26,6 +31,5 @@ $ ->
 		.bind "ajax:success", (event, data) ->
 			window.location.reload()
 		.bind "ajax:error", (event, data) ->
-			$("#sign_in_error").text data.responseJSON.message
-			$("#sign_in_error").show()
 			$("#sign_in_loading").hide()
+      

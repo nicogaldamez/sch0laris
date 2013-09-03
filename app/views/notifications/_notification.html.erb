@@ -1,9 +1,8 @@
-<% if notification.notified_object != nil 
+<%
   notification_class = (notification.is_unread?(current_user)) ? 'unread' : 'read'
 %>
   <li class="<%= notification_class %>">
     <%= render :partial => "notifications/activities/#{ notification.notified_object_type.downcase }",
                :locals => {:activity => notification.notified_object, notification: notification} %>
     <small class="date-ago muted"><%= "#{time_ago_in_words(notification.created_at)}" %></small>
-  </li>
-<% end %>
+  </li> 

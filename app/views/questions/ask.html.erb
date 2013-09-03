@@ -2,8 +2,10 @@
   <h3> <%= t("posts.new.what_do_you_want") %> </h3>
   
 	<%= form_for(@question, :html => { id: 'ask_form', :autocomplete => "off", 
-					remote: true, format: 'json'}) do |f| %>
-
+					remote: true}, format: 'json') do |f| %>
+    
+    <%= f.hidden_field :id %>
+    
     <div class="decision">
       <%= f.radio_button :post_type, "Q", checked: true %>
       <%= label_tag(:question_post_type_q, t("posts.new.want_to_ask")) %>
@@ -19,7 +21,7 @@
     <%= f.text_area :body, rows: 8, class: 'wysihtml5' %>
     
     <%= f.label :tag_tokens, t(:tags) %>
-    <%= f.text_field :tag_tokens, class: 'tags_input' %>
+    <%= f.text_field :tag_tokens, class: 'tags_input', data: {load: @question.tags} %>
   
     <%= f.submit t("questions.ask.send"), 'data' => { 'loading-text' => t(:loading) },
           class: 'btn btn-primary', id: 'ask_button'%>

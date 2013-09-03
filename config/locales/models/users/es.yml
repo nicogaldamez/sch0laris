@@ -10,4 +10,4 @@ es:
         email: "Correo"
         password: "Clave"
         dateOfBirth: "Fecha de nacimiento"
-  weak_password: "asdaddasd"
+        school: "Facultad"

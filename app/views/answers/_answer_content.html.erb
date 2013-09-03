@@ -1,0 +1,64 @@
+<%= avatar_for(answer.user, { size: :mini }) %>
+<%= link_to answer.user.name, answer.user %>
+<small class="muted"> <%= answer.created_at %> </small>
+
+
+<% if allow?(:answers, :edit, answer) %>
+  <%= link_to raw('<i class="icon icon-pencil"> </i>'), edit_answer_path(answer), class:'edit_answer', 
+      remote: true, title: t("posts.edit"), data: { toggle: 'tooltip' } %>
+<% end %>
+<% if allow?(:answers, :destroy, answer) %>
+  <%= link_to raw('<i class="icon icon-trash"> </i>'), answer_path(answer,format: :json), class:'delete_answer', 
+      remote: true, method: :delete, title: t(:delete), :format => :json,
+      data: { toggle: 'tooltip' }, confirm: t(:are_you_sure) %>
+<% end %>
+<% if allow?(:answers, :best_answer, answer) %>
+  <% if answer.best_answer %>
+    <%= link_to raw('<i class="icon icon-star"> </i>'), best_answer_answer_path(answer), 
+        class:'best_answer select_best_answer remote_link', remote: true, method: :post, 
+        title: t("questions.select_best_answer"), :format => :json, data: { toggle: 'tooltip' } %>
+  <% else %>
+    <%= link_to raw('<i class="icon icon-star-empty"> </i>'), best_answer_answer_path(answer),
+          class:'select_best_answer remote_link', remote: true, method: :post, 
+          title: t("questions.select_best_answer"), :format => :json, data: { toggle: 'tooltip' } %>
+  <% end %>
+<% else %>
+  <% if answer.best_answer %>
+    <span class='best_answer' title:'<%= t("questions.select_best_answer") %>' data-toggle='tooltip'> 
+      <i class="icon icon-star"> </i> 
+    </span>
+  <% end %>
+<% end %>
+
+<div class="answer_body row question_or_answer">
+  
+  <div class="row">
+    <div class="span10"> 
+      <%= raw(answer.body) %> 
+    </div>
+    
+		<%= render partial: 'votes/vote', locals: { voteable: answer }  %>
+  </div>
+  <!-- FUE EDITADA? -->
+  <% if answer.versions.size > 1 %>
+    <small class="muted last_edition">
+      <%= link_to raw(t("versions.last_edited_by", 
+            user: User.find(answer.versions.last.terminator).name,
+            date: answer.versions.last.created_at.to_time)),
+           history_answer_path(answer)%>
+    </small>
+  <% end %>
+  <%= render partial: 'comments/comment', locals: { commentable: answer }  %>
+  
+  
+  
+  <span class="actions">
+    <% if allow?(:comments, :new) %>
+      <%= link_to [:new, answer, :comment], class:'leave_comment', remote: true do %>
+        <%= raw('<i class="icon icon-comment"> </i>') %>
+        <%= t("posts.leave_comment") %>
+      <% end %>
+    <% end %>
+  </span>
+
+</div>

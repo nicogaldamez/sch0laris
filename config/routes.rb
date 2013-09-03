@@ -19,14 +19,16 @@ Sch0larisRepo::Application.routes.draw do
         get 'down'
       end
     end
-    
+    member do
+      get 'history'
+    end
     collection do
       get 'pre_ask'
     end
   end
   
   
-  resources :answers, only: [:create, :destroy] do
+  resources :answers do
     resources :comments, only: [:new, :create]
     resources :votes, only: [] do
       collection do
@@ -36,6 +38,7 @@ Sch0larisRepo::Application.routes.draw do
     end
     member do
       post 'best_answer'
+      get 'history'
     end
   end
 

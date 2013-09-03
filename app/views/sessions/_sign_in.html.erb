@@ -5,7 +5,7 @@
 		<div class="span8 offset3">
 		
 				<%= form_tag sessions_path, class: "form-inline", id: 'sign_in_form', remote: true,
-					 				format: 'json', autocomplete: 'off' do %>
+					 				format: 'json', autocomplete: 'off', via: 'POST' do %>
 			
 					<%= text_field_tag :email, "", placeholder: t(:email), class: "input-xlarge", id: 'sign_in_email' %>
 			
@@ -20,11 +20,11 @@
 				<div class="forgot">
       		<%= link_to t(:forgot_password), new_password_reset_path %>
           <%= link_to raw('<i class="icon icon-twitter"></i>' ), "/auth/twitter", title: t(:twitter_sign_in), 
-                data: { toggle: 'tooltip' }, id: 'sign_in_with_tw' %>
+                data: { toggle: 'tooltip' }, id: 'sign_in_with_tw', class: 'social' %>
           <%= link_to raw('<i class="icon icon-facebook"></i>' ), "/auth/facebook", title: t(:facebook_sign_in), 
-                data: { toggle: 'tooltip' }, id: 'sign_in_with_fb'%>
+                data: { toggle: 'tooltip' }, id: 'sign_in_with_fb', class: 'social'%>
           <%= link_to raw('<i class="icon icon-google-plus"></i>' ), "/auth/google_oauth2", title: t(:google_sign_in), 
-                data: { toggle: 'tooltip' }, id: 'sign_in_with_g'%>
+                data: { toggle: 'tooltip' }, id: 'sign_in_with_g', class: 'social'%>
 				</div>
 		
 				<p id="sign_in_error" class="text-error">  </p>

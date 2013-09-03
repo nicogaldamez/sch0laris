@@ -25,18 +25,34 @@ root.visible_search_input = false
     $("##{menu} li").removeClass('active')
     $("##{menu} li##{item}").addClass('active')
   
-  notify: (msg, notify_type) ->
+  notify: (msg, notify_type, auto_close) ->
+      if typeof(auto_close) == 'undefined'
+        auto_close = true
       alerts = $("#alerts")
       alerts.html msg
       alerts.removeClass("alert-error").addClass("alert alert-success").slideDown "fast"  if notify_type is "success"
       alerts.removeClass("alert-success").addClass("alert alert-error").slideDown "fast"  if notify_type is "error"
-      setTimeout (=>
-        alerts.slideUp()
-      ), 4000
+      if auto_close
+        setTimeout (=>
+          alerts.slideUp()
+        ), 5000
+  
+  registerEditor: ->
+    # Editores WYSIWYG
+    $('.wysihtml5').wysihtml5 
+    	"locale": "es-ES",
+    	"font-styles": false, #Font styling, e.g. h1, h2, etc. Default true
+    	"emphasis": true, #Italics, bold, etc. Default true
+    	"lists": true, #(Un)ordered lists, e.g. Bullets, Numbers. Default true
+    	"link": true, #Button to insert a link. Default true
+    	"image": false, #Button to insert an image. Default true,
+    	"color": false #Button to change color of font
+
           
 jQuery ->
 	Utils.mostrarTooltips()
-
+	Utils.registerEditor()
+  
 	# Cuadro de búsqueda
 	$("#search_container").mouseover ->
     $("#search").focus()
@@ -62,18 +78,10 @@ jQuery ->
 		.bind "ajax:before", (event, data) ->	
 			Utils.loading(true)
 		.bind "ajax:error", (event, data) ->
-			Utils.notify data.responseJSON.message, 'error'
+      if typeof(data.responseJSON) != 'undefined'
+        Utils.notify data.responseJSON.message, 'error'
 
   
-  # Editores WYSIWYG
-  $('.wysihtml5').wysihtml5 
-  	"locale": "es-ES",
-  	"font-styles": false, #Font styling, e.g. h1, h2, etc. Default true
-  	"emphasis": true, #Italics, bold, etc. Default true
-  	"lists": true, #(Un)ordered lists, e.g. Bullets, Numbers. Default true
-  	"link": true, #Button to insert a link. Default true
-  	"image": false, #Button to insert an image. Default true,
-  	"color": false #Button to change color of font
-    
   # Notificaciones
   Notification.initialize()
+  

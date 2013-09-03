@@ -5,7 +5,6 @@ class QuestionsController < ApplicationController
   
   # Listado de aportes o preguntas
   def index
-    
     @tab = @filter[:filter]
     @questions = Question.filter(@type, @filter, current_user).page(params[:page]).per_page(10)
     respond_to do |f|
@@ -43,7 +42,6 @@ class QuestionsController < ApplicationController
   end
   
   def show
-    
     @question = Question.find(params[:id])
     @filter = Hash.new
     
@@ -54,6 +52,52 @@ class QuestionsController < ApplicationController
     end
     
     @answer = @question.answers.new
+    
+    respond_to do |f|
+      f.json
+      f.html
+    end
+  end
+  
+  def destroy
+    @question = current_resource
+    if @question.destroy
+      redirect_to questions_url, notice: t("success.on_delete", thing: t("success.thing.question"))
+    else
+      redirect_to questions_url, error: t("errors.on_delete", thing: t("errors.thing.question"))
+    end
+  end
+  
+  def edit
+    @question = current_resource
+    
+    render 'ask'
+  end
+  
+  def update
+    raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['title','body','tag_tokens'],:question)
+    
+    # Se admiten de 2 a 5 tags
+    tags_count = params[:question][:tag_tokens].split(',').length
+    logger.debug tags_count
+    if tags_count < 2  || tags_count > 5
+      raise(RequestExceptions::BadRequestError.new(t("questions.ask.tags_error"))) 
+    end
+  
+    params[:question][:user_id] = current_user.id
+    @clear_results = params[:change_page].blank?
+    @question = Question.find(params[:question][:id])
+    if @question.update_attributes(params[:question])
+      @question.create_activity :create, owner: current_user
+      redirect_to @question, format: :json
+    else
+      raise(RequestExceptions::BadRequestError.new(@question.errors.full_messages))
+    end
+  end
+  
+  def history
+    @versions = @question.versions
+    render 'shared/history'
   end
   
   private
@@ -69,5 +113,9 @@ class QuestionsController < ApplicationController
         raise(RequestExceptions::BadRequestError.new(t(:please_sign_in))) unless signed_in?
         raise(RequestExceptions::BadRequestError.new(t("posts.list.need_school"))) if current_user.school.blank?
       end
+    end
+    
+    def current_resource
+      @question = @current_resource ||= Question.find(params[:id]) if params[:id]
     end
 end

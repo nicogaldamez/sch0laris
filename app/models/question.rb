@@ -9,10 +9,13 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  votes      :integer          default(0)
+#  post_type  :string(1)        default("Q")
 #
 
 class Question < ActiveRecord::Base
   include PublicActivity::Common
+  has_paper_trail
+  
   attr_accessible :body, :title, :user_id, :tag_tokens, :post_type
   attr_reader :tag_tokens
   
@@ -23,6 +26,8 @@ class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :user_votes, :class_name => "Vote", as: :voteable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :notifications, dependent: :destroy, foreign_key: "notified_object_id",
+        :conditions => proc { "notified_object_type = 'Question'" }
   
   # SCOPES
   scope :only_questions, where(post_type: 'Q')  

@@ -1,3 +1,4 @@
 <% if !@message.blank? %>
+  Utils.loading(false)
   Utils.notify('<%= @message %>','error');
 <% end %>

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['email','password'])
     
 		user = User.find_by_email(params[:email].downcase)
-		if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:password])
       sign_in user
 			redirect_to user_path(user, format: :json)
 		else
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
   
   def social_network_callback
     user = User.from_omniauth(request.env["omniauth.auth"])
+    logger.debug user.inspect
     if user.persisted?
       sign_in user
       if user.email.blank?

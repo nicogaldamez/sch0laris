@@ -42,6 +42,7 @@ es:
     make_comment: "Deja tu comentario"
     views: "vistas"
     answers: "respuestas"
+    edit: 'Edita'
     
     list:
       wrote_about: "escribió sobre"
@@ -82,10 +83,10 @@ es:
     title: "Notificaciones"
     empty: "No tienes notificaciones"
     default: Tienes una nueva notificación
-    comment: 
-      answer: '<b>%{sender}</b> comentó una respuesta %{whose}.'
-      question: '<b>%{sender}</b> comentó una pregunta %{whose}.'
-    answer: '<b>%{sender}</b> respondió una pregunta %{whose}.'
+    commented: '<b>%{sender}</b> comentó %{thing} %{whose}.'
+    also_commented: '<b>%{sender}</b> también comentó %{thing} que tu has comentado.'
+    answered: '<b>%{sender}</b> respondió %{thing} %{whose}.'
+    also_answered: '<b>%{sender}</b> también respondió %{thing} que tu has respondido.'
     thing:
       question: una pregunta
       entry: un aporte 
@@ -95,7 +96,7 @@ es:
       user: 'de %{receiver}'
       
   feed:
-    title: "Actividad de %{user}"
+    title: "Actividad"
     my_feed: "Mi actividad"
     empty: "El usuario no registra actividad"
     comment: 
@@ -111,6 +112,13 @@ es:
       entry: un aporte 
       answer: una respuesta
 
+  versions:
+    previous_versions: "Versiones anteriores"
+    title: "%{event} por %{user} el %{date}"
+    last_edited_by: "Última modificación por %{user} el %{date}"
+    event:
+      create: "Creada"
+      update: "Modificada"
   # SESSIONS	
   email: "Email"
   sign_in: "Ingresar"
@@ -124,13 +132,13 @@ es:
   confirmation_password: "Confirmación"
   date_format: "dd/mm/aaaa"
   dateOfBirth: "Fecha de nacimiento"
-  weak_password: "débil. Al menos debes escribir alguna letra mayúscula y un número"
+  weak_password: "debe tener mínimo 8 caracteres, alguna letra mayúscula y un número"
   sign_out: "Salir"
   loading: "cargando"
   complete_your_profile: "Por favor completa tus datos de perfil"
   twitter_sign_in: "Inicia sesión con Twitter"
   facebook_sign_in: "Inicia sesión con Facebook"
-  google_sign_in: "Inicia sesión con Facebook"
+  google_sign_in: "Inicia sesión con Google"
 
   # USERS
   profile: "Perfil"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819224606) do
+ActiveRecord::Schema.define(:version => 20130902234127) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -145,10 +145,10 @@ ActiveRecord::Schema.define(:version => 20130819224606) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "name",                                :null => false
-    t.date     "dateOfBirth",                         :null => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.string   "name",                                               :null => false
+    t.date     "dateOfBirth",                                        :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "gender",                 :limit => 1
@@ -159,12 +159,26 @@ ActiveRecord::Schema.define(:version => 20130819224606) do
     t.datetime "password_reset_sent_at"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "reputation",                          :default => 1
+    t.integer  "real_reputation",                     :default => 1
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
   add_index "users", ["school_id"], :name => "index_users_on_school_id"
+
+  create_table "versions", :force => true do |t|
+    t.string   "item_type",      :null => false
+    t.integer  "item_id",        :null => false
+    t.string   "event",          :null => false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+    t.string   "object_changes"
+  end
+
+  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
   create_table "votes", :force => true do |t|
     t.integer  "user_id"

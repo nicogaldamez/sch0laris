@@ -13,6 +13,8 @@ module NotificationsHelper
   def notification_url_of(target, notification)
     if target.is_a? Answer
       notification_url_of(target.question, notification)
+    elsif target.is_a? Comment
+      notification_url_of(target.commentable, notification)
     else
       return polymorphic_url(target, :notification_id => notification.id) unless notification.nil?
       polymorphic_url(target)

@@ -1,12 +1,18 @@
-<h1> <%= t('feed.title', user: @user.name) %> </h1>
+<h1> <%= @user.name %> </h1>
+
+<p> <%= raw("<b> #{t(:reputation)}: </b> #{@user.reputation}") %> </p>
+<p> <%= raw("<b> #{t(:real_reputation)}: </b> #{@user.real_reputation}") %> </p>
 
 <div id="feed">
+  <h2> <%= t("feed.title") %> </h2>
   <%= raw("<h3 class='muted'> #{t('feed.empty')} </h3>") if @feed.blank? %>
   <ul>
     <% @feed.each do |activity| %>
-      <li class="activity">
-        <%= render_activity activity %>
-      </li>
+      <% if activity.trackable != nil %>
+        <li class="activity">
+          <%= render_activity activity %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>

@@ -2,16 +2,22 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string(255)      not null
-#  name            :string(255)      not null
-#  dateOfBirth     :date             not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string(255)
-#  remember_token  :string(255)
-#  gender          :string(1)
-#  avatar          :string(255)
+#  id                     :integer          not null, primary key
+#  email                  :string(255)
+#  name                   :string(255)      not null
+#  dateOfBirth            :date             not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  password_digest        :string(255)
+#  remember_token         :string(255)
+#  gender                 :string(1)
+#  avatar                 :string(255)
+#  school_id              :integer
+#  other_school           :string(255)
+#  password_reset_token   :string(255)
+#  password_reset_sent_at :datetime
+#  provider               :string(255)
+#  uid                    :string(255)
 #
 
 require 'spec_helper'
