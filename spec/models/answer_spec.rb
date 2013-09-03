@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  votes       :integer          default(0)
+#  best_answer :boolean
 #
 
 require 'spec_helper'

@@ -1,40 +1,81 @@
 <div id="show_question">
-  <div class="row question">
+  <div class="row question question_or_answer">
     
-    <div class="row">
-      <h3 class="span10"> <%= @question.title %> </h3>
-    </div>
+    <!-- TITULO -->
+    <div class="row"> <h3 class="span10"> <%= @question.title %> </h3> </div>
+    
+    <!-- BODY -->
     <div class="question_body row">
       <div class="span10"> 
         <%= raw @question.body %> 
       </div>
   		<%= render partial: 'votes/vote', locals: { voteable: @question}  %>
-  		
-    </div>
-    <div class="pull-left"> 
-      <%= avatar_for(@question.user, { size: :mini }) %>
-      <%= link_to @question.user.name, '#' %>
-      <small class="muted"> <%= @question.created_at.to_time %> </small>
     </div>
     
-    <div class="pull-right">
-      <% @question.tags.each do |tag|  %>
-        <span class="label"> <%= link_to tag.description, '#' %> </span>
+    <!-- INFO DE LA PREGUNTA -->
+    <div class="pull-left"> 
+    
+      <!-- FUE EDITADA? -->
+      <% if @question.versions.size > 1 %>
+        <small class="muted last_edition">
+          <%= link_to raw(t("versions.last_edited_by", 
+                user: User.find(@question.versions.last.terminator).name,
+                date: @question.versions.last.created_at.to_time)),
+               history_question_path(@question)%>
+        </small>
+      <% end %>
+      
+      <%= avatar_for(@question.user, { size: :mini }) %>
+      <%= link_to @question.user.name, @question.user %>
+      <small class="muted"> <%= @question.created_at.to_time %> </small>
+      <% if allow?(:questions, :destroy, @question) %>
+        <%= link_to raw('<i class="icon icon-trash"> </i>'), question_path(@question), class:'delete_question', 
+            method: :delete, title: t(:delete),
+            data: { toggle: 'tooltip' }, confirm: t(:are_you_sure) %>
       <% end %>
     </div>
     
+    <!-- TAGS -->
+    <div class="pull-right">
+      <% @question.tags.each do |tag|  %>
+        <span class="label"> <%= link_to tag.description, questions_path(tag: tag.id) %> </span>
+      <% end %>
+    </div>
+    
+    <!-- COMMENTS -->
     <%= render partial: 'comments/comment', locals: { commentable: @question}  %>
     
+    <!-- COMENTAR / EDITAR -->
+    <span class="actions">
+      <% if allow?(:comments, :new) %>
+        <%= link_to [:new, @question, :comment], class:'leave_comment', remote: true do %>
+          <%= raw('<i class="icon icon-comment"> </i>') %>
+          <%= t("posts.leave_comment") %>
+        <% end %>
+      <% end %>
+      
+      <% if allow?(:questions, :edit, @question) %>
+        <%= link_to edit_question_path(@question), id:'edit_question' do %>
+          <%= raw('<i class="icon icon-pencil"> </i>') %>
+          <%= t("posts.edit") %>
+        <% end %>
+      <% end %>
+    </span>
+    
   </div>
   
+  
+  <!-- CANTIDAD DE RESPUESTAS -->
   <h4> <%= "#{@question.answers.count} " + t("answers.answer", count: @question.answers.count) %> </h4>
   
-  <div id="answers" class="row">
-    
+  <!-- RESPUESTAS -->
+  <div id="answers" class="row">    
     <%= render partial: 'answers/answer', collection: @question.answers.order("votes desc"), as: 'answer' %>
-    
   </div>
   
-  <%= render 'answer_form' %>
+  <!-- RESPONDER -->
+  <div id="new_answer">
+    <%= render 'answer_form' %>
+  </div>
   
 </div>

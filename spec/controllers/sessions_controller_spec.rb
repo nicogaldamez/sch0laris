@@ -11,12 +11,4 @@ describe SessionsController do
 		end
 	end
 	
-  describe "sign out with Ajax" do 
-    
-		it "should respond with success" do 
-			xhr :delete, :destroy
-			response.should be_success
-		end
-    
-  end
 end

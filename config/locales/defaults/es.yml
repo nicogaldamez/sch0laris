@@ -7,12 +7,29 @@ es:
   form_errors: "El formulario contiene errores"
   wrong_or_blank_date: "vacía o con formato no válido"
   changes_saved: "Los cambios han sido guardados"
-  please_sign_in: "Por favor inicie sesión"
-  no_permission: "No tienes permiso para realizar la operación"
+  please_sign_in: "Por favor inicia sesión"
+  no_permission_or_reputation: "No tienes permiso o la reputación necesaria para realizar la operación"
   already_voted: "No es posible votar más de una vez por una respuesta"
   own_vote: "No puedes votar algo que escribiste tú"
+  own_answer: "Sólo puedes elegir como mejor respuesta una respuesta de otro usuario"
   tags: "Etiquetas"
   are_you_sure: "¿Seguro?"
+  reputation: "Reputación"
+  real_reputation: "Reputación Real"
+  
+  errors: 
+    on_delete: "Ocurrió un error al eliminar %{thing}"
+    thing:
+      question: "la pregunta"
+      entry: "el aporte" 
+      answer: "la respuesta"
+      
+  success: 
+    on_delete: "%{thing} se eliminó correctamente"
+    thing:
+      question: "La pregunta"
+      entry: "El aporte" 
+      answer: "La respuesta"
   
   # COMMON
   number:

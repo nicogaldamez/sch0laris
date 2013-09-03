@@ -1,0 +1,8 @@
+var answer_edited = "<%= escape_javascript(render partial: 'answers/answer_content', locals: { answer: @answer })%>";
+
+$(<%= "answer_#{@answer.id}" %>).html(answer_edited);
+
+// Limpio el editor
+$("#answer_body").data("wysihtml5").editor.clear();
+
+register_answer_events();

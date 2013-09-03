@@ -35,7 +35,6 @@ describe "Authentications" do
         fill_in "sign_in_email", with: user.email
         fill_in "sign_in_password", with: user.password
         click_button "sign_in_btn" 
-        save_and_open_page
       end
       
       it "deberia loguear al usuario" do

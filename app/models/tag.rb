@@ -11,9 +11,9 @@
 class Tag < ActiveRecord::Base
   attr_accessible :description
   
-  def self.tokens(query)
+  def self.tokens(query, can_create)
     tags = where("description like ?", "%#{query}%")
-    if tags.empty?
+    if tags.empty? && can_create
       query = query.gsub(/ /, "_")
       [{id: "<<<#{query}>>>", description: "Crear: \"#{query}\""}]
     else

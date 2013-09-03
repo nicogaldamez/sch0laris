@@ -7,6 +7,7 @@ jQuery ->
     preventDuplicates: true
     propertyToSearch: "description"
     hintText: ''
+    prePopulate: $("#question_tag_tokens").data("load")
   if $('.pagination').length  
     $(window).scroll ->
       url = $('.pagination a.next_page').attr('href')
@@ -16,20 +17,20 @@ jQuery ->
     $(window).scroll
 
 $ ->
-	$("#ask_button").button()
-	$("#ask_button").click ->
-	  $(this).button "loading"
-    
   # Ask question
 	$("#ask_form")
 		.bind "ajax:complete", (event, data) ->
-			$("#ask_button").button "reset"
+			$("#ask_form :submit").button "reset"
 		.bind "ajax:before", (event, data) ->	
-			$("#ask_error").html('')
+			$("#ask_form :submit").button "loading"
 		.bind "ajax:success", (event, data) ->
-			window.location.href = '/'
-		.bind "ajax:error", (event, data) ->
-			$("#ask_error").html(data.responseJSON.message)
+			window.location.href = '/questions/' + data.question.id
+  
+	$("#answer_form")
+		.bind "ajax:complete", (event, data) ->
+			$("#answer_form :submit").button "reset"
+		.bind "ajax:before", (event, data) ->	
+			$("#answer_form :submit").button "loading"
 
   # Select best answer
 	$(".select_best_answer")
@@ -42,18 +43,10 @@ $ ->
       else
         $(this).addClass('best_answer')
         $(this).html('<i class="icon icon-star"> </i>')
-  
-	# Ask question
-	$("#ask_form")
-		.bind "ajax:complete", (event, data) ->
-			$("#ask_button").button "reset"
-		.bind "ajax:before", (event, data) ->	
-			$("#ask_error").html('')
-		.bind "ajax:success", (event, data) ->
-			window.location.href = '/'
-		.bind "ajax:error", (event, data) ->
-			$("#ask_error").html(data.responseJSON.message)
       
+  $('.edit_answer')
+    .bind "ajax:success", (event, data) ->
+      $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
   register_answer_events()
   register_comments_events()
       
@@ -75,7 +68,7 @@ $ ->
   $(".leave_comment")
     .bind "ajax:success", (event, data) ->
       $(this).hide()
-      comment_container = $(this).closest('.comments').find('.new_comment')
+      comment_container = $(this).parent().parent().find('.new_comment')
       comment_container.html data
       comment_container.fadeIn()
       comment_container.find('textarea').focus()
@@ -101,20 +94,21 @@ $ ->
 @new_comment = () ->
 	$(".hide_comment").click (e) ->
     e.preventDefault()
-    $(this).closest('.comments').find('.leave_comment').show()
-    $(this).closest('.comments').find('.new_comment').hide().html('')
+    $(this).closest('.question_or_answer').find('.leave_comment').show()
+    $(this).closest('.question_or_answer').find('.new_comment').hide().html('')
     
 	$(".comment_form")
+		.bind "ajax:complete", (event, data) ->
+			$(".comment_form :submit").button "reset"
+		.bind "ajax:before", (event, data) ->	
+			$(".comment_form :submit").button "loading"    
 		.bind "ajax:success", (event, data) ->
-      comment_container = $(this).closest('.comments').find('.comments_list')
+      comment_container = $(this).closest('.question_or_answer').find('.comments_list')
       comment_container.append(data).hide().fadeIn()
-      $(this).closest('.comments').find('.leave_comment').show()
-      $(this).closest('.comments').find('.new_comment').hide().html('')
+      $(this).closest('.question_or_answer').find('.leave_comment').show()
+      $(this).closest('.question_or_answer').find('.new_comment').hide().html('')
       register_comments_events()
-      
-			
-		.bind "ajax:error", (event, data) ->
-			Utils.notify data.responseJSON.message, 'error'
     
-  
+@cancel_answer_edit = ->
+  window.location.reload()  
   

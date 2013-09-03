@@ -3,8 +3,9 @@ comment_of = activity.commentable_type.downcase.underscore
 whose = (activity.commentable.user == current_user) ? 'notification.whose.yours' : 'notification.whose.user'%>
 <span> 
   <%= link_to notification_url_of(activity.commentable, notification) do %>
-    <%= raw t('notification.comment.'+ activity.commentable_type.downcase.underscore, 
-   :sender => truncate_name(activity.user.name),
-   :whose => t(whose, :receiver => truncate_name(activity.commentable.user.name))) %>
+    <%= raw t('notification.commented',
+        :thing => t("notification.thing.#{activity.commentable_type.downcase.underscore}"),
+        :sender => truncate_name(activity.user.name),
+        :whose => t(whose, :receiver => truncate_name(activity.commentable.user.name))) %>
   <% end %>
 </span>

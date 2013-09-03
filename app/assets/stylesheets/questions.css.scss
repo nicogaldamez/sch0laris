@@ -62,7 +62,11 @@ div.token-input-dropdown {
       margin-right: 0px;
     }
     &:hover {
-      .votes a, .leave_comment { visibility: visible; }
+      .votes a, .actions { visibility: visible; }
+    }
+    
+    .last_edition {
+      display: block;
     }
   }
   
@@ -104,9 +108,12 @@ div.token-input-dropdown {
 		}
 	}
   
-  a.leave_comment {
-    font-size: 0.9em; 
-    color: $orangeColor;
+  .actions {
+    a {
+      font-size: 0.9em; 
+      color: $orangeColor;
+      margin-right: 10px;
+    }
     position: absolute;
     left: 20px;
     bottom: 5px;
@@ -138,6 +145,10 @@ div.token-input-dropdown {
         color: $orangeColor;
       }
     }   
+  }
+  
+  #cancel_answer_edit {
+    display: none;
   }
   
   .comments {

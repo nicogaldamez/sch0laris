@@ -18,6 +18,8 @@ gem 'public_activity'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
+gem 'strong_parameters'
+gem 'paper_trail'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -43,5 +45,7 @@ group :test do
   gem 'launchy'
   gem 'factory_girl_rails', '4.1.0'
   gem 'poltergeist'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
 end
 

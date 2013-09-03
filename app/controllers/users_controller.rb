@@ -55,16 +55,14 @@ class UsersController < ApplicationController
   end
   
   def update
+    @user = current_user
     if params[:user][:password] != nil
       raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['password','password_confirmation'],:user)
-    else
-      if params[:user][:name] != nil
-        raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['name','email','dateOfBirth'],:user)
-      end
+    elsif params[:user][:name] != nil
+      @user.school_id = nil if params[:user][:school_id].blank?
+      raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['name','email','dateOfBirth'],:user)
     end
     
-    @user = current_user
-    @user.school_id = nil if params[:user][:school_id].blank?
     if @user.update_attributes(params[:user])
       sign_in @user
       @message = t(:changes_saved)

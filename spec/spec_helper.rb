@@ -28,8 +28,23 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
   
+  # Make it so Selenium (out of thread) tests can work with transactional fixtures
+  # REF http://opinionated-programmer.com/2011/02/capybara-and-selenium-with-rspec-and-rails-3/#comment-220
+  ActiveRecord::ConnectionAdapters::ConnectionPool.class_eval do
+    def current_connection_id
+      # Thread.current.object_id
+      Thread.main.object_id
+    end
+  end
+  
   config.filter_run focus: true
-  config.run_all.when_everything_filtered = true
+  config.run_all_when_everything_filtered = true
+  
+  config.before(:each) do
+    # Overwrite locale settings within "config/settings.yml" if necessary.
+    # In order to ensure that test still pass if "Setting.locale" is not set to "en-US".
+    I18n.locale = 'es'
+  end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -49,4 +64,5 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  
 end

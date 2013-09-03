@@ -1,0 +1,5 @@
+<h1> <%= t("versions.previous_versions") %> </h1>
+
+<div id="history">
+  <%= render partial: 'shared/version', collection: @versions, as: 'version' %>
+</div>

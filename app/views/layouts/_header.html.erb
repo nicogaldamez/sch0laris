@@ -16,7 +16,7 @@
               <% end %>
 							
 						</li>
-						<li> <%= link_to_function t(:sign_in), "toggle_sign_in()" %> </li>
+						<li> <%= link_to_function t(:sign_in), "toggle_sign_in()", id: 'show_sign_in_btn' %> </li>
 						<li> <%= link_to t(:sign_up), new_user_path %> </li>
 					</ul>
 				<% else %>

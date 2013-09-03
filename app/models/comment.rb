@@ -19,15 +19,39 @@ class Comment < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :commentable, polymorphic: true
+  has_many :notifications, dependent: :destroy, foreign_key: "notified_object_id",
+        :conditions => proc { "notified_object_type = 'Comment'" }
   
   after_commit :create_notification, on: :create
   
   private
     def create_notification
       obj = commentable
-      return false if user == obj.user
+      if obj.is_a?(Answer)
+        type = 'answer'
+      else 
+        type = (obj.post_type == 'Q') ? 'question' : 'entry'        
+      end
+      
       subject = "#{user.name} escribió el siguiente comentario"
       body = "#{self.body}"
-      obj.user.notify(subject, body, self)
+      
+      # Notifico al dueño de la pregunta
+      subject = I18n.t('notification.commented' , 
+           :sender => self.user.name,
+           :whose => I18n.t('notification.whose.yours'),
+           :thing => I18n.t("notification.thing.#{type}")
+      )      
+      obj.user.notify(subject, body, self) unless user == obj.user
+      
+      # Notifico al resto de los usuarios que participaron
+      subject = I18n.t('notification.also_commented', 
+            :sender => self.user.name,
+            :thing => I18n.t("notification.thing.#{type}")
+      )
+      users_to_notify = User.uniq.joins(:comments).where(comments: {id: obj.comment_ids}).reject {|user| user == self.user || user == obj.user }
+      users_to_notify.each do |u|
+        u.notify(subject, body, self) 
+      end
     end
 end

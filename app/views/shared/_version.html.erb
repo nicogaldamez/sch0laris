@@ -1,0 +1,14 @@
+<div class="version">
+  <h4> 
+    <% user = User.find(version.terminator) %>
+    <%= raw t("versions.title",
+          event: t("versions.event.#{version.event}"),
+          user: raw(link_to(user.name, user)), 
+          date: version.created_at.to_time) %></h4>
+  <% if version.reify != nil %>
+  <% if version.reify.respond_to?(:title) %>
+     <%= raw("<h5> #{version.reify.title} </h5>") %>
+     <% end %>
+    <p> <%= version.reify.body %> </p>
+  <% end %>
+</div>

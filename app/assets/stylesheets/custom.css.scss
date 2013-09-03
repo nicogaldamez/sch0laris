@@ -426,6 +426,7 @@ ul {
 		text-align: center;
 	}
   
+  .social { margin: 0px 5px;}
   #sign_in_with_tw:hover { color: #9AE4E8;}
   #sign_in_with_fb:hover { color: #899ECB;}
   #sign_in_with_g:hover { color: #C61800;}
@@ -666,6 +667,18 @@ ul {
     
     &.unread {
       background: #f7f7f7;
+    }
+  }
+}
+
+
+/*------------ VERSIONS -------------*/
+#history {
+  .version {
+    margin-bottom: 30px;
+    h4 {
+      font-size: 1em;
+      font-weight: bold;
     }
   }
 }
