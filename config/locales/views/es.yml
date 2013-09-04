@@ -15,7 +15,7 @@ es:
   users: 
     new: 
       new_user: "Nuevo Usuario"
-      title: "Regístrate en Scholaris. Es gratis."
+      title: "Regístrate en scholaris. Es gratis."
       sign_up_prefer_social_networks: "Si prefieres, puedes iniciar sesión con:"
     profile: 
       change_image: "Cambiar imagen"  
@@ -27,12 +27,12 @@ es:
   posts:
     how_to_ask: 
       difference_title: "¿Pregunta o Aporte?"
-      difference_body: "Una Pregunta es una duda que tengas sobre algún tema en particular. La idea de una Pregunta es obtener una respuesta por parte de otro usuario de Scholaris. En cambio un Aporte es un contenido que quieres compartir sin esperar una respuesta. Esto podría ser un apunte, una idea, una solución a un problema o cualquier cosa que consideres que puede llegar a serle útil a otro usuario."
+      difference_body: "Una Pregunta es una duda que tengas sobre algún tema en particular. La idea de una Pregunta es obtener una respuesta por parte de otro usuario de scholaris. En cambio un Aporte es un contenido que quieres compartir sin esperar una respuesta. Esto podría ser un apunte, una idea, una solución a un problema o cualquier cosa que consideres que puede llegar a serle útil a otro usuario."
       title: "Cómo hacer tu pregunta"
       intro: "Nos encantaría ayudarte, pero la realidad es que no todas las preguntas logran una respuesta. Para mejorar tus posibilidades te damos algunos consejos:"
       search_well_title: "¿Has buscado bien?"
-      search_well_body: "¿Has buscado bien una respuesta antes de hacer tu pregunta? Compartir tu investigación ayuda a todos. Cuéntanos lo que encontraste (en Scholaris o en otro lugar) y por qué no respondía a tus necesidades. Esto demuestra que has tomado el tiempo para tratar de ayudarte a ti mismo, ésto evitará respuestas obvias, y sobre todo, que te ayudará a obtener una respuesta más específica y relevante! "
-      search_in_scholaris: "Busca en Scholaris"
+      search_well_body: "¿Has buscado bien una respuesta antes de hacer tu pregunta? Compartir tu investigación ayuda a todos. Cuéntanos lo que encontraste (en scholaris o en otro lugar) y por qué no respondía a tus necesidades. Esto demuestra que has tomado el tiempo para tratar de ayudarte a ti mismo, ésto evitará respuestas obvias, y sobre todo, que te ayudará a obtener una respuesta más específica y relevante! "
+      search_in_scholaris: "Busca en scholaris"
       be_specific: "Se específico"
       be_specific_body: "Si haces una pregunta vaga, obtendrás una respuesta vaga. Pero si nos das los detalles y el contexto, podremos proporcionar una respuesta más acorde a tus necesidades."
       understand: "gracias, tendré estos consejos en mente al momento de preguntar"
@@ -43,6 +43,7 @@ es:
     views: "vistas"
     answers: "respuestas"
     edit: 'Edita'
+    votes: 'Votos'
     
     list:
       wrote_about: "escribió sobre"
@@ -77,7 +78,7 @@ es:
     your_answer: "Tu Respuesta"
 
   tags:
-    click_a_tag: "Haz click en una etiqueta para buscar resultados asociados a la selección "
+    click_a_tag: "Haz click en una etiqueta para buscar resultados asociados a la selección"
 
   notification:
     title: "Notificaciones"

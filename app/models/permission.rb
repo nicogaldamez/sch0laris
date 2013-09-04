@@ -8,6 +8,7 @@ class Permission
     allow :answers, [:show, :history]
     allow :comments, [:show]
     allow :password_resets, [:new, :create, :edit, :update]
+    allow :tags, [:index]
     
     # Miembro
     if user
