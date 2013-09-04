@@ -54,8 +54,8 @@ class QuestionsController < ApplicationController
     @answer = @question.answers.new
     
     respond_to do |f|
-      f.html
       f.json
+      f.html
     end
   end
   

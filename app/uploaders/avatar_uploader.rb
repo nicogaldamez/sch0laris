@@ -23,6 +23,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
+    process :crop
    resize_to_fill(50, 50)
   end
 
@@ -33,20 +34,12 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def crop
    if model.crop_x.present?
      resize_to_limit(600, 600)
-     # manipulate! do |img|
-#        x = model.crop_x.to_i
-#        y = model.crop_y.to_i
-#        w = model.crop_w.to_i
-#        h = model.crop_h.to_i
-#        img.crop!(x, y, w, h)
-#      end
      manipulate! do |img|
-       x = model.crop_x
-       y = model.crop_y
-       w = model.crop_w
-       h = model.crop_h
-       img.crop "#{w}x#{h}+#{x}+#{y}"
-       img
+       x = model.crop_x.to_i
+       y = model.crop_y.to_i
+       w = model.crop_w.to_i
+       h = model.crop_h.to_i
+       img.crop!(x, y, w, h)
      end
    end
   end

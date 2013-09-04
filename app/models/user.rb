@@ -136,6 +136,7 @@ class User < ActiveRecord::Base
     end
     
     def crop_avatar
+      logger.debug "VA A CORTARLA!!!" if crop_x.present?
       avatar.recreate_versions! if crop_x.present?
     end
 end
