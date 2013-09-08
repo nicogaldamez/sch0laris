@@ -15,7 +15,7 @@
 
 class Answer < ActiveRecord::Base
   include PublicActivity::Common
-  has_paper_trail
+  has_paper_trail :ignore => [:votes, :best_answer]
   attr_accessible :body, :question_id, :created_at, :user, :user_id, :best_answer
   
   belongs_to :user

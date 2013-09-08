@@ -14,7 +14,7 @@
 
 class Question < ActiveRecord::Base
   include PublicActivity::Common
-  has_paper_trail
+  has_paper_trail has_paper_trail :ignore => [:votes, :post_type]
   
   attr_accessible :body, :title, :user_id, :tag_tokens, :post_type
   attr_reader :tag_tokens
