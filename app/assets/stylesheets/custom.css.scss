@@ -85,6 +85,7 @@ p {
 
 #main_container {
   margin-bottom: 50px;
+  padding-bottom: 70px;
 }
 
 /* loading-bar */
@@ -226,6 +227,7 @@ footer {
 		list-style: none;
 		li {
 			margin-left: 10px;
+      font-size: 0.9em;
 		}
 	}
 }
@@ -506,6 +508,10 @@ ul {
 		&:first-child {
 			padding-top: 0px;
 		}
+    
+    &:last-child {
+      border: 0px;
+    }
 		
 		.name {
 			font-size: 0.9em;
@@ -680,5 +686,28 @@ ul {
       font-size: 1em;
       font-weight: bold;
     }
+  }
+}
+
+
+/* ------------ FAQ -----------*/
+#faq {
+  aside {
+    position: fixed;
+    width: 255px;
+    
+    li.active a {
+      background: #eee;
+      color: $orangeColor;
+    }
+    i {
+      float:right;
+      line-height: 20px;
+    }
+  }
+  
+  .section {
+    margin-bottom: 30px;
+    
   }
 }

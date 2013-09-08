@@ -9,6 +9,7 @@ class Permission
     allow :comments, [:show]
     allow :password_resets, [:new, :create, :edit, :update]
     allow :tags, [:index]
+    allow :static_pages, [:faq]
     
     # Miembro
     if user

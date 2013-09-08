@@ -9,6 +9,6 @@
   <% if version.reify.respond_to?(:title) %>
      <%= raw("<h5> #{version.reify.title} </h5>") %>
      <% end %>
-    <p> <%= version.reify.body %> </p>
+    <p> <%= raw(version.reify.body) %> </p>
   <% end %>
 </div>

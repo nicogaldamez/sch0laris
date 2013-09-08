@@ -1,0 +1,111 @@
+<div id="faq">
+  <div class="span3">
+    <aside>
+      <ul id="faq_menu" class="nav nav-tabs nav-stacked">
+        <li class="active"> 
+          <%= link_to '#what_is_scholaris' do %>
+            <%= t('faq.what_is_scholaris.title') %> <i class="icon-chevron-right"></i>
+          <% end %> 
+        </li>
+        <li> 
+          <%= link_to '#what_is_not_scholaris' do %>
+            <%= t ('faq.what_is_not_scholaris.title') %> <i class="icon-chevron-right"></i>
+          <% end %> 
+        </li>
+        <li> 
+          <%= link_to '#how' do %>
+            <%= t ('faq.how.title') %> <i class="icon-chevron-right"></i>
+          <% end %> 
+        </li>
+        <li> 
+          <%= link_to '#what_is_reputation' do %>
+            <%= t ('faq.what_is_reputation.title') %> <i class="icon-chevron-right"></i>
+          <% end %> 
+        </li>
+        <li> 
+          <%= link_to '#how_get_reputation' do %>
+            <%= t ('faq.how_get_reputation.title') %> <i class="icon-chevron-right"></i>
+          <% end %> 
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <div class="span7 offset1">
+    
+    <div class="section">
+      <a name="what_is_scholaris"></a>
+      <h4> <%= t('faq.what_is_scholaris.title') %> </h4>
+      <p> 
+        <%= t('faq.what_is_scholaris.body') %>
+      </p>
+    </div>
+    
+    <div class="section">
+      <a name="what_is_not_scholaris"></a>
+      <h4> <%= t('faq.what_is_not_scholaris.title') %> </h4>
+      <p> 
+        <%= t('faq.what_is_not_scholaris.body.part1') %>
+      </p>
+      <p>
+        <%= t('faq.what_is_not_scholaris.body.part2') %>
+      </p>
+    </div>
+    
+    <div class="section">
+      <a name="how"></a>
+      <h4> <%= t('faq.how.title') %> </h4>
+      <p>
+        <%= t('faq.how.body') %>
+      </p>
+    </div>
+    
+    <div class="section">
+      <a name="what_is_reputation"></a>
+      <h4> <%= t('faq.what_is_reputation.title') %> </h4>
+      <p>
+        <%= t('faq.what_is_reputation.body.text') %>
+      </p>
+      <ul>
+        <li> <%= t('faq.what_is_reputation.body.ask') %>: <%= Reputation::REPUTATION_ASK %> </li>
+        <li> <%= t('faq.what_is_reputation.body.answer') %>: <%= Reputation::REPUTATION_ANSWER %> </li>
+        <li> <%= t('faq.what_is_reputation.body.comment') %>: <%= Reputation::REPUTATION_COMMENT %> </li>
+        <li> <%= t('faq.what_is_reputation.body.up_vote') %>: <%= Reputation::REPUTATION_VOTE_UP %> </li>
+        <li> <%= t('faq.what_is_reputation.body.down_vote') %>: <%= Reputation::REPUTATION_VOTE_DOWN %> </li>
+        <li> <%= t('faq.what_is_reputation.body.create_tag') %>: <%= Reputation::REPUTATION_CREATE_TAGS %> </li>
+        <li> <%= t('faq.what_is_reputation.body.edit') %>: <%= Reputation::REPUTATION_EDIT_QUESTIONS_AND_ANSWERS %> </li>
+      </ul>
+    </div>
+    
+    <div class="section">
+      <a name="how_get_reputation"></a>
+      <h4> <%= t('faq.how_get_reputation.title') %> </h4>
+      <p>
+        <%= t('faq.how_get_reputation.body.text') %>
+      </p>
+      <ul>
+        <li> 
+          <%= t('faq.how_get_reputation.body.question_is_voted_up') %>: <%= Reputation::POINTS_QUESTION_IS_VOTED_UP %>   
+        </li>
+        <li> 
+          <%= t('faq.how_get_reputation.body.answer_is_voted_up') %>: <%= Reputation::POINTS_ANSWER_IS_VOTED_UP %>   
+        </li>
+        <li> 
+          <%= t('faq.how_get_reputation.body.mark_answer_as_accepted') %>: <%= Reputation::POINTS_MARK_ANSWER_AS_ACCEPTED %>   
+        </li>
+        <li> 
+          <%= t('faq.how_get_reputation.body.answer_is_marked_as_accepted') %>: <%= Reputation::POINTS_ANSWER_IS_MARKED_AS_ACCEPTED %>   
+        </li>
+        <li> 
+          <%= t('faq.how_get_reputation.body.question_is_voted_down') %>: <%= Reputation::POINTS_QUESTION_IS_VOTED_DOWN %>   
+        </li>
+        <li> 
+          <%= t('faq.how_get_reputation.body.answer_is_voted_down') %>: <%= Reputation::POINTS_ANSWER_IS_VOTED_DOWN %>   
+        </li>
+        <li> 
+          <%= t('faq.how_get_reputation.body.vote_down') %>: <%= Reputation::POINTS_VOTE_DOWN %>   
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+</div>

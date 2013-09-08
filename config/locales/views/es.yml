@@ -27,7 +27,7 @@ es:
   posts:
     how_to_ask: 
       difference_title: "¿Pregunta o Aporte?"
-      difference_body: "Una Pregunta es una duda que tengas sobre algún tema en particular. La idea de una Pregunta es obtener una respuesta por parte de otro usuario de scholaris. En cambio un Aporte es un contenido que quieres compartir sin esperar una respuesta. Esto podría ser un apunte, una idea, una solución a un problema o cualquier cosa que consideres que puede llegar a serle útil a otro usuario."
+      difference_body: "Una Pregunta es una duda que tengas sobre algún tema en particular. La idea de una Pregunta es obtener una respuesta por parte de otro usuario de scholaris. En cambio un Aporte es un contenido que quieres compartir sin esperar una respuesta. Esto podría ser un apunte, una idea, una solución a un problema o cualquier contenido que consideres que puede llegar a serle útil a otro usuario."
       title: "Cómo hacer tu pregunta"
       intro: "Nos encantaría ayudarte, pero la realidad es que no todas las preguntas logran una respuesta. Para mejorar tus posibilidades te damos algunos consejos:"
       search_well_title: "¿Has buscado bien?"
@@ -35,7 +35,8 @@ es:
       search_in_scholaris: "Busca en scholaris"
       be_specific: "Se específico"
       be_specific_body: "Si haces una pregunta vaga, obtendrás una respuesta vaga. Pero si nos das los detalles y el contexto, podremos proporcionar una respuesta más acorde a tus necesidades."
-      understand: "gracias, tendré estos consejos en mente al momento de preguntar"
+      use_tags_title: "Escoge bien las etiquetas"
+      use_tags_body: "Las preguntas y aportes deben tener etiquetas para facilitar la búsqueda de contenido interesante. Dedicale un momento a escoger a conciencia las etiquetas de tu aporte o pregunta."
       proceed: "Continuar con la pregunta"
     
     leave_comment: "Comenta"
@@ -120,6 +121,45 @@ es:
     event:
       create: "Creada"
       update: "Modificada"
+      
+  
+  faq:
+    what_is_scholaris:
+      title: '¿Qué es scholaris?'
+      body: "Seguramente te habrá pasado alguna vez en la facultad o escuela que para resolver un problema solicitaste la colaboración de algún compañero. scholaris busca facilitar este proceso ya que no sólo vas a poder consultarle a tus compañeros sino que tus consultas serán vistas por todos los usuarios de esta comunidad que va creciendo día a día." 
+    what_is_not_scholaris: 
+      title: "¿Qué no es scholaris?"
+      body: 
+        part1: "scholaris no te quiere resolver los problemas sino que quiere ayudarte a que tu los resuelvas. Es por ésto que te pedimos que cuando preguntes lo hagas demostrando que al menos has intentado resolverlo. Si una de tus preguntas no tiene valor o simplemente es una pregunta que no demuestra tener un análisis previo será editada o eliminada por los usuarios que cuenten con los privilegios para hacerlo."
+        part2: "Tampoco consideramos útil prácticas o exámenes resueltos ya que esto simplemente atrae a estudiantes haraganes."
+    how: 
+      title: "¿Cómo funciona?"
+      body: "La idea de scholaris es que nos ayudemos entre todos. Para ello los usuarios pueden compartir contenido a través de los aportes o en caso de tener una duda pueden consultar al resto de la comunidad haciendo una pregunta. Todo contenido aportado será calificado por los usuarios facilitando la búsqueda de las mejores respuestas."
+    what_is_reputation:
+      title: "¿Qué es la reputación?"
+      body:
+        text: "Según tu participación en scholaris tendrás una reputación que irá variando a lo largo del tiempo. Los usuarios con mayor reputación tendrán más permisos que aquellos que recién están dando sus primeros pasos en scholaris. Todo usuario registrado en scholaris tendrá asignada una reputación mínima de 1. A continuación se presentan los permisos que tienes según tu reputación:"
+        ask: "Hacer una pregunta"
+        answer: "Responder una pregunta"
+        comment: "Realizar un comentario"
+        up_vote: "Voto positivo"
+        down_vote: "Voto negativo"
+        create_tag: "Crear nuevas etiquetas"
+        edit: "Editar preguntas y respuestas"
+    how_get_reputation:
+      title: "¿Cómo gano reputación?"
+      body:
+        text: "La reputación que tienes asignada depende de tu participación y fundamentalmente de la forma en que el resto de los usuarios califican tu contenido. A continuación se presenta una lista con los valores que se suman o restan a tu reputación:"
+        question_is_voted_up: "Tu pregunta recibió un voto positivo"
+        answer_is_voted_up: "Tu respuesta recibió un voto positivo"
+        mark_answer_as_accepted: "Tu respuesta ha sido elegida como la mejor"
+        answer_is_marked_as_accepted: "Haz elegido una respuesta como la mejor"
+        question_is_voted_down: "Tu pregunta recibió un voto negativo"
+        answer_is_voted_down: "Tu respuesta recibió un voto negativo"
+        vote_down: "Haz hecho un voto negativo"
+          
+      
+  
   # SESSIONS	
   email: "Email"
   sign_in: "Ingresar"
