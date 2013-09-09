@@ -4,3 +4,4 @@ es:
       question:
         title: "Título"
         body: "Cuerpo"
+        tag_tokens: "Etiquetas"
