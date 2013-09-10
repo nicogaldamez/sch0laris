@@ -9,12 +9,13 @@
   
       <%= image_tag @user.avatar_url(:large), id: "cropbox" %>
       <br>
-      <%= form_for @user, :url => crop_avatar_user_path(@user) do |f| %>
+      <%= form_for @user, :url => crop_avatar_user_path(@user), html: {id: 'avatar_form'}  do |f| %>
         <div class="actions">
           <% %w[x y w h].each do |attribute| %>
             <%= f.hidden_field "crop_#{attribute}"%>
           <% end %>
-          <%= f.submit t("users.profile.crop_avatar"), class: "btn btn-primary" %>
+    			<%= f.submit t("users.profile.crop_avatar"), class: "btn btn-primary",
+    				 	id: 'save_button', 'data' => { 'loading-text' => t(:loading) } %>			
         </div>
       <% end %>
     </div>

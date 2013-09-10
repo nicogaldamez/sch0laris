@@ -2,7 +2,11 @@
 	
 	<ul id="filter_nav" class="nav nav-pills">
     <% params = { type: @type, tag: @filter[:tag], search: @filter[:search], clear: true} %>
-	  <li id="hot" class="filter_questions"> 
+	  <li id="most_recent" class="filter_questions">
+      <%= link_to t(:most_recent), questions_path(params.merge({filter: 'most_recent'})), 
+            remote: true, class: 'remote_link' %>
+    <li>
+    <li id="hot" class="filter_questions"> 
       <%= link_to t(:hot), questions_path(params.merge({filter: 'hot'})), 
           remote: true, class: 'remote_link' %>
     </li>
@@ -10,10 +14,6 @@
       <%= link_to t(:reputation), questions_path(params.merge({filter: 'reputation'})), 
           remote: true, class: 'remote_link' %>
     </li>
-	  <li id="most_recent" class="filter_questions">
-      <%= link_to t(:most_recent), questions_path(params.merge({filter: 'most_recent'})), 
-            remote: true, class: 'remote_link' %>
-    <li>
 	  <li id="my_school" class="filter_questions">
       <%= link_to t(:my_school), questions_path(params.merge({filter: 'my_school'})), 
           remote: true, class: 'remote_link', format: 'js' %>

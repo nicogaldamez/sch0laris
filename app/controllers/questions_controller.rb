@@ -105,7 +105,7 @@ class QuestionsController < ApplicationController
       @type = params[:type] || 'questions'
       @filter = Hash.new
       @filter[:tag] = params[:tag] unless params[:tag].blank?
-      @filter[:filter] = params[:filter] || 'hot' # Los tabs internos (hot, reputation, ...)
+      @filter[:filter] = params[:filter] || 'most_recent' # Los tabs internos (hot, reputation, ...)
       @filter[:search] = params[:search] unless params[:search].blank?
       @clear_results = params[:clear] unless params[:clear].blank?
     

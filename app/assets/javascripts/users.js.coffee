@@ -17,6 +17,10 @@ $ ->
     .bind "ajax:success", (event, data) ->
       Utils.notify data.message, 'success'
       
+  $('#avatar_form').submit ->
+    $("#avatar_form :submit").button "loading"
+    true
+
   $('#school_not_present').click ->
     if $('#school_not_present').is(':checked')
       $('#create_other_school').fadeIn()

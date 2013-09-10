@@ -51,6 +51,10 @@ es:
       need_school: "Actualiza tu facultad en la configuración del perfil"
       filtered_by: "Filtro aplicado"
       remove_filter: "Quitar filtro"
+      empty: 
+        txt: "No hay nada que mostrar aquí. ¿Haz visto en %{try}?"
+        entries: "aportes"
+        questions: "preguntas"
     
     new:
       what_do_you_want: "¿Qué quieres hacer?"

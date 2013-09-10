@@ -1,7 +1,8 @@
 <%= render 'filter' %>
 
 <% if @questions.blank? %>
-  <p> No hay nada que mostrar </p>
+  <% try_with = (@type == 'questions') ? 'entries' : 'questions' %>
+  <p> <%= t("posts.list.empty.txt", try: t("posts.list.empty.#{try_with}")) %> </p>
 <% else %>
   <%= render partial: 'question', collection: @questions, as: 'question' %>
 <% end %>

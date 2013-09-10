@@ -6,7 +6,7 @@
 
   <div class="span5 offset1">
     <%= form_for(@user, url: upload_avatar_user_path(@user), 
-          :html => { id: 'profile_form', :autocomplete => "off", 
+          :html => { id: 'avatar_form', class: 'profile_form', :autocomplete => "off", 
           :multipart => true}) do |f| %>
 
   		<p id="profile_errors" class="form_errors text-error">  </p>
