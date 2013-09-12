@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
 
   def self.create_from_omniauth(auth)
     if (auth["provider"].downcase.eql?("facebook"))
-      provider  = "facebook"
+      user_provider  = "facebook"
       # catch any excpetions thrown by code just to make sure we can continue even if parts of the omnia_has are missing
       begin
         name = auth['info']['name']
@@ -86,29 +86,34 @@ class User < ActiveRecord::Base
         logger.error("Error while parsing facebook auth hash: #{ex.class}: #{ex.message}")
       end
     elsif auth["provider"].downcase.eql?("google_oauth2")
-      provider  = "google"
+      user_provider  = "google"
       name  = auth['info']['name']
       email = auth['info']['email']
     elsif auth['provider'].downcase.eql?("twitter")
-      provider  = "twitter"
+      user_provider  = "twitter"
       name  = auth["info"]["name"]
       email = nil
     end
     
     # Existe el usuario con el email 
-    user = User.find_by_email(email) unless email.blank?
+    if email.blank?
+      user = User.find_by_provider_and_uid(user_provider, auth["uid"])
+    else
+      user = User.find_by_email(email)
+    end
     if user.blank?
       user = create! do |user|
-        user.provider = provider,
-        user.uid = auth["uid"],
-        user.email = email,
-        user.name = name,
-        user.dateOfBirth = Date.today,
+        user.provider = user_provider
+        user.uid = auth["uid"]
+        user.email = email
+        user.name = name
+        user.dateOfBirth = 18.year.ago
         user.password_digest = SecureRandom.urlsafe_base64
       end
     else
-      user.provider = provider
+      user.provider = user_provider
       user.uid = auth["uid"]
+      user.save
     end
     
     return user

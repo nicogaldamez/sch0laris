@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
   
   def social_network_callback
     user = User.from_omniauth(request.env["omniauth.auth"])
-    logger.debug user.inspect
     if user.persisted?
       sign_in user
       if user.email.blank?
