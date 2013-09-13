@@ -46,11 +46,11 @@ class User < ActiveRecord::Base
   # mayúsculas y minúsculas, letras y números
   VALID_PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,20}$/
   
-  validates :email, presence:true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, :if => :email_required?
+  validates :email, presence:true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, :if => :is_new_record?
   validates :name, presence:true, length:{ maximum:40 }
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: I18n.t(:weak_password) }, :if => :should_validate_password?
   validates :password_confirmation, presence: true, :if => :should_validate_password?
-  validates :dateOfBirth, presence: { message: I18n.t(:wrong_or_blank_date) }, :if => :is_not_social_callback? 
+  validates :dateOfBirth, presence: { message: I18n.t(:wrong_or_blank_date) }, :if => :is_new_record? 
 
   def send_password_reset
     create_remember_token(:password_reset_token)
@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
     if email.blank?
       user = User.find_by_provider_and_uid(user_provider, auth["uid"])
     else
-      user = User.find_by_email(email)
+      user = User.find_by_email(email) 
     end
     if user.blank?
       user = create! do |user|
@@ -107,7 +107,6 @@ class User < ActiveRecord::Base
         user.uid = auth["uid"]
         user.email = email
         user.name = name
-        user.dateOfBirth = 18.year.ago
         user.password_digest = SecureRandom.urlsafe_base64
       end
     else
@@ -124,7 +123,7 @@ class User < ActiveRecord::Base
     provider.blank?
   end
   
-  def email_required?
+  def is_new_record?
     !new_record?
   end
 
