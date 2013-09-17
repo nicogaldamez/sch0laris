@@ -130,19 +130,29 @@ es:
   faq:
     what_is_scholaris:
       title: '¿Qué es scholaris?'
-      body: "Seguramente te habrá pasado alguna vez en la facultad o escuela que para resolver un problema solicitaste la colaboración de algún compañero. scholaris busca facilitar este proceso ya que no sólo vas a poder consultarle a tus compañeros sino que tus consultas serán vistas por todos los usuarios de esta comunidad que va creciendo día a día." 
-    what_is_not_scholaris: 
-      title: "¿Qué no es scholaris?"
       body: 
-        part1: "scholaris no te quiere resolver los problemas sino que quiere ayudarte a que tu los resuelvas. Es por ésto que te pedimos que cuando preguntes lo hagas demostrando que al menos has intentado resolverlo. Si una de tus preguntas no tiene valor o simplemente es una pregunta que no demuestra tener un análisis previo será editada o eliminada por los usuarios que cuenten con los privilegios para hacerlo."
-        part2: "Tampoco consideramos útil prácticas o exámenes resueltos ya que esto simplemente atrae a estudiantes haraganes."
+        part1: "A la hora de estudiar todos hemos llegado a ese punto en que una duda o un problema nos impedía seguir avanzando. La mayor parte de la veces lo resolvíamos consultando con amigos y compañeros. ¡Siempre es más fácil encontrar la respuesta cuando somos más y pensamos en conjunto!" 
+        part2: "Queremos facilitarte esta tarea. Por eso creamos scholaris: una herramienta rápida y sencilla que te permite compartir dudas con amigos, compañeros y con toda una comunidad de usuarios que crece día a día. ¡Qué estás esperando para ser parte de esta red educativa  amplia, horizontal y colaborativa! Sí, colaborativa. Porque nuestra aplicación web crece y se potencia con cada duda, respuesta, comentario y aporte que realizan nuestros usuarios. Nunca estudiar fue tan sencillo y divertido como ahora." 
+    how_to_power_scholaris: 
+      title: "¿Cómo potenciamos scholaris?"
+      body: 
+        part1: "Nuestros usuarios son inquietos, solidarios e interesados. Cada vez que tengas una duda en scholaris podrás contar con alguien dispuesto a ayudarte. Pero si piensas que aquí vas a encontrar quien haga las cosas en tu lugar ¡te equivocas! scholaris no va a resolverte los problemas, quiere ayudarte a que tú mismo lo hagas."
+        part2: "Por eso te pedimos que cuando realices una pregunta también muestres cómo has intentado responderla. Muchas veces esto ayuda a encontrar con mayor rapidez la mejor solución. Si una de tus preguntas no tiene valor o simplemente es una pregunta que no demuestra tener un análisis previo será editada o eliminada por los usuarios que cuenten con los permisos para hacerlo."
+        part3: "scholaris no es un repositorio de prácticas o exámenes resueltos. La principal motivación de nuestra comunidad es el desafío que plantea cada pregunta y la vocación por encontrar soluciones en conjunto con otros usuarios."
     how: 
       title: "¿Cómo funciona?"
-      body: "La idea de scholaris es que nos ayudemos entre todos. Para ello los usuarios pueden compartir contenido a través de los aportes o en caso de tener una duda pueden consultar al resto de la comunidad haciendo una pregunta. Todo contenido aportado será calificado por los usuarios facilitando la búsqueda de las mejores respuestas."
+      body: 
+        part1: "Cada usuarios de scholaris pueden compartir contenido de diversas maneras:"
+        share1: "Haciendo una pregunta cuando tiene una duda o un problema."
+        share2: "Con una respuesta a la pregunta que hayan realizado otros usuarios."
+        share3: "A través de comentarios enriqueciendo el planteo de otras respuestas."
+        share4: "Haciendo un aporte con un contenido de desarrollo propio que quieran compartir con el resto de la comunidad."
+        part2: "Todo contenido compartido será caliﬁcado por los usuarios permitiendo que la comunidad de scholaris pueda votar aquellos que considere más valiosos."
+        part3: "Para facilitar la búsqueda de los temas que más te interesan, cada contenido compartido cuenta con etiquetas que permiten hacerlo en forma sencilla."
     what_is_reputation:
       title: "¿Qué es la reputación?"
       body:
-        text: "Según tu participación en scholaris tendrás una reputación que irá variando a lo largo del tiempo. Los usuarios con mayor reputación tendrán más permisos que aquellos que recién están dando sus primeros pasos en scholaris. Todo usuario registrado en scholaris tendrá asignada una reputación mínima de 1. A continuación se presentan los permisos que tienes según tu reputación:"
+        text: "La reputación es un aspecto central para la comunidad. La misma irá variando a lo largo del tiempo de acuerdo a tu participación en scholaris. Mientras más intervengas tu reputación crecerá y de este modo obtendrás más permisos respecto a aquellos que recién están dando sus primeros pasos en la aplicación. Todo usuario registrado en scholaris tendrá asignada una reputación mínima de 1 punto. Cada vez que participes irás sumando puntos de acuerdo a la siguiente tabla de valores:"
         ask: "Hacer una pregunta"
         answer: "Responder una pregunta"
         comment: "Realizar un comentario"
@@ -153,7 +163,7 @@ es:
     how_get_reputation:
       title: "¿Cómo gano reputación?"
       body:
-        text: "La reputación que tienes asignada depende de tu participación y fundamentalmente de la forma en que el resto de los usuarios califican tu contenido. A continuación se presenta una lista con los valores que se suman o restan a tu reputación:"
+        text: "La reputación que tienes asignada dependerá de tu participación pero fundamentalmente de la forma en que el resto de los usuarios caliﬁcan tus intervenciones. Cuando el resto de la comunidad considere valiosos tus contenidos sumarás muchos puntos más teniendo en cuenta estos valores:"
         question_is_voted_up: "Tu pregunta recibió un voto positivo"
         answer_is_voted_up: "Tu respuesta recibió un voto positivo"
         mark_answer_as_accepted: "Tu respuesta ha sido elegida como la mejor"
