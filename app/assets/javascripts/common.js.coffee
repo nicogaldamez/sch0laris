@@ -85,3 +85,10 @@ jQuery ->
   # Notificaciones
   Notification.initialize()
   
+  # GO TOP
+  if $('#go_top')
+    $(window).scroll ->
+      if $(window).scrollTop() > 50
+        $('#go_top').fadeIn()
+      else
+        $('#go_top').fadeOut()

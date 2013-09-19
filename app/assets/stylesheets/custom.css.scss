@@ -139,6 +139,19 @@ span.label {
   z-index: 2000;
 }
 
+#go_top {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  background-color: #faa900;
+  color: white;
+  border-radius: 100px;
+  padding: 10px 10px 10px 8px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
 /* header */
 
 header {
@@ -641,6 +654,12 @@ ul {
 /*----- NOTIFICATIONS -----*/ 
 #notifications_link.new_notifications {
   color: $orangeColor;
+  font-weight: bold;
+}
+
+#notification_number {
+  margin-left: -19px;
+  color: #faa900;
   font-weight: bold;
 }
 

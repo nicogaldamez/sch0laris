@@ -66,7 +66,7 @@ class Question < ActiveRecord::Base
       elsif filter[:filter] == 'reputation'
         result = result.order("votes DESC")
       elsif filter[:filter] == 'my_school'
-        result = result.joins("INNER JOIN users ON users.id = questions.user_id").where("users.school_id = ?", current_user.school_id)
+        result = result.joins("INNER JOIN users ON users.id = questions.user_id").where("users.school_id = ?", current_user.school_id).order("questions.created_at desc")
       end
     end
     

@@ -39,7 +39,9 @@
       if data.unread_count != "0"
         if !$('#notifications_link').hasClass('new_notifications')
           $('#notifications_link').addClass('new_notifications')
+          $('#notification_number').text(data.unread_count).show()
       else
         $('#notifications_link').removeClass('new_notifications')
+        $('#notification_number').hide()
     )
     Notification.poll()
