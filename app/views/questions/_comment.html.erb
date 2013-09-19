@@ -10,6 +10,6 @@
       <%= link_to comment.user.name, comment.user %>
       <%= avatar_for(comment.user, { size: :mini }) %>
     </span>
-    <span class="body"> <%= comment.body %> </span>
+    <span class="body"> <%= auto_link(comment.body) %> </span>
   </span>
 </li>

@@ -198,6 +198,8 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails_autolink (1.1.3)
+      rails (> 3.1)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -287,6 +289,7 @@ DEPENDENCIES
   public_activity
   rabl
   rails (= 3.2.13)
+  rails_autolink
   rb-fsevent
   rmagick
   rspec-rails

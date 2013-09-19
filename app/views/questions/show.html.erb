@@ -70,7 +70,7 @@
   
   <!-- RESPUESTAS -->
   <div id="answers" class="row">    
-    <%= render partial: 'answers/answer', collection: @question.answers.order("votes desc"), as: 'answer' %>
+    <%= render partial: 'answers/answer', collection: @question.answers.order("votes desc, best_answer desc"), as: 'answer' %>
   </div>
   
   <!-- RESPONDER -->

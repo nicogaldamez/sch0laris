@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 @Notification = 
   initialize: ->
-    if typeof($("#notifications_link")) != 'undefined'
+    if $("#notifications_link").length > 0
       $("#notifications_link").click @show_notifications
     
       $(":not(#anything)").on "click", (e) ->
