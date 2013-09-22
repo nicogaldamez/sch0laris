@@ -1,7 +1,7 @@
 #encoding: UTF-8
 root = exports ? this
 root.visible_sign_in = false
-root.visible_search_input = false
+root.search_input_state = 'cerrado'
 
 
 @Utils =
@@ -55,16 +55,25 @@ jQuery ->
   
 	# Cuadro de búsqueda
 	$("#search_container").mouseover ->
-    $("#search").focus()
-    unless visible_search_input
+    
+    if root.search_input_state == 'cerrado'
+      root.search_input_state = 'abriendo'
       Notification.hide_notification_popover()
-      root.visible_search_input = true
-      $("#search").animate width: "toggle"
-
-  $("#search").blur ->
-    if visible_search_input
-      root.visible_search_input = false
-      $("#search").animate width: "toggle"
+      $("#search").animate width: "toggle", 300, ->
+        $("#search").focus()
+        root.search_input_state = 'abierto'
+  
+	$("#search_container").mouseout ->
+    if root.search_input_state == 'abierto'
+      root.search_input_state = 'cerrando' 
+      $("#search").animate width: "toggle", 300, ->
+        root.search_input_state = 'cerrado'
+        
+      
+  # $("#search").blur ->
+#     if visible_search_input
+#       root.visible_search_input = false
+#       $("#search").animate width: "toggle"
   
 	# File inputs
 	$("input:file").change ->

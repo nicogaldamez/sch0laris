@@ -3,7 +3,7 @@
 <h1> <%= t ".title" %> </h1>
 
 <div id="sign_up" class="row">
-	<div class="form span5 offset2">
+	<div class="form span5 offset1">
 		<%= form_for(@user, :html => { id: 'sign_up_form', :autocomplete => "off", 
 						remote: true, format: 'json'}) do |f| %>
 		
@@ -45,7 +45,7 @@
 		<% end %>
 	</div>
 	
-	<div class="description span4">
+	<div class="description span5">
     <div class="social_networks">
       <p> <%= t ".sign_up_prefer_social_networks" %> </p>
       <%= link_to raw('<i class="icon icon-twitter"></i> Twitter' ), "/auth/twitter", class: 'btn'%>

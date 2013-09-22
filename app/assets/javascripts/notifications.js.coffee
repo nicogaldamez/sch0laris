@@ -17,16 +17,17 @@
       @poll()
 
   show_notifications: (e)->
-    e = $(this)
-    url = $(this).data('url')
+    if !($('#search').is(':visible'))
+      e = $(this)
+      url = $(this).data('url')
 
-    $.get url, (d) -> 
-      e.popover(
-        html: true, 
-        placement: 'bottom'
-      ).popover("show")
-      $('.popover.in .popover-inner .popover-content').empty()
-      $('.popover.in .popover-inner .popover-content').html(d)
+      $.get url, (d) -> 
+        e.popover(
+          html: true, 
+          placement: 'bottom'
+        ).popover("show")
+        $('.popover.in .popover-inner .popover-content').empty()
+        $('.popover.in .popover-inner .popover-content').html(d)
     
   hide_notification_popover: ->
     $("#notifications_link").popover('hide')
