@@ -1,14 +1,17 @@
-<% if @clear_results %>
-  $("#questions_list").html("<%= escape_javascript(render('questions_list', collection:@questions))%>");
-  Utils.activeMenuItem('filter_nav', '<%= @tab %>');
+
+
+Utils.loading(false)
+
+<% if !@clear_results.blank? %>
+	$("#questions_list").html("<%= escape_javascript(render('questions_list', collection:@questions))%>");
 <% else %>
-  $("#questions_list").append("<%= escape_javascript(render('questions_list', collection:@questions))%>");
+	$("#questions_list").append("<%= escape_javascript(render('questions_list', collection:@questions))%>");
+<% end %>
+
+
+<% if @questions.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
-  <% if @questions.next_page %>
-    $('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
-    Utils.loading(false)
-  <% else %>
-    $('.pagination').remove();
-  <% end %>
+<% else %>
+  $('.pagination').remove();
 <% end %>
 
