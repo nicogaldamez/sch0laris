@@ -1,5 +1,7 @@
 # encoding: UTF-8
 class QuestionsController < ApplicationController
+  impressionist actions: [:show]
+  
   before_filter :signed_in_user, only: [:create, :ask, :pre_ask]
   before_filter :load_filter, only: [:index, :tagged]
   
@@ -44,12 +46,6 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @filter = Hash.new
-    
-    # Marco como vista por el usuario
-    if signed_in? && @question.user != current_user
-        view = @question.views.find_or_initialize_by_question_id_and_user_id(@question.id, current_user.id)
-        view.save
-    end
     
     @answer = @question.answers.new
     

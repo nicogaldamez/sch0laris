@@ -15,12 +15,12 @@
 class Question < ActiveRecord::Base
   include PublicActivity::Common
   has_paper_trail :ignore => [:votes, :post_type]
+  is_impressionable
   
   attr_accessible :body, :title, :user_id, :tag_tokens, :post_type
   attr_reader :tag_tokens
   
   belongs_to :user
-  has_many :views, :class_name => "QuestionView", :foreign_key => "question_id"
   has_many :questions_tags
   has_many :tags, through: :questions_tags
   has_many :answers, dependent: :destroy
