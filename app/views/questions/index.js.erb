@@ -1,11 +1,11 @@
-
-
 Utils.loading(false)
 
 <% if !@clear_results.blank? %>
 	$("#questions_list").html("<%= escape_javascript(render('questions_list', collection:@questions))%>");
+  Utils.activeMenuItem('filter_nav', '<%= @tab %>');
 <% else %>
 	$("#questions_list").append("<%= escape_javascript(render('questions_list', collection:@questions))%>");
+  $('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
 <% end %>
 
 

@@ -13,6 +13,7 @@ jQuery ->
       url = $('.pagination a.next_page').attr('href')
       if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
         Utils.loading(true)
+        $('.pagination').text("Recuperando más items...")
         $.getScript(url + '&change_page=1')
     $(window).scroll
 
