@@ -8,7 +8,8 @@ class QuestionsController < ApplicationController
   # Listado de aportes o preguntas
   def index
     @tab = @filter[:filter]
-    @questions = Question.filter(@type, @filter, current_user).page(params[:page]).per_page(10)
+    @page = params[:page] || 1
+    @questions = Question.filter(@type, @filter, current_user).page(params[:page]).per_page(2)
     respond_to do |f|
       f.html
       f.js 

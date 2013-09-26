@@ -1,17 +1,17 @@
 Utils.loading(false)
 
-<% if !@clear_results.blank? %>
+<% if @page == 1 %>
 	$("#questions_list").html("<%= escape_javascript(render('questions_list', collection:@questions))%>");
   Utils.activeMenuItem('filter_nav', '<%= @tab %>');
 <% else %>
-	$("#questions_list").append("<%= escape_javascript(render('questions_list', collection:@questions))%>");
-  $('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
+	$("#questions_list").append("<%= escape_javascript(render('questions_list', collection:@questions))%>");  
 <% end %>
 
+$('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
 
 <% if @questions.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
 <% else %>
-  $('.pagination').remove();
+  $('.pagination').html('');
 <% end %>
 
