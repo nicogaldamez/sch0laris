@@ -1,24 +1,25 @@
 <div id="how_to_ask">
   
   <div class="section">
-    <h3> <%= t("posts.how_to_ask.difference_title") %> </h3>
+    <h3> <%= t("posts.how_to_ask.moment_has_come.title") %> </h3>
     <p>
-      <%= t("posts.how_to_ask.difference_body") %>
+      <%= t("posts.how_to_ask.moment_has_come.body1") %>
+    </p>
+    <p>
+      <%= t("posts.how_to_ask.moment_has_come.body2") %>
+    </p>
+    <p>
+      <%= t("posts.how_to_ask.moment_has_come.body3") %>
+    </p>
+    <p>
+      <%= t("posts.how_to_ask.moment_has_come.body4") %>
     </p>
   </div>
   
   <div class="section">
-    <h3> <%= t("posts.how_to_ask.title") %> </h3>
+    <h3> <%= t("posts.how_to_ask.search.title") %> </h3>
     <p>
-      <%= t("posts.how_to_ask.intro") %>
-    </p>
-  </div>
-  
-  
-  <div class="section">
-    <h3> <%= t("posts.how_to_ask.search_well_title") %> </h3>
-    <p>
-      <%= t("posts.how_to_ask.search_well_body") %>
+      <%= t("posts.how_to_ask.search.body") %>
     </p>
 		<%= form_tag questions_path, id: 'search_form', method: 'get', autocomplete: 'off' do %>
       <%= text_field_tag :search, "", class:'search_input', placeholder: t(:search) %>
@@ -26,24 +27,36 @@
     	  <i class="icon-search icon-white"></i>
     	<% end %>
     <% end %>
-  	
+  </div>
+  
+  <div class="section">
+    <h3> <%= t("posts.how_to_ask.good_title.title") %> </h3>
+    <p>
+      <%= t("posts.how_to_ask.good_title.body") %>
+    </p>
+  </div>
+  
+  
+  <div class="section">
+    <h3> <%= t("posts.how_to_ask.be_specific.title") %> </h3>
+    <p>
+      <%= t("posts.how_to_ask.be_specific.body") %>
+    </p>
   </div>
 
   <div class="section">
-    <h3> <%= t("posts.how_to_ask.be_specific") %> </h3>
+    <h3> <%= t("posts.how_to_ask.use_tags.title") %> </h3>
     <p>
-      <%= t("posts.how_to_ask.be_specific_body") %>
+      <%= t("posts.how_to_ask.use_tags.body") %>
     </p>
+    <p> 
+      <%= t("posts.how_to_ask.use_tags.example_title") %> <br>
+      <%= t("posts.how_to_ask.use_tags.example1") %> <br>
+      <%= t("posts.how_to_ask.use_tags.example2") %>
   </div>
   
   <div class="section">
-    <h3> <%= t("posts.how_to_ask.use_tags_title") %> </h3>
-    <p>
-      <%= t("posts.how_to_ask.use_tags_body") %>
-    </p>
-  </div>
-  
-  <div class="section">
+    <p> <%= t("posts.how_to_ask.no_wait") %> </p>
     <%= link_to t("posts.how_to_ask.proceed"), ask_path, class: 'proceed' %>      
   </div>  
   

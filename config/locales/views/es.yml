@@ -26,17 +26,28 @@ es:
      
   posts:
     how_to_ask: 
-      difference_title: "¿Pregunta o Aporte?"
-      difference_body: "Una Pregunta es una duda que tengas sobre algún tema en particular. La idea de una Pregunta es obtener una respuesta por parte de otro usuario de scholaris. En cambio un Aporte es un contenido que quieres compartir sin esperar una respuesta. Esto podría ser un apunte, una idea, una solución a un problema o cualquier contenido que consideres que puede llegar a serle útil a otro usuario."
-      title: "Cómo hacer tu pregunta"
-      intro: "Nos encantaría ayudarte, pero la realidad es que no todas las preguntas logran una respuesta. Para mejorar tus posibilidades te damos algunos consejos:"
-      search_well_title: "¿Has buscado bien?"
-      search_well_body: "¿Has buscado bien una respuesta antes de hacer tu pregunta? Compartir tu investigación ayuda a todos. Cuéntanos lo que encontraste (en scholaris o en otro lugar) y por qué no respondía a tus necesidades. Esto demuestra que has tomado el tiempo para tratar de ayudarte a ti mismo, ésto evitará respuestas obvias, y sobre todo, que te ayudará a obtener una respuesta más específica y relevante! "
-      search_in_scholaris: "Busca en scholaris"
-      be_specific: "Se específico"
-      be_specific_body: "Si haces una pregunta vaga, obtendrás una respuesta vaga. Pero si nos das los detalles y el contexto, podremos proporcionar una respuesta más acorde a tus necesidades."
-      use_tags_title: "Escoge bien las etiquetas"
-      use_tags_body: "Las preguntas y aportes deben tener etiquetas para facilitar la búsqueda de contenido interesante. Dedicale un momento a escoger a conciencia las etiquetas de tu aporte o pregunta."
+      moment_has_come: 
+        title: "¿Llegó el momento?"
+        body1: "Estás a punto de compartir un recurso con toda la comunidad de scholaris. Las preguntas y los aportes son una herramienta fundamental para nuestro usuarios y el insumo fundamental de nuestra aplicación."
+        body2: "Si simplemente quieres compartir algo que hayas producido, un apunte, una idea, o la solución a un problema, ¡adelante! Seguramente vas a poder enriquecerlos con los comentarios que el resto de los usuarios puedan hacerte."
+        body3: "En casos que tengas una duda y quieras compartirla no hay ningún inconveniente. Pero antes queremos asegurarnos que puedas elaborar tus preguntas del mejor modo posible para aprovechar las respuestas al máximo. "
+        body4: "Algunos tips que pueden ayudarte:"
+      search: 
+        title: "La búsqueda previa"
+        body: "Lo primero que deberías tener en cuenta es que la pregunta que piensas hacer no haya sido formulada con anterioridad. ¿Te has fijado en nuestro buscador? Posiblemente en la comunidad de scholaris otro usuario haya compartido un problema similar."
+      good_title: 
+        title: "Un buen título"
+        body: "¿Cuál es mi duda? Hazte esta pregunta y respóndela en una sólo oración. Toda duda puede ser comunicada en forma sintética y clara. Con esto vas a lograr elaborar tus inquietudes de la mejora manera. Si no logras hacerlo en tu primer intento, tómate un par de minutos más e inténtalo luego. ¡Puede demorarte un poco pero te aseguramos que vas a obtener mejores resultados!"
+      be_specific: 
+        title: "Un desarrollo específico"
+        body: "Si haces una pregunta vaga, obtendrás resultados igualmente vagos. Pero si eres claro, conseguirás respuestas que se adecuen a tus necesidades. Compartir tus dudas significa también mostrar tus intentos por resolverla. En el cuerpo de la pregunta cuéntanos lo que encontraste y por qué no respondía a tus necesidades. ¡Con ello podrás evitar respuestas obvias, obteniendo así una colaboración más específica y relevante!"
+      use_tags: 
+        title: "Escoge bien las etiquetas"
+        body: "Las preguntas y aportes deben tener etiquetas para facilitar la búsqueda de los recursos compartidos en scholaris. Parece algo menor pero es una cuestión fundamental. ¡Con ello ayudas a que todos los miembros de la comunidad puedan encontrar fácilmente el material que estén buscando! Elige a conciencia algunas palabras claves. Un buen criterio puede ser escoger cuatro palabras que engloben nuestro recurso desde de lo más general a lo bien específico."
+        example_title: "Ejemplo:"
+        example1: "disciplina/carrera - área/asignatura - unidad/eje - tema. "
+        example2: "historia - historia contemporánea - 2 guerra mundial - holocausto"
+      no_wait: "¡Ahora sí, no esperes más!"
       proceed: "Continuar con la pregunta"
     
     leave_comment: "Comenta"
