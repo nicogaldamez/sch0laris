@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   def index
     @tab = @filter[:filter]
     @page = params[:page] || 1
-    @questions = Question.filter(@type, @filter, current_user).page(params[:page]).per_page(2)
+    @questions = Question.filter(@type, @filter, current_user).page(params[:page]).per_page(10)
     respond_to do |f|
       f.html
       f.js 
