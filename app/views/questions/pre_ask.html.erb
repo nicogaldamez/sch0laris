@@ -1,23 +1,24 @@
 <div id="how_to_ask">
   
-  <div class="section">
+  <div class="section moment_has_come">
     <h3> <%= t("posts.how_to_ask.moment_has_come.title") %> </h3>
     <p>
-      <%= t("posts.how_to_ask.moment_has_come.body1") %>
+      <%= t("posts.how_to_ask.moment_has_come.body") %>
     </p>
+    
+    <h4 class="main_nav_title"> <%= t("posts.how_to_ask.entries.title") %> </h4>
     <p>
-      <%= t("posts.how_to_ask.moment_has_come.body2") %>
+      <%= t("posts.how_to_ask.entries.body") %>
     </p>
+    
+    <h4 class="main_nav_title"> <%= t("posts.how_to_ask.questions.title") %> </h4>
     <p>
-      <%= t("posts.how_to_ask.moment_has_come.body3") %>
+      <%= t("posts.how_to_ask.questions.body") %>
     </p>
-    <p>
-      <%= t("posts.how_to_ask.moment_has_come.body4") %>
-    </p>
-  </div>
+    <br>
+    <p> <%= t("posts.how_to_ask.tips") %> </p>
   
-  <div class="section">
-    <h3> <%= t("posts.how_to_ask.search.title") %> </h3>
+    <h4> <%= t("posts.how_to_ask.search.title") %> </h4>
     <p>
       <%= t("posts.how_to_ask.search.body") %>
     </p>
@@ -30,7 +31,7 @@
   </div>
   
   <div class="section">
-    <h3> <%= t("posts.how_to_ask.good_title.title") %> </h3>
+    <h4> <%= t("posts.how_to_ask.good_title.title") %> </h4>
     <p>
       <%= t("posts.how_to_ask.good_title.body") %>
     </p>
@@ -38,7 +39,7 @@
   
   
   <div class="section">
-    <h3> <%= t("posts.how_to_ask.be_specific.title") %> </h3>
+    <h4> <%= t("posts.how_to_ask.be_specific.title") %> </h4>
     <p>
       <%= t("posts.how_to_ask.be_specific.body") %>
     </p>
@@ -50,14 +51,24 @@
       <%= t("posts.how_to_ask.use_tags.body") %>
     </p>
     <p> 
+      <br>
       <%= t("posts.how_to_ask.use_tags.example_title") %> <br>
       <%= t("posts.how_to_ask.use_tags.example1") %> <br>
       <%= t("posts.how_to_ask.use_tags.example2") %>
+    </p>
   </div>
   
   <div class="section">
+    <%= t("posts.how_to_ask.terms") %>
+    <%= link_to raw("<i class='icon icon-share'> </i>"), '#', target: '_blank' %>
+  </div>
+  
+  <div class="continue section">
     <p> <%= t("posts.how_to_ask.no_wait") %> </p>
-    <%= link_to t("posts.how_to_ask.proceed"), ask_path, class: 'proceed' %>      
+    <%= link_to ask_path, class: 'proceed' do %>      
+      <%= t("posts.how_to_ask.proceed") %>
+      <i class='icon icon-bullhorn'></i>
+    <% end %>
   </div>  
   
 </div>

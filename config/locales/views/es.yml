@@ -27,28 +27,33 @@ es:
   posts:
     how_to_ask: 
       moment_has_come: 
-        title: "¿Llegó el momento?"
-        body1: "Estás a punto de compartir un recurso con toda la comunidad de scholaris. Las preguntas y los aportes son una herramienta fundamental para nuestro usuarios y el insumo fundamental de nuestra aplicación."
-        body2: "Si simplemente quieres compartir algo que hayas producido, un apunte, una idea, o la solución a un problema, ¡adelante! Seguramente vas a poder enriquecerlos con los comentarios que el resto de los usuarios puedan hacerte."
-        body3: "En casos que tengas una duda y quieras compartirla no hay ningún inconveniente. Pero antes queremos asegurarnos que puedas elaborar tus preguntas del mejor modo posible para aprovechar las respuestas al máximo. "
-        body4: "Algunos tips que pueden ayudarte:"
+        title: "¡Llegó el momento!"
+        body: "Estás a punto de compartir un recurso con toda la comunidad de scholaris. Gracias a la dinámica participación de todos los integrantes de nuestra comunidad, scholaris está creciendo más y más cada día. Las preguntas y los aportes son una herramienta esencial para nuestros usuarios. Elige bien cuál de ellas vas a utilizar: "
+      entries:
+        title: "Aportes"
+        body: "Si simplemente quieres compartir algo que hayas producido, un apunte, una idea, o la solución a un problema, ¡adelante! Realiza un aporte y con él estarás ayudando a toda la comunidad que podrá consultarlo cuando tenga una duda o se interese en el tema que has desarrollado. También, los comentarios que el resto de los usuarios realicen va a permitir que el mismo se enriquezca mucho más. ¡Es genial!"
+      questions:
+        title: "Preguntas"
+        body: "En caso que tengas una duda y quieras compartirla tendrás que optar por hacer una pregunta. Pero antes queremos asegurarnos que puedas elaborarla del mejor modo posible para aprovechar las respuestas al máximo. "
+      tips: "Algunos tips que pueden ayudarte:"
       search: 
         title: "La búsqueda previa"
-        body: "Lo primero que deberías tener en cuenta es que la pregunta que piensas hacer no haya sido formulada con anterioridad. ¿Te has fijado en nuestro buscador? Posiblemente en la comunidad de scholaris otro usuario haya compartido un problema similar."
+        body: "Lo primero que deberías tener en cuenta es que tu pregunta no haya sido formulada con anterioridad. ¿Te has fijado en nuestro buscador? Posiblemente en la comunidad de scholaris otro usuario haya compartido un problema similar."
       good_title: 
         title: "Un buen título"
-        body: "¿Cuál es mi duda? Hazte esta pregunta y respóndela en una sólo oración. Toda duda puede ser comunicada en forma sintética y clara. Con esto vas a lograr elaborar tus inquietudes de la mejora manera. Si no logras hacerlo en tu primer intento, tómate un par de minutos más e inténtalo luego. ¡Puede demorarte un poco pero te aseguramos que vas a obtener mejores resultados!"
+        body: "¿Cuál es mi duda? Hazte esta pregunta y respóndela en una sólo oración. Toda duda puede ser comunicada en forma sintética y clara. Con esto vas a lograr elaborar tus inquietudes de la mejor manera. Si no logras hacerlo en tu primer intento, tómate un par de minutos más e inténtalo luego. ¡Puede demorarte un poco pero te aseguramos que vas a obtener mejores resultados!"
       be_specific: 
         title: "Un desarrollo específico"
         body: "Si haces una pregunta vaga, obtendrás resultados igualmente vagos. Pero si eres claro, conseguirás respuestas que se adecuen a tus necesidades. Compartir tus dudas significa también mostrar tus intentos por resolverla. En el cuerpo de la pregunta cuéntanos lo que encontraste y por qué no respondía a tus necesidades. ¡Con ello podrás evitar respuestas obvias, obteniendo así una colaboración más específica y relevante!"
       use_tags: 
-        title: "Escoge bien las etiquetas"
-        body: "Las preguntas y aportes deben tener etiquetas para facilitar la búsqueda de los recursos compartidos en scholaris. Parece algo menor pero es una cuestión fundamental. ¡Con ello ayudas a que todos los miembros de la comunidad puedan encontrar fácilmente el material que estén buscando! Elige a conciencia algunas palabras claves. Un buen criterio puede ser escoger cuatro palabras que engloben nuestro recurso desde de lo más general a lo bien específico."
+        title: "¡No te olvides de elegir bien las etiquetas!"
+        body: "Las preguntas, al igual que los aportes, deben tener etiquetas para facilitar la búsqueda de los recursos compartidos en scholaris. Parece algo menor pero es una cuestión fundamental. ¡Con ello ayudas a que todos los miembros de la comunidad puedan encontrar fácilmente el material que estén buscando! Elige a conciencia algunas palabras claves. Un buen criterio puede ser escoger cuatro palabras que engloben nuestro recurso desde de lo más general a lo bien específico."
         example_title: "Ejemplo:"
         example1: "disciplina/carrera - área/asignatura - unidad/eje - tema. "
         example2: "historia - historia contemporánea - 2 guerra mundial - holocausto"
+      terms: "Recuerda de respetar las normas de convivencia de scholaris. "
       no_wait: "¡Ahora sí, no esperes más!"
-      proceed: "Continuar con la pregunta"
+      proceed: "Continuar"
     
     leave_comment: "Comenta"
     make_comment: "Deja tu comentario"
