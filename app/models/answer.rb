@@ -28,6 +28,27 @@ class Answer < ActiveRecord::Base
   
   after_commit :create_notification, :on => :create
   
+  # Notifica al usuario de la respuesta que fue elegida como mejor respuesta
+  def notify_best
+    question_user = self.question.user
+    body = self.body
+    
+    # Notifico al dueño de la pregunta
+    subject = I18n.t('notification.best_answer', :sender => question_user.name)
+    self.user.notify(subject, body, self)
+  end
+  
+  # Notifica al usuario que la respuesta recibió un voto
+  def notify_vote (up_vote)
+    body = self.body
+    
+    up_or_down = (up_vote == 1) ? 'up' : 'down'
+    subject = I18n.t('notification.voted', :thing => I18n.t("answers.answer.one"), 
+      :up_or_down => I18n.t("notification.up_or_down.#{up_or_down}"))
+      
+    self.user.notify(subject, body, self)
+  end
+  
   private
     def create_notification
       question = self.question

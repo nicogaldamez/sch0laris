@@ -82,6 +82,9 @@ es:
       created_entry_about: "aportó sobre"
     
   questions:
+    question:
+      one: "pregunta"
+      other: "preguntas"
     ask_question: "Haz una pregunta o aporte"
     select_best_answer: "Seleccionar como mejor respuesta"
     
@@ -109,6 +112,8 @@ es:
     also_commented: '<b>%{sender}</b> también comentó %{thing} que tu has comentado.'
     answered: '<b>%{sender}</b> respondió %{thing} %{whose}.'
     also_answered: '<b>%{sender}</b> también respondió %{thing} que tu has respondido.'
+    best_answer: '<b>%{sender}</b> ha elegido tu respuesta como la mejor.'
+    voted: 'Tu %{thing} ha recibido un voto %{up_or_down}'
     thing:
       question: una pregunta
       entry: un aporte 
@@ -116,6 +121,9 @@ es:
     whose:
       yours: tuya
       user: 'de %{receiver}'
+    up_or_down:
+      up: 'positivo'
+      down: 'negativo' 
       
   feed:
     title: "Actividad"

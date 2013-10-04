@@ -77,5 +77,16 @@ class Question < ActiveRecord::Base
     
     result
   end
+  
+  # Notifica al usuario que la respuesta recibió un voto
+  def notify_vote (up_vote)
+    body = self.body
+    
+    up_or_down = (up_vote == 1) ? 'up' : 'down'
+    subject = I18n.t('notification.voted', :thing => I18n.t("questions.question.one"), 
+      :up_or_down => I18n.t("notification.up_or_down.#{up_or_down}"))
+      
+    self.user.notify(subject, body, self)
+  end
 
 end

@@ -62,6 +62,11 @@ class AnswersController < ApplicationController
           # Sumo / Resto reputación al que eligió la mejor respuesta
           new_reputation(current_user, Reputation::POINTS_MARK_ANSWER_AS_ACCEPTED, was_best_answer)
           
+          # Genera la notificación
+          if !was_best_answer
+            @answer.notify_best()
+          end
+          
           render 'shared/success'
         end
       end

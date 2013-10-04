@@ -21,6 +21,8 @@ class VotesController < ApplicationController
         end
         new_reputation(@voteable.user, points)
         new_reputation(current_user, Reputation::POINTS_VOTE_DOWN)
+        
+        @voteable.notify_vote(value)
       else
         vote = vote.first
         raise(RequestExceptions::BadRequestError.new(t(:already_voted))) unless vote.value != value
