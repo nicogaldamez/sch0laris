@@ -1,4 +1,5 @@
 #encoding: UTF-8
+
 require "spec_helper"
 
 RSpec::Matchers.define :allow do |*args|
@@ -166,4 +167,24 @@ describe Permission do
       should allow(:tags, :index)
     end
   end
+  
+  describe "como moderador" do
+    let(:user) { FactoryGirl.create(:user, reputation: 50000) }
+    let(:question) { FactoryGirl.create(:question) }
+    let(:answer) { FactoryGirl.create(:answer) }
+    subject { Permission.new(user) }
+    
+    it "puede editar contenidos" do
+      should allow(:questions, :edit)
+      should allow(:questions, :update)
+      should allow(:answers, :edit)
+      should allow(:answers, :update)
+    end
+    
+    it "respuestas" do
+      should allow(:questions, :edit)
+    end
+    
+  end
+      
 end

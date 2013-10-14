@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 # == Schema Information
 #
 # Table name: users
@@ -101,15 +103,8 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "when email format is invalid" do
-    it "should be invalid" do
-      addresses = %w[user@foo,com user_at_foo.org example.user@foo.
-      foo@bar_baz.com foo@bar+baz.com <http://baz.com>]
-      addresses.each do |invalid_address|
-        @user.email = invalid_address
-        @user.should_not be_valid
-      end
-    end
+  it "falla con el email inválido" do
+    FactoryGirl.build(:user, email: "user@foo").should_not be_valid
   end
 
   describe "when email format is valid" do
@@ -120,10 +115,5 @@ describe User do
         @user.should be_valid
       end
     end
-  end
-  
-  describe "remember token" do
-    before { @user.save }
-    its(:remember_token) { should_not be_blank }
   end  
 end

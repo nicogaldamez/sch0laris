@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['dateOfBirth','name','email'],:user)
     params[:user][:dateOfBirth] = parse_date(params[:user][:dateOfBirth])
     @user = User.new(params[:user])
     @user.school_id = nil if params[:user][:school_id].blank?

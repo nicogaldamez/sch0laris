@@ -18,17 +18,26 @@ class Permission
       allow :questions, [:destroy] do |question|
         question.user_id == user.id
       end
-      allow :questions, [:edit, :update] do |question|
-        question.user_id == user.id
+      
+      # Si es moderador puede editar las preguntas y respuestas, sino debe ser dueño
+      if user.reputation >= Reputation::REPUTATION_EDIT_QUESTIONS_AND_ANSWERS
+        allow :questions, [:edit, :update]
+        allow :answers, [:edit, :update]        
+      else
+        allow :questions, [:edit, :update] do |question|
+          question.user_id == user.id
+        end
+        allow :answers, [:edit, :update] do |answer|
+          answer.user_id == user.id
+        end
       end
+      
       
       allow :answers, [:create] unless user.reputation < Reputation::REPUTATION_ANSWER
       allow :answers, [:destroy] do |answer|
         answer.user_id == user.id
       end
-      allow :answers, [:edit, :update] do |answer|
-        answer.user_id == user.id
-      end
+      
       allow :answers, [:best_answer] do |answer|
         answer.question.post_type == 'Q' and answer.question.user_id == user.id
       end

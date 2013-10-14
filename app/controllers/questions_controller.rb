@@ -17,6 +17,14 @@ class QuestionsController < ApplicationController
   end
   
   def pre_ask
+    # Si la última pregunta que hizo fue hace menos de 30 días 
+    # no muestro el pre_ask
+    last_question = current_user.last_question
+    unless last_question.nil?
+      if 30.days.ago < last_question.created_at
+        redirect_to ask_url
+      end
+    end
   end
   
   def ask

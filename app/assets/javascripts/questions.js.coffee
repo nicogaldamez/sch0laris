@@ -25,7 +25,9 @@ $ ->
 		.bind "ajax:before", (event, data) ->	
 			$("#ask_form :submit").button "loading"
 		.bind "ajax:success", (event, data) ->
-			window.location.href = '/questions/' + data.question.id
+      window.location.href = '/questions/' + data.question.id
+		.bind "ajax:error", (event, data) ->
+			Utils.notify data.responseJSON.message, 'error'
   
 	$("#answer_form")
 		.bind "ajax:complete", (event, data) ->

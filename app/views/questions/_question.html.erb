@@ -19,9 +19,12 @@
       <%= "#{time_ago_in_words(question.created_at)}" %> 
       <div class="stats">
         - 
-        <span style="color: #f58026"> <%= question.impressionist_count %> </span> <%= t("posts.views") %> 
+        <span style="color: #f58026"> 
+          <%= question.impressionist_count(filter: :session_hash) %> </span> 
+          <%= t("posts.views") %> 
         - 
-        <span style="color: #f58026"><%= question.answers.count %></span> <%= t("posts.answers") %> 
+        <span style="color: #f58026"><%= question.answers.count %></span> 
+        <%= t("posts.answers") %> 
       </div>
     </div>
 	</div>

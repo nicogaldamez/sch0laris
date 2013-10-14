@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   belongs_to :school
   has_many :answers
   has_many :comments
+  has_many :questions
   
   before_save { |user| user.email = email.downcase unless email == nil }
   # before_create { create_remember_token(:remember_token) }
@@ -46,11 +47,18 @@ class User < ActiveRecord::Base
   # mayúsculas y minúsculas, letras y números
   VALID_PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,20}$/
   
-  validates :email, presence:true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, :if => :is_new_record?
+  validates :email, presence:true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, :if => :is_new_or_is_not_social_network?
   validates :name, presence:true, length:{ maximum:40 }
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: I18n.t(:weak_password) }, :if => :should_validate_password?
   validates :password_confirmation, presence: true, :if => :should_validate_password?
-  validates :dateOfBirth, presence: { message: I18n.t(:wrong_or_blank_date) }, :if => :is_new_record? 
+  validates :dateOfBirth, presence: { message: I18n.t(:wrong_or_blank_date) }, :if => :is_new_or_is_not_social_network?
+  validate :dateOfBirth_cannot_be_too_old
+ 
+  def dateOfBirth_cannot_be_too_old
+    if dateOfBirth.present? && dateOfBirth < (120.years.ago).to_date
+      errors.add(:dateOfBirth, "es incorrecta")
+    end
+  end
 
   def send_password_reset
     create_remember_token(:password_reset_token)
@@ -123,10 +131,14 @@ class User < ActiveRecord::Base
     provider.blank?
   end
   
-  def is_new_record?
-    !new_record?
+  def is_new_or_is_not_social_network?
+    new_record? && is_not_social_callback?
   end
 
+  def last_question
+    self.questions.last
+  end
+  
   private
     def save_other_school
       self.other_school = nil if other_school.blank?
