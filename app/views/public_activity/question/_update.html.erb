@@ -1,13 +1,14 @@
 <%  
 question = activity.trackable
 type = (question.post_type == 'Q') ? 'question' : 'entry'
+whose = (question.user == @current_user) ? 'notification.whose.yours' : 'notification.whose.user'
 %>
-
 <%= image_tag 'icons/question_32.png' %>
 <span> 
-  <%= raw t('feed.post', 
+  <%= raw t('feed.post_modified', 
       :thing => link_to(t('feed.thing.'+ type),notification_url_of(question, nil)),
-      :user => truncate_name(@user.name))
+      :user => truncate_name(@user.name),
+      :whose => t(whose, :receiver => link_to(truncate_name(question.user.name), question.user)))
   %>
 </span>           
          

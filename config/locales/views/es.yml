@@ -140,6 +140,8 @@ es:
       question: '%{sender} comentó %{thing} %{whose}.'
     answer: '%{sender} respondió %{thing} %{whose}.'
     post: '%{user} realizó %{thing}.'
+    post_modified: '%{user} modificó %{thing} %{whose}.'
+    answer_modified: '%{user} modificó una respuesta %{whose}.'
     whose:
       yours: tuya
       user: 'de %{receiver}'

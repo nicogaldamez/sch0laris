@@ -19,6 +19,8 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:answer][:id])    
     if !@answer.update_attributes(params[:answer])
       raise(RequestExceptions::BadRequestError.new(@answer.errors.full_messages))
+    else
+      @answer.create_activity :update, owner: current_user
     end
   end
   

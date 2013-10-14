@@ -1,0 +1,12 @@
+<%  
+answer = activity.trackable
+whose = (answer.user == @current_user) ? 'notification.whose.yours' : 'notification.whose.user'%>
+
+<%= image_tag 'icons/reply_32.png' %>
+<span> 
+  <%= raw t('feed.answer_modified',
+       :user => truncate_name(@user.name),
+       :whose => t(whose, :receiver => link_to(truncate_name(answer.user.name), answer.user))) %>
+</span>           
+         
+<small class="date-ago muted"><%= "#{time_ago_in_words(activity.created_at)}" %></small>

@@ -92,7 +92,7 @@ class QuestionsController < ApplicationController
     @clear_results = params[:change_page].blank?
     @question = Question.find(params[:question][:id])
     if @question.update_attributes(params[:question])
-      @question.create_activity :create, owner: current_user
+      @question.create_activity :update, owner: current_user
       redirect_to @question, format: :json
     else
       raise(RequestExceptions::BadRequestError.new(@question.errors.full_messages))
