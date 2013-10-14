@@ -100,7 +100,12 @@ es:
       other: "respuestas"
     post_answer: "Responder"
     your_answer: "Tu Respuesta"
-
+    
+  entries:
+    entry:
+      one: "aporte"
+      other: "aportes"
+      
   tags:
     click_a_tag: "Haz click en una etiqueta para buscar resultados asociados a la selección"
 
@@ -114,6 +119,7 @@ es:
     also_answered: '<b>%{sender}</b> también respondió %{thing} que tu has respondido.'
     best_answer: '<b>%{sender}</b> ha elegido tu respuesta como la mejor.'
     voted: 'Tu %{thing} ha recibido un voto %{up_or_down}'
+    your_content_modified: '<b>%{sender}</b> ha modificado tu %{thing}.'
     thing:
       question: una pregunta
       entry: un aporte 

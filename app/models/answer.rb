@@ -27,6 +27,7 @@ class Answer < ActiveRecord::Base
   
   
   after_commit :create_notification, :on => :create
+  after_commit :update_notification, :on => :update
   
   # Notifica al usuario de la respuesta que fue elegida como mejor respuesta
   def notify_best
@@ -71,6 +72,20 @@ class Answer < ActiveRecord::Base
       users_to_notify = User.uniq.joins(:answers).where(answers: {id: question.answer_ids}).reject {|user| user == self.user || user == question.user}
       users_to_notify.each do |u|
         u.notify(subject, body, self) 
+      end
+    end
+    
+    def update_notification
+      modified_by = self.versions.last.terminator
+      
+      # Solo notifico si la modificación la hizo un moderador
+      unless modified_by == self.user_id
+        # Notifico al dueño de la respuesta que se realizó una modificación
+        subject = I18n.t('notification.your_content_modified' , 
+             :sender => User.find(modified_by).name,
+             :thing => I18n.t("answers.answer.one")
+        )      
+        user.notify(subject, self.body, self)
       end
     end
 end
