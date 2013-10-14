@@ -1,9 +1,9 @@
 # encoding: UTF-8
 
-def js_log_in(email, password)
+def js_log_in(user, password)
   visit root_path
   click_link 'show_sign_in_btn'
-  fill_in "sign_in_email", with: email
+  fill_in "sign_in_email", with: user.email
   fill_in "sign_in_password", with: password
   click_button "sign_in_btn"
   sleep 1

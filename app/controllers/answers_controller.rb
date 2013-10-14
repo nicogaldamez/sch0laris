@@ -17,7 +17,6 @@ class AnswersController < ApplicationController
     raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['body','question_id'], :answer)
     
     @answer = Answer.find(params[:answer][:id])    
-    @answer.user_id = current_user.id
     if !@answer.update_attributes(params[:answer])
       raise(RequestExceptions::BadRequestError.new(@answer.errors.full_messages))
     end

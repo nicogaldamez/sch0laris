@@ -21,7 +21,7 @@ describe "Question request" do
     let!(:user) { FactoryGirl.create(:user, password: 'Secret1234', password_confirmation: 'Secret1234') }
     
     before "login" do
-      js_log_in(user.email, 'Secret1234')
+      js_log_in(user, 'Secret1234')
       visit pre_ask_questions_path
     end
     
@@ -51,8 +51,8 @@ describe "Question request" do
       page.evaluate_script("$('#ask_button').trigger('click')");       
       sleep 1
       page.should have_selector('h3', text: "Foobar")
-      
     end
+    
   end
   
   it "eliminar una pregunta" do

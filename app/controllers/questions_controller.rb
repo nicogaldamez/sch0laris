@@ -89,7 +89,6 @@ class QuestionsController < ApplicationController
       raise(RequestExceptions::BadRequestError.new(t("questions.ask.tags_error"))) 
     end
   
-    params[:question][:user_id] = current_user.id
     @clear_results = params[:change_page].blank?
     @question = Question.find(params[:question][:id])
     if @question.update_attributes(params[:question])
