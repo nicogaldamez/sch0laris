@@ -31,9 +31,9 @@ class User < ActiveRecord::Base
   has_secure_password
   
   belongs_to :school
-  has_many :answers
-  has_many :comments
-  has_many :questions
+  has_many :answers, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :questions, dependent: :destroy
   
   before_save { |user| user.email = email.downcase unless email == nil }
   # before_create { create_remember_token(:remember_token) }
