@@ -93,6 +93,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:question][:id])
     if @question.update_attributes(params[:question])
       @question.create_activity :update, owner: current_user
+      @question.update_notification() # Envía la notificación de que modificaron la pregunta
       redirect_to @question, format: :json
     else
       raise(RequestExceptions::BadRequestError.new(@question.errors.full_messages))

@@ -29,6 +29,13 @@ $ ->
 		.bind "ajax:error", (event, data) ->
 			Utils.notify data.responseJSON.message, 'error'
   
+  if $('#question_body').length > 0
+    editor = $("#question_body").data("wysihtml5").editor
+    editor.observe "load", ->
+      editor.composer.element.addEventListener "keyup",(e) ->
+        if e.keyCode == 50 # @
+          console.log "BUSCO LOS TIPOS"
+  
 	$("#answer_form")
 		.bind "ajax:complete", (event, data) ->
 			$("#answer_form :submit").button "reset"

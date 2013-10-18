@@ -23,6 +23,11 @@ es:
       my_school_absent: "Mi facultad no aparece en la lista"
       request_school_creation: "Solicita al staff de scholaris que agregue tu facultad"
       other_school_name: "Nombre de tu facultad"
+      avatar: "Avatar"
+      personal: "Personal"
+      delete: "Eliminar cuenta"
+      delete_warning: "Al eliminar la cuenta se borrarán los datos de su usuario junto con los comentarios, preguntas y respuestas que haya realizado. Ésta operación no puede deshacerse."
+      delete_password_error: "La clave ingresada no es correcta"
      
   posts:
     how_to_ask: 

@@ -2,7 +2,7 @@
   <ul id="profile_menu" class="nav nav-tabs nav-stacked">
     <li id="personal"> 
       <%= link_to profile_personal_path do %>
-        <%= t (".personal") %> <i class="icon-chevron-right"></i>
+        <%= t ("users.profile.personal") %> <i class="icon-chevron-right"></i>
       <% end %> 
     </li>
     <% if current_user.password_required? %>
@@ -15,7 +15,13 @@
     
     <li id="avatar"> 
       <%= link_to profile_avatar_path do %>
-        <%= t (".avatar") %> <i class="icon-chevron-right"></i>
+        <%= t ("users.profile.avatar") %> <i class="icon-chevron-right"></i>
+      <% end %> 
+    </li>
+    
+    <li id="delete"> 
+      <%= link_to profile_delete_path do %>
+        <%= t ("users.profile.delete") %> <i class="icon-chevron-right"></i>
       <% end %> 
     </li>
   </ul>

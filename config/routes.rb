@@ -60,6 +60,8 @@ Sch0larisRepo::Application.routes.draw do
   match '/profile/personal', to: 'users#personal_profile'
   match '/profile/password', to: 'users#password_profile'
   match '/profile/avatar', to: 'users#avatar_profile'
+  match '/profile/delete', to: 'users#confirm_delete'
+  
   
   # Sign in with twitter
   match 'auth/:provider/callback', to: 'sessions#social_network_callback'

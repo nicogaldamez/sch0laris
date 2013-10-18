@@ -2,7 +2,7 @@
 root = exports ? this
 root.visible_sign_in = false
 root.search_input_state = 'cerrado'
-
+@editors = null
 
 @Utils =
   # Registra el evento para los tooltips
@@ -47,7 +47,6 @@ root.search_input_state = 'cerrado'
     	"link": true, #Button to insert a link. Default true
     	"image": true, #Button to insert an image. Default true,
     	"color": false #Button to change color of font
-
           
 jQuery ->
 	Utils.mostrarTooltips()

@@ -1,0 +1,16 @@
+<% provide(:title, (@user.name)) %>
+<h1> <%= t "users.profile.delete" %> </h1>
+<div id="profile">
+  
+  <%= render partial: '/users/profile/menu', locals: { active: 'delete'} %>
+  
+  <div class="span6 offset1">
+    <p> <%= t("users.profile.delete_warning") %></p>
+    <%= form_tag @user, id: 'search_form', method: :delete do %>
+      <%= password_field_tag :password, '', placeholder: t(:password) %> <br>
+      <%= submit_tag t("users.profile.delete"), :disable_with => t(:loading), confirm: t(:are_you_sure),
+           class: 'btn btn-danger' %>
+    <% end -%>
+  </div>	  
+  
+</div>

@@ -97,5 +97,22 @@ class UsersController < ApplicationController
     end
   end
   
+  def confirm_delete
+    raise PermissionViolation unless signed_in?
+    
+    @user = current_user
+    render "users/profile/confirm_delete"
+  end
   
+  def destroy
+    # Verifico que la clave enviada sea la del usuario
+    if current_user.authenticate(params[:password]) 
+      current_user.destroy
+      sign_out
+      redirect_to root_url
+    else
+      flash[:error] = t('users.profile.delete_password_error')
+      redirect_to profile_delete_path
+    end
+  end
 end

@@ -21,6 +21,7 @@ class AnswersController < ApplicationController
       raise(RequestExceptions::BadRequestError.new(@answer.errors.full_messages))
     else
       @answer.create_activity :update, owner: current_user
+      @answer.update_notification
     end
   end
   

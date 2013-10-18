@@ -33,7 +33,6 @@ class Question < ActiveRecord::Base
   scope :only_questions, where(post_type: 'Q')  
   scope :only_entries, where(post_type: 'E')  
   
-  after_commit :update_notification, :on => :update 
   
   include PgSearch
   pg_search_scope :search, against: [:title, :body],
@@ -91,22 +90,20 @@ class Question < ActiveRecord::Base
     self.user.notify(subject, body, self)
   end
 
-  private
+  def update_notification
+    modified_by = self.versions.last.terminator
   
-    def update_notification
-      modified_by = self.versions.last.terminator
-    
-      # Solo notifico si la modificación la hizo un moderador
-      # unless modified_by == self.user_id
-        # Notifico al dueño de la pregunta/aporte que se realizó una modificación
-        type = (self.post_type == 'Q') ? 'questions.question.one' : 'entries.entry.one'
-        
-        subject = I18n.t('notification.your_content_modified' , 
-             :sender => User.find(modified_by).name,
-             :thing => I18n.t(type)
-        )      
-        user.notify(subject, self.body, self)
-      # end
+    # Solo notifico si la modificación la hizo un moderador
+    unless modified_by == self.user_id
+      # Notifico al dueño de la pregunta/aporte que se realizó una modificación
+      type = (self.post_type == 'Q') ? 'questions.question.one' : 'entries.entry.one'
+      
+      subject = I18n.t('notification.your_content_modified' , 
+           :sender => User.find(modified_by).name,
+           :thing => I18n.t(type)
+      )      
+      user.notify(subject, self.body, self)
     end
+  end
 
 end

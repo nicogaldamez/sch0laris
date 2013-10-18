@@ -166,6 +166,10 @@ describe Permission do
     it "tags" do
       should allow(:tags, :index)
     end
+    
+    it "profile" do
+      should allow(:users, :confirm_delete)
+    end
   end
   
   describe "como moderador" do
@@ -183,6 +187,7 @@ describe Permission do
     
     it "respuestas" do
       should allow(:questions, :edit)
+      should allow(:questions, :update)
     end
     
   end

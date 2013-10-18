@@ -58,7 +58,8 @@ class Permission
       allow :comments, [:new, :create, :destroy] unless user.reputation < Reputation::REPUTATION_COMMENT
       allow :tags, [:index]
       allow :notifications, [:check_new, :index]
-      allow :users, [:personal_profile, :password_profile, :avatar_profile, :update, :upload_avatar, :crop_avatar]
+      allow :users, [:personal_profile, :password_profile, :avatar_profile, :update, :upload_avatar, :crop_avatar,
+                     :confirm_delete, :destroy]
     end
   end
   
