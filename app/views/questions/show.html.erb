@@ -27,7 +27,7 @@
       
       <%= avatar_for(@question.user, { size: :mini }) %>
       <%= link_to @question.user.name, @question.user %>
-      <small class="muted"> <%= @question.created_at.to_time %> </small>
+      <small class="muted"> <%= l(@question.created_at.to_time)  %> </small>
       <% if allow?(:questions, :destroy, @question) %>
         <%= link_to raw('<i class="icon icon-trash"> </i>'), question_path(@question), class:'delete_question', 
             method: :delete, title: t(:delete),
