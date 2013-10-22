@@ -55,6 +55,7 @@ Sch0larisRepo::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/ask', to: 'questions#ask'
   match '/faq', to: 'static_pages#faq'
+  match '/contact', to: 'static_pages#contact'
   match '/terms', to: 'static_pages#terms'
   match '/list_questions', to: 'questions#questions'
   match '/list_entries', to: 'questions#entries'

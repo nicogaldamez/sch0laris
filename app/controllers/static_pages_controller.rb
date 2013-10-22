@@ -8,6 +8,9 @@ class StaticPagesController < ApplicationController
   def faq
   end
   
+  def contact    
+  end
+  
   def terms
     render 'static_pages/terms/terms_es'
   end

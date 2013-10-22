@@ -164,6 +164,9 @@ es:
       update: "Modificada"
       
   terms_and_conditions: "Términos y condiciones"
+  contact:
+    title: "Contacto"
+    text: "Si tienes dudas, problemas o quieres sugerirnos algún cambio escríbenos a contacto@scholaris.com.ar."
   faq:
     what_is_scholaris:
       title: '¿Qué es scholaris?'
