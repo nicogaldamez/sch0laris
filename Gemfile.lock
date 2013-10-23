@@ -92,6 +92,7 @@ GEM
     foreigner (1.4.2)
       activerecord (>= 3.0.0)
     formatador (0.2.4)
+    google-analytics-rails (0.0.4)
     guard (1.7.0)
       formatador (>= 0.2.4)
       listen (>= 0.6.0)
@@ -285,6 +286,7 @@ DEPENDENCIES
   flatstrap-sass
   fog
   font-awesome-rails
+  google-analytics-rails
   guard-rspec
   guard-spork (= 1.2.0)
   impressionist

@@ -52,3 +52,6 @@ group :test do
   gem 'rb-fsevent'
 end
 
+group :production do
+  gem 'google-analytics-rails'
+end
