@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  email                  :string(255)
 #  name                   :string(255)      not null
-#  dateOfBirth            :date             not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  password_digest        :string(255)
@@ -18,12 +17,14 @@
 #  password_reset_sent_at :datetime
 #  provider               :string(255)
 #  uid                    :string(255)
+#  reputation             :integer          default(1)
+#  real_reputation        :integer          default(1)
 #
 
 class User < ActiveRecord::Base
   acts_as_messageable
   
-  attr_accessible :email, :name, :password, :password_confirmation, :dateOfBirth, :gender, :avatar,
+  attr_accessible :email, :name, :password, :password_confirmation, :gender, :avatar,
                   :crop_x, :crop_y, :crop_w, :crop_h, :school_id, :other_school, :updating_password
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :updating_password
   mount_uploader :avatar, AvatarUploader
@@ -51,14 +52,6 @@ class User < ActiveRecord::Base
   validates :name, presence:true, length:{ maximum:40 }
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: I18n.t(:weak_password) }, :if => :should_validate_password?
   validates :password_confirmation, presence: true, :if => :should_validate_password?
-  validates :dateOfBirth, presence: { message: I18n.t(:wrong_or_blank_date) }, :if => :is_new_or_is_not_social_network?
-  validate :dateOfBirth_cannot_be_too_old
- 
-  def dateOfBirth_cannot_be_too_old
-    if dateOfBirth.present? && dateOfBirth < (120.years.ago).to_date
-      errors.add(:dateOfBirth, "es incorrecta")
-    end
-  end
 
   def send_password_reset
     create_remember_token(:password_reset_token)
@@ -67,16 +60,16 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
 
-  def should_validate_password?
-    updating_password || new_record? && is_not_social_callback?
-  end
-  
   def mailboxer_email(object)
     self.email
   end
   
   def self.from_omniauth(auth)
       where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+  end
+  
+  def should_validate_password?
+    updating_password || new_record? && is_not_social_callback?
   end
   
   def is_not_social_callback?

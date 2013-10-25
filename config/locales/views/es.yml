@@ -116,6 +116,7 @@ es:
 
   notification:
     title: "Notificaciones"
+    mark_all_as_read: "Marcar todo como leído"
     empty: "No tienes notificaciones"
     default: Tienes una nueva notificación
     commented: '<b>%{sender}</b> comentó %{thing} %{whose}.'
@@ -225,8 +226,6 @@ es:
   fake_email: "juanperez@ejemplo.com"
   password: "Clave"
   confirmation_password: "Confirmación"
-  date_format: "dd/mm/aaaa"
-  dateOfBirth: "Fecha de nacimiento"
   weak_password: "debe tener mínimo 8 caracteres, alguna letra mayúscula y un número"
   sign_out: "Salir"
   loading: "cargando"

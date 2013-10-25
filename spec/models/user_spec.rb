@@ -1,5 +1,4 @@
 # encoding: UTF-8
-
 # == Schema Information
 #
 # Table name: users
@@ -7,7 +6,6 @@
 #  id                     :integer          not null, primary key
 #  email                  :string(255)
 #  name                   :string(255)      not null
-#  dateOfBirth            :date             not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  password_digest        :string(255)
@@ -20,20 +18,21 @@
 #  password_reset_sent_at :datetime
 #  provider               :string(255)
 #  uid                    :string(255)
+#  reputation             :integer          default(1)
+#  real_reputation        :integer          default(1)
 #
 
 require 'spec_helper'
 
 describe User do
 
-  before { @user = User.new(name: "Example User", email: "user@example.com", password: "pasSw0rd", password_confirmation: "pasSw0rd", dateOfBirth: "31/01/1980") }
+  before { @user = User.new(name: "Example User", email: "user@example.com", password: "pasSw0rd", password_confirmation: "pasSw0rd") }
 
   subject { @user }
 
   # this variables should be accesibles
   it { should respond_to(:name) }
   it { should respond_to(:email) }
-  it { should respond_to(:dateOfBirth) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
@@ -96,11 +95,6 @@ describe User do
       it { should_not == user_for_invalid_password }
       specify { user_for_invalid_password.should be_false }
     end
-  end
-
-  describe "when dateOfBirth is not present" do
-    before { @user.dateOfBirth = "" }
-    it { should_not be_valid }
   end
 
   it "falla con el email inválido" do

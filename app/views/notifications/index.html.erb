@@ -1,6 +1,11 @@
 <% if @notifications.empty? %>
   <%= t("notification.empty") %>
 <% else %>
+  <% if @unread_count > 0 %>
+    <%= link_to t('notification.mark_all_as_read'), mark_all_as_read_notifications_path, 
+        id: 'mark_notifications_as_read', method: :post %>
+  <% end %>
+        
   <ul id="notifications">
     <%= render partial: "notification", collection: @notifications %>
   </ul>

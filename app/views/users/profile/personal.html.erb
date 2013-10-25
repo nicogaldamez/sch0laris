@@ -18,11 +18,7 @@
         <%= f.label :email %>
   			<%= f.text_field :email, placeholder: t(:fake_email) %>
 		
-  			<%= f.label :dateOfBirth %>
-  			<%= f.text_field :dateOfBirth, placeholder: t(:date_format), 
-              value: (parse_date(@user.dateOfBirth))  %>
-        
-        <div class="school">
+  			<div class="school">
     			<%= f.label :school %>
   				<%= collection_select(:user, :school_id, School.order(:name), :id, :name, 
   						{include_blank: '--'}, {class: 'input-xlarge',

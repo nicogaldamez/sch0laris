@@ -9,8 +9,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['dateOfBirth','name','email'],:user)
-    params[:user][:dateOfBirth] = parse_date(params[:user][:dateOfBirth])
+    raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['name','email'],:user)
     @user = User.new(params[:user])
     @user.school_id = nil if params[:user][:school_id].blank?
     if @user.save
@@ -61,7 +60,7 @@ class UsersController < ApplicationController
       raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['password','password_confirmation'],:user)
     elsif params[:user][:name] != nil
       @user.school_id = nil if params[:user][:school_id].blank?
-      raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['name','email','dateOfBirth'],:user)
+      raise(RequestExceptions::BadRequestError.new(t(:missing_params))) unless check_params?(['name','email'],:user)
     end
     
     if @user.update_attributes(params[:user])
@@ -106,7 +105,8 @@ class UsersController < ApplicationController
   
   def destroy
     # Verifico que la clave enviada sea la del usuario
-    if current_user.authenticate(params[:password]) 
+    # Si el usuario no tiene clave no verifico nada
+    if !current_user.password_required? || current_user.authenticate(params[:password]) 
       current_user.destroy
       sign_out
       redirect_to root_url

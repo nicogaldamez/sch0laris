@@ -8,6 +8,7 @@ Sch0larisRepo::Application.routes.draw do
   resources :notifications, only: [:index] do
     collection do
       get 'check_new'
+      post 'mark_all_as_read'
     end
   end
   

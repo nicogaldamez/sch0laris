@@ -20,7 +20,8 @@
     <%= f.label :body %>
     <%= f.text_area :body, rows: 8, class: 'wysihtml5' %>
     
-    <%= f.label :tag_tokens, t(:tags) %>
+    <%= f.label :tag_tokens, t(:tags), class: 'inline' %> 
+    <span class="help-icon" title="<%= t("posts.how_to_ask.use_tags.example_title")+' '+t('posts.how_to_ask.use_tags.example1') %>" data-toggle="tooltip"> <i class="icon-question-sign"></i></span>
     <%= f.text_field :tag_tokens, class: 'tags_input', data: {load: @question.tags} %>
   
     <%= f.submit t("questions.ask.send"), 'data' => { 'loading-text' => t(:loading) },

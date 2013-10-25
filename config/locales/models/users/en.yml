@@ -5,4 +5,3 @@ es:
         password_digest: "Password"
         password_confirmation: "Password Confirmation"
         password: "Password"
-        dateOfBirth: "Date of Birth"

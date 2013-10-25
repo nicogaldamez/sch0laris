@@ -17,9 +17,6 @@
 				<%= f.password_field :password_confirmation, placeholder: t(:confirmation_password) %>
 			</div>
 			
-			<%= f.label :dateOfBirth %>
-			<%= f.text_field :dateOfBirth, placeholder: t(:date_format) %>
-			
       <div class="school">
         <%= f.label :school %>
 				<%= collection_select(:user, :school_id, School.order(:name), :id, :name, 

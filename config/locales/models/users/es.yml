@@ -6,8 +6,6 @@ es:
         password_confirmation: "Confirmación de clave"
         password: "Clave"
         name: "Nombre"
-        dateOfBirth: "Fecha de Nacimiento"
         email: "Correo"
         password: "Clave"
-        dateOfBirth: "Fecha de nacimiento"
         school: "Facultad"

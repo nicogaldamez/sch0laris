@@ -6,7 +6,6 @@ FactoryGirl.define do
 		sequence(:email) { |n| "person_#{n}@example.com" }
 		password	"Foobar123"
 		password_confirmation	"Foobar123"
-    dateOfBirth "01/01/1999"
     reputation 1
 	end
   

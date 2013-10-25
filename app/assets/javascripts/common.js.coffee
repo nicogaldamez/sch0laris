@@ -58,14 +58,14 @@ jQuery ->
     if root.search_input_state == 'cerrado'
       root.search_input_state = 'abriendo'
       Notification.hide_notification_popover()
-      $("#search").animate width: "toggle", 300, ->
+      $("#search").animate width: "toggle", 150, ->
         $("#search").focus()
         root.search_input_state = 'abierto'
   
 	$("#search_container").mouseout ->
-    if root.search_input_state == 'abierto'
+    if root.search_input_state == 'abierto' 
       root.search_input_state = 'cerrando' 
-      $("#search").animate width: "toggle", 300, ->
+      $("#search").animate width: "toggle", 50, ->
         root.search_input_state = 'cerrado'
         
       

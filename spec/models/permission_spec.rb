@@ -61,6 +61,7 @@ describe Permission do
     it "notificaciones" do
       should_not allow(:notifications, :index)
       should_not allow(:notifications, :check_new)
+      should_not allow(:notifications, :mark_all_as_read)
     end
   end
   

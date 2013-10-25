@@ -28,7 +28,7 @@
                 <%= text_field_tag :search, "", placeholder: t(:search) %>
               <% end %>
 						</li>
-            <li>
+            <li id="notifications_container">
               <%= link_to "<i class='icon icon-bell'> </i>".html_safe, "#", id: "notifications_link", class: 'popover-link',
                      data: { title: t('notification.title'), placement: 'bottom', url: notifications_url,
                           pollurl: check_new_notifications_url }%>
