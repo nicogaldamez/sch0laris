@@ -20,7 +20,8 @@
   	if !($('#search').is(':visible'))
       e = $(this)
       url = $(this).data('url')
-
+      
+      Utils.loading(true)
       $.get url, (d) -> 
         e.popover(
           html: true, 
@@ -28,6 +29,12 @@
         ).popover("show")
         $('.popover.in .popover-inner .popover-content').empty()
         $('.popover.in .popover-inner .popover-content').html(d)
+      .done(->
+        Utils.loading(false)
+      ).fail(->
+        if typeof(data.responseJSON) != 'undefined'
+          Utils.notify data.responseJSON.message, 'error'
+      )
     
   hide_notification_popover: ->
     $("#notifications_link").popover('hide')

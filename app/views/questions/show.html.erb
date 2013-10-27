@@ -48,7 +48,7 @@
     <!-- COMENTAR / EDITAR -->
     <span class="actions">
       <% if allow?(:comments, :new) %>
-        <%= link_to [:new, @question, :comment], class:'leave_comment', remote: true do %>
+        <%= link_to [:new, @question, :comment], class:'leave_comment remote_link', remote: true do %>
           <%= raw('<i class="icon icon-comment"> </i>') %>
           <%= t("posts.leave_comment") %>
         <% end %>

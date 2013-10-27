@@ -1,8 +1,8 @@
 <div class="votes pull-right"> 
   <%= link_to image_tag("icons/rating_bad.png"), polymorphic_url([:down, voteable, Vote.new], format: :json), 
-          remote: true, class: 'vote_down'%>
+          remote: true, class: 'vote_down remote_link'%>
 	<span class="number"> <%= voteable.votes %> </span>
   <%= link_to image_tag("icons/rating_good.png"), polymorphic_url([:up, voteable, Vote.new], format: :json), 
-          remote: true, class: 'vote_up'%>
+          remote: true, class: 'vote_up remote_link'%>
   <small class="count"> <%= t("posts.votes") %> </small>
 </div>
