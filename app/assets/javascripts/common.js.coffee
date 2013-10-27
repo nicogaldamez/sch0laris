@@ -53,6 +53,11 @@ jQuery ->
 	Utils.registerEditor()
   
 	# Cuadro de búsqueda
+	$("#notifications_container").mouseover ->
+    $('#search').css('display', 'none')
+    root.search_input_state == 'cerrado'
+  
+	# Cuadro de búsqueda
 	$("#search_container").mouseover ->
     
     if root.search_input_state == 'cerrado'

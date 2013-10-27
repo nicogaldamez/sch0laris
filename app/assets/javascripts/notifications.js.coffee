@@ -17,7 +17,7 @@
       @poll()
 
   show_notifications: (e)->
-    if !($('#search').is(':visible'))
+  	if !($('#search').is(':visible'))
       e = $(this)
       url = $(this).data('url')
 
