@@ -2,6 +2,7 @@
 es:
   # GENERAL
   save: "Guardar"
+  continue: "Continuar"
   browse: "Examinar"
   no_file_selected: "Ningún archivo seleccionado"
   send: "Enviar"
