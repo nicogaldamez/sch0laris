@@ -1,9 +1,14 @@
 <footer class="footer">
-  <nav>
+  <nav class="pull-left">
     <ul>
       <li> <%= link_to t(:about_us), faq_path %></li>
       <li> <%= link_to t(:terms_and_conditions), terms_path %></li>
       <li> <%= link_to t('contact.title'), contact_path %></li>
+    </ul>
+  </nav>
+  <nav class="pull-right">
+    <ul class="pull-right">
+      <li> <%= link_to raw('<i class="icon icon-twitter"></i>'), 'http://twitter.com/scholaris_edu', title: 'Twitter' %> </li>
     </ul>
   </nav>
 </footer>
