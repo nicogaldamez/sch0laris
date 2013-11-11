@@ -69,4 +69,6 @@ Sch0larisRepo::Application.configure do
   
   # Google analytics
   GA.tracker = "UA-39609508-2"
+  
+  config.assets.initialize_on_precompile = false
 end
