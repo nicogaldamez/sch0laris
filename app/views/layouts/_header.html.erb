@@ -42,6 +42,10 @@
 		          <ul class="dropdown-menu">
                 <li><%= link_to t('feed.my_feed'), current_user %></li>
                 <li><%= link_to t(:profile), profile_personal_path %></li>
+                <% if allow?(:admin, :users) %>
+                  <li class="divider"></li>
+                  <li><%= link_to t("admin.users"), admin_users_path %></li>
+                <% end %>
 		            <li class="divider"></li>
 		            <li> <%= link_to t(:sign_out), signout_path, method: "delete" %> </li>				
 		          </ul>

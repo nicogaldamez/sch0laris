@@ -60,6 +60,9 @@ class Permission
       allow :notifications, [:check_new, :index, :mark_all_as_read]
       allow :users, [:personal_profile, :password_profile, :avatar_profile, :update, :upload_avatar, :crop_avatar,
                      :confirm_delete, :destroy]
+                     
+      # Si es administrador puede administrar usuarios
+      allow :admin, [:users] if user.admin
     end
   end
   

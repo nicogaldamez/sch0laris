@@ -1,0 +1,20 @@
+<% provide(:title, t("admin.users")) %>
+<h1> <%= t("admin.users") %> </h1>
+
+<div id="admin_users">
+  
+  <table class="table table-striped">
+    
+    <thead> 
+      <tr>
+        <th> Nombre </th> <th> Preguntas </th> <th> Respuestas </th>
+        <th> Comentarios </th> <th> Facultad </th> <th> Creación </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'admin/user', collection: @users %>
+    </tbody>
+  </table>
+  <%= will_paginate(@users) %>
+  
+</div>

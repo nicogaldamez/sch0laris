@@ -1,0 +1,14 @@
+<tr>
+  <td> <%= link_to user.name, user %> </td>
+  <td class="align_center"> <%= user.questions.count %> </td>
+  <td> <%= user.answers.count %> </td>
+  <td> <%= user.comments.count %> </td>
+  <td> 
+    <% if user.school.nil? %>
+      <%= user.other_school || '-'%>
+    <% else %>
+      <%= user.school.name %>
+    <% end %>  
+  </td>
+  <td> <%= user.created_at %> </td>
+</tr>

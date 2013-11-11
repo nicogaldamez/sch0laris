@@ -214,7 +214,8 @@ es:
         answer_is_voted_down: "Tu respuesta recibió un voto negativo"
         vote_down: "Haz hecho un voto negativo"
           
-      
+  admin:
+    users: "Administrar usuarios"    
   
   # SESSIONS	
   email: "Email"

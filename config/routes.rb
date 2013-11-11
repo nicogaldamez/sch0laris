@@ -64,6 +64,7 @@ Sch0larisRepo::Application.routes.draw do
   match '/profile/password', to: 'users#password_profile'
   match '/profile/avatar', to: 'users#avatar_profile'
   match '/profile/delete', to: 'users#confirm_delete'
+  match '/admin/users', to: 'admin#users'
   
   
   # Sign in with twitter
