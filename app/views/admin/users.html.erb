@@ -2,13 +2,14 @@
 <h1> <%= t("admin.users") %> </h1>
 
 <div id="admin_users">
-  
+  <p> Cantidad de usuarios: <b> <%= @users.count %> </b> </p>
   <table class="table table-striped">
     
     <thead> 
       <tr>
         <th> Nombre </th> <th> Preguntas </th> <th> Respuestas </th>
-        <th> Comentarios </th> <th> Facultad </th> <th> Creación </th>
+        <th> Comentarios </th> <th> Facultad </th> <th> Reputación </th>
+        <th> Creación </th>
       </tr>
     </thead>
     <tbody>
