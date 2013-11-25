@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: I18n.t(:weak_password) }, :if => :should_validate_password?
   validates :password_confirmation, presence: true, :if => :should_validate_password?
 
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+
   def send_password_reset
     create_remember_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now

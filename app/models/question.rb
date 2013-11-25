@@ -40,6 +40,10 @@ class Question < ActiveRecord::Base
     :ignoring => :accents,
     :using => { :tsearch => {:prefix => true} }
   
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+  
   def tag_tokens=(tokens)
     self.tag_ids = Tag.ids_from_tokens(tokens)
   end
