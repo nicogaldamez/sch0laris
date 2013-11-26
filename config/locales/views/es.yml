@@ -220,7 +220,7 @@ es:
       body: 
         part1: "Para subir una imagen a una de tus preguntas, respuestas o aportes debes subirla en un servidor externo y luego copiar el link a través del botón: "
         part2: "Es muy importante que tengas en cuenta que debes copiar el <b> link directo </b> en el cuadro de diálogo para que la imagen se visualice correctamente. De lo contrario la imagen no se visualizará."
-        part3: "Puedes usar cualquier servidor de imagenes, como por ejemplo: "
+        part3: "Puedes usar cualquier servidor de imágenes, como por ejemplo: "
           
   admin:
     users: "Administrar usuarios"    
