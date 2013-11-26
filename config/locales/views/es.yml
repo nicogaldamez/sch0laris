@@ -7,6 +7,7 @@ es:
   no_file_selected: "Ningún archivo seleccionado"
   send: "Enviar"
   delete: "Eliminar"
+  help: "Ayuda"
     
   main_nav:
     questions_title: "Preguntas"
@@ -81,7 +82,8 @@ es:
     new:
       what_do_you_want: "¿Qué quieres hacer?"
       want_to_ask: "Hacer una pregunta" 
-      want_to_create_entry: "Realizar un aporte" 
+      want_to_create_entry: "Realizar un aporte"
+      help: (*) Si quieres saber más sobre cómo crear contenido, por ej subir imágenes, consulta la  
   
   entries:
     list:
@@ -213,6 +215,12 @@ es:
         question_is_voted_down: "Tu pregunta recibió un voto negativo"
         answer_is_voted_down: "Tu respuesta recibió un voto negativo"
         vote_down: "Haz hecho un voto negativo"
+    how_upload_images: 
+      title: "¿Cómo subo una imagen?"
+      body: 
+        part1: "Para subir una imagen a una de tus preguntas, respuestas o aportes debes subirla en un servidor externo y luego copiar el link a través del botón: "
+        part2: "Es muy importante que tengas en cuenta que debes copiar el <b> link directo </b> en el cuadro de diálogo para que la imagen se visualice correctamente. De lo contrario la imagen no se visualizará."
+        part3: "Puedes usar cualquier servidor de imagenes, como por ejemplo: "
           
   admin:
     users: "Administrar usuarios"    

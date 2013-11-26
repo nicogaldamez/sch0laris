@@ -2,7 +2,7 @@
 
 es:
   search: "Buscar"
-  about_us: "Acerca de"
+  about_us: "Ayuda"
   missing_params: "Por favor completa todos los campos"
   form_errors: "El formulario contiene errores"
   wrong_or_blank_date: "vacía o con formato no válido"

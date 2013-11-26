@@ -27,6 +27,11 @@
             <%= t ('faq.how_get_reputation.title') %> <i class="icon-chevron-right"></i>
           <% end %> 
         </li>
+        <li> 
+          <%= link_to '#how_upload_images' do %>
+            <%= t ('faq.how_upload_images.title') %> <i class="icon-chevron-right"></i>
+          <% end %> 
+        </li>
       </ul>
     </aside>
   </div>
@@ -107,6 +112,22 @@
           <%= t('faq.how_get_reputation.body.vote_down') %>: <%= Reputation::POINTS_VOTE_DOWN %>   
         </li>
       </ul>
+    </div>
+    
+    <div class="section">
+      <a name="how_upload_images"></a>
+      <h4> <%= t('faq.how_upload_images.title') %> </h4>
+      <p> 
+        <%= t('faq.how_upload_images.body.part1') %> 
+        <%= image_tag "icons/upload_img_btn.png", class: 'upload_image_icon' %>
+      </p>
+      <p> <%= raw(t('faq.how_upload_images.body.part2')) %> </p>
+      <p> 
+        <%= t('faq.how_upload_images.body.part3') %> 
+        <%= link_to "TinyPic", "http://tinypic.com", target: '_blank' %>,
+        <%= link_to "Imgur", "http://imgur.com", target: '_blank' %>,
+        <%= link_to "Minus", "http://minus.com", target: '_blank' %>.
+      </p>      
     </div>
     
   </div>
