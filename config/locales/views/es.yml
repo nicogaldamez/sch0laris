@@ -8,6 +8,7 @@ es:
   send: "Enviar"
   delete: "Eliminar"
   help: "Ayuda"
+  school: "Facultad"
     
   main_nav:
     questions_title: "Preguntas"
@@ -30,6 +31,7 @@ es:
       delete: "Eliminar cuenta"
       delete_warning: "Al eliminar la cuenta se borrarán los datos de su usuario junto con los comentarios, preguntas y respuestas que haya realizado. Esta operación no puede deshacerse."
       delete_password_error: "La clave ingresada no es correcta"
+      no_school: "Sin Facultad"
      
   posts:
     how_to_ask: 

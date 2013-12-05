@@ -3,9 +3,10 @@
     <%= avatar_for(@user, { size: :thumb }) %>
     <%= @user.name %> 
   </h1>
+  <p> <b> <%= t(:school) + ':' %> </b> <%= @user.try(:school).try(:name) || t("users.profile.no_school") %> </p>
 
   <p> <%= raw("<b> #{t(:reputation)}: </b> #{@user.reputation}") %> </p>
-  <p> <%= raw("<b> #{t(:real_reputation)}: </b> #{@user.real_reputation}") %> </p>
+  
 
   <div id="feed">
     <h2> <%= t("feed.title") %> </h2>
